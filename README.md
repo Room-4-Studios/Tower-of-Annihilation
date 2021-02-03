@@ -39,6 +39,11 @@
 
 ### Map
 - Tile Set
+    - Walls
+    - Floor
+    - misc??
+        - furnature??
+        - other stuff??
 - Levels contain
     - Playable Character
     - Enemies
