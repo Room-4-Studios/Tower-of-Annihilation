@@ -4,6 +4,13 @@
 ### Objective
 - Create a 2D roguelike game using Unity.
 
+### Design Elements
+- Sound Design
+    - Epic Fantasy Music
+    - Sound Effects
+- Art
+    - Pixelated
+        - Mainly `32x32`px
 ### Sound Design
 - Epic Fantasy Music
 - Sound effects
