@@ -1,2 +1,2 @@
 # Kim
-## Software Architecht
+## Software Architect
