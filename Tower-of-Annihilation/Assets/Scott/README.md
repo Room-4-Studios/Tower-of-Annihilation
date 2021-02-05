@@ -1,6 +1,9 @@
-# Scott
-## Quality Assurance Manager
-### Design Layout
-### Build levels
-### Staircase, beat all of the monsters, then collide with walls at the top of the stairs
-### build chest and fill them with items
+## Scott - Quality Assurance Manager
+* Tileset:
+    * Floor tile
+        * Just one for now
+    * Walls (impassable) 
+        * Box
+* Build Initial Level
+* Stairs to Lext level (interactable)
+* Chests (interactable)
