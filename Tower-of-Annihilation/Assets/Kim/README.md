@@ -1,4 +1,4 @@
-## Kim - Software Architecht
+## Kim - Software Architect
 * Player Combat
     * Attack Button
         * SPACEBAR
