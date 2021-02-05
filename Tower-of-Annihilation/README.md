@@ -56,3 +56,12 @@
 
 ### Theme
 - Ascending tower with increasingly difficult level spawns.
+
+### Whats left
+* HP bar
+* Items that effect the player
+    * Weapons
+    * Stuff
+    * Money
+* Chests
+* Cheat Codes
