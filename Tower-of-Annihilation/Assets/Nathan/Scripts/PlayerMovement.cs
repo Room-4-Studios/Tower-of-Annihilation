@@ -20,6 +20,16 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        // if(movement.sqrMagnitude != 0)
+        // {
+        //     animator.SetFloat("Latitude", movement.x);
+        // }
+
+        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1)
+        {
+            animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
+        }
     }
 
     void FixedUpdate()
