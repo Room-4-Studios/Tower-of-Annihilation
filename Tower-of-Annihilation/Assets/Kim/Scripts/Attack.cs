@@ -6,6 +6,10 @@ public class Attack : MonoBehaviour
 {
     public float Health;
     public Animator animator; //Get player's animations.
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 10;
+    public LayerMask enemyLayer;
     Rigidbody2D rb;
 
 
@@ -21,10 +25,16 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            animator.SetTrigger("Attack");
+            AttackEnemy(); 
         }
     }
 
+    void AttackEnemy() 
+    {
+        animator.SetTrigger("Attack");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+    }
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -35,5 +45,12 @@ public class Attack : MonoBehaviour
 
             //Destroy(nom.gameObject);
         }
+    }
+
+    void OnDrawGizmosSelected() 
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
