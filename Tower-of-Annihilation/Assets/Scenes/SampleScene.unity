@@ -10027,10 +10027,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6505714161262731998, guid: 55607bf2142ec43a0b851182fc12a3b8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6505714162733085954, guid: 55607bf2142ec43a0b851182fc12a3b8,
         type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505714162733085954, guid: 55607bf2142ec43a0b851182fc12a3b8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6505714162733085981, guid: 55607bf2142ec43a0b851182fc12a3b8,
         type: 3}
