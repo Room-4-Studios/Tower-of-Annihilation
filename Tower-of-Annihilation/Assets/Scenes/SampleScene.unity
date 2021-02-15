@@ -121,8 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &271978031
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +299,6 @@ Transform:
   m_Father: {fileID: 1820069009}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &472884720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,14 +2266,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1911216351}
-<<<<<<< Updated upstream
 --- !u!4 &1911216351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887,
     type: 3}
   m_PrefabInstance: {fileID: 5424971550812430026}
   m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1 &1820069006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,7 +2660,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
->>>>>>> Stashed changes
 --- !u!1 &2050472008
 GameObject:
   m_ObjectHideFlags: 0
