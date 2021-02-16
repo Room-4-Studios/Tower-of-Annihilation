@@ -147,9 +147,9 @@ public class enemy : MonoBehaviour
         Debug.Log("Enemy Died");
         animator.SetBool("isDead", true);
 
-        //GetComponent<Collider2D>().enabled = false;
-        //GetComponent<AIPath>().enabled = false;
-        //this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<AIPath>().enabled = false;
+        this.enabled = false;
     }
 }
 
