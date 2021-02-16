@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5424971548940076585}
   - component: {fileID: 5424971548940076590}
   - component: {fileID: 5424971548940076587}
-  m_Layer: 0
-  m_Name: Player 1
+  m_Layer: 10
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 5424971548940076584}
   animator: {fileID: 5424971548940076585}
-  player: {fileID: 0}
+  player: {fileID: 5424971548940076565}
 --- !u!50 &5424971548940076584
 Rigidbody2D:
   serializedVersion: 4
@@ -156,13 +156,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 50
-  animator: {fileID: 5424971548940076585}
-  attackPoint: {fileID: 5424971550528104454}
   attackRange: 0.4
   attackDamage: 10
+  animator: {fileID: 5424971548940076585}
+  attackPoint: {fileID: 5424971550528104454}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
+  attackRate: 2
 --- !u!58 &5424971548940076587
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5424971550528104454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
