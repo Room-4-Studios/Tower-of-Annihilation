@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public int attackDamage;
     public Animator animator; //Get player's animations.
     public Transform attackPoint;
+    public Transform attackPointLeft;
     public LayerMask enemyLayer;
     private Rigidbody2D rb;
     private float nextAttackTime = 0f;
@@ -38,13 +39,26 @@ public class Attack : MonoBehaviour
     }
 
     void AttackEnemy() 
-    {
+    { 
+        //Debug.Log(GetComponent<PlayerMovement>().GetPreviousMovement());
         animator.SetTrigger("Attack");
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        foreach(Collider2D enemy in hitEnemies)
+        if(GetComponent<PlayerMovement>().GetPreviousMovement() == 1)
         {
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-            Debug.Log("We hit " + enemy.name);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+                Debug.Log("We hit " + enemy.name);
+            }
+        }
+        else if(GetComponent<PlayerMovement>().GetPreviousMovement() == -1)
+        {
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemyLayer);
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+                Debug.Log("We hit " + enemy.name);
+            }
         }
     }
     
@@ -62,10 +76,11 @@ public class Attack : MonoBehaviour
 
     void OnDrawGizmosSelected() 
     {
-        if (attackPoint == null)
+        if (attackPoint == null || attackPointLeft == null)
         {
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
     }
 }
