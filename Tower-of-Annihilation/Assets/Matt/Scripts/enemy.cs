@@ -7,6 +7,7 @@ using Pathfinding;
 public class enemy : MonoBehaviour
 {
     public static enemy isBusy;
+    public Transform attackPoint;
     public Transform player;
     public Transform castPoint;
     Quaternion q;
@@ -18,13 +19,16 @@ public class enemy : MonoBehaviour
     IAstarAI ai;
 
     public float attackRange;
-    public float damage;
-    private float lastAttackTime;
-    public float attackDelay;
+    public int enemyDamage;
+    
     public Animator animator;
+    public LayerMask playerLayer;
 
     public int maxHealth;
     private int currentHealth;
+
+    float timerForNextAttack;
+    public float cooldown;
 
     // These do not need declared with values. setup per 
     // public float radius = 50;
@@ -40,6 +44,7 @@ public class enemy : MonoBehaviour
         direction = q * direction;
 
         currentHealth = maxHealth;
+        timerForNextAttack = cooldown;
     }
 
     void Update()
@@ -55,16 +60,25 @@ public class enemy : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
-            // Check to see if enough time has passed since last attack.
-            if(Time.time > lastAttackTime + attackDelay)
+            if(timerForNextAttack > 0)
+            {
+                timerForNextAttack -= Time.deltaTime;
+            }
+            else if(timerForNextAttack <= 0)
             {
                 animator.SetTrigger("Attack");
+                Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
                 Debug.Log("Attacking Player.");
-                //player.SendMessage("TakeDamage", damage);
-                // Record time of Attack
-                lastAttackTime = Time.time;
+
+                foreach(Collider2D player in hitPlayers)
+                {
+                    player.GetComponent<PlayerManager>().TakeDamage(enemyDamage);
+                }
+                timerForNextAttack = cooldown;
+
             }
         }
+
     }
 
     public bool canSeePlayer(float distance)
@@ -151,6 +165,15 @@ public class enemy : MonoBehaviour
         GetComponent<AIPath>().enabled = false;
         this.enabled = false;
         Destroy(this);
+    }
+
+    void OnDrawGizmosSelected() 
+    {
+        if (attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
 
