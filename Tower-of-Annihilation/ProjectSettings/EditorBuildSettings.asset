@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Dawson/StartMenu.unity
+    guid: 76d515dccc178db4d895d7cf534a1d30
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 4266acdd94cb3994089767865328c5ed
   m_configObjects: {}
