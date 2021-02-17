@@ -150,6 +150,7 @@ public class enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<AIPath>().enabled = false;
         this.enabled = false;
+        Destroy(this);
     }
 }
 
