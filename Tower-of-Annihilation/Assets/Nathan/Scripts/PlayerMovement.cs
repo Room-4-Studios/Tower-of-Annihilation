@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-    public Animator animator;
-    public Transform player;
+    //public float moveSpeed;
+    // public Rigidbody2D rb;
+    //public Animator animator;
+    //public Transform player;
 
-    Vector2 movement;
+    private float previousMovement;
+    public Vector2 movement;
 
     // Update is called once per frame
     void Update()
@@ -17,13 +18,26 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        GetComponent<PlayerManager>().animator.SetFloat("Horizontal", movement.x);
+        GetComponent<PlayerManager>().animator.SetFloat("Vertical", movement.y);
+        GetComponent<PlayerManager>().animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1)
+        {
+            GetComponent<PlayerManager>().animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
+            previousMovement = Input.GetAxisRaw("Horizontal");
+        }
+
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed  * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + movement * GetComponent<PlayerManager>().moveSpeed * Time.fixedDeltaTime);
+        GetComponent<PlayerManager>().rb.MovePosition(GetComponent<PlayerManager>().rb.position+ movement * GetComponent<PlayerManager>().moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public float GetPreviousMovement()
+    {
+        return previousMovement;
     }
 }
