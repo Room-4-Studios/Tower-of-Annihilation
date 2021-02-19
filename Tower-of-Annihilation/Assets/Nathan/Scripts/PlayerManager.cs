@@ -10,24 +10,20 @@ public class PlayerManager : MonoBehaviour
     public Rigidbody2D rb;
     public int maxHealth;
     private int currentHealth;
+    public int money; 
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        Camera.main.GetComponent<FollowCamera>().player=transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Camera.main.GetComponent<FollowCamera>().player=transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
 
     public void TakeDamage(int Damage)
     {
+        animator.SetTrigger("Hurt");
         Debug.Log("Taking Damage");
         currentHealth -= Damage;
-        animator.SetTrigger("Hurt");
         if(currentHealth <= 0)
         {
             Die();
