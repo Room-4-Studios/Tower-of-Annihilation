@@ -60,6 +60,7 @@ public class enemy : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
+            //Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
                 timerForNextAttack -= Time.deltaTime;

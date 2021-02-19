@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
+        Debug.Log("Taking Damage");
         currentHealth -= Damage;
         animator.SetTrigger("Hurt");
         if(currentHealth <= 0)

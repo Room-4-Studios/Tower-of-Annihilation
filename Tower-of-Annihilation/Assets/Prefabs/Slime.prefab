@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &319941849986313793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6723503539099072264}
+  m_Layer: 11
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6723503539099072264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319941849986313793}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.8422403}
+  m_LocalScale: {x: 1.67985, y: 1.67985, z: 1.1199}
+  m_Children: []
+  m_Father: {fileID: 6505714162733085981}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6505714161262731998
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6505714161262731999}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +76,9 @@ GameObject:
   - component: {fileID: 6505714162733085983}
   - component: {fileID: 6505714162733085982}
   - component: {fileID: 2958850083446495345}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,6 +95,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 6505714161262731999}
+  - {fileID: 6723503539099072264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -213,12 +244,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a5f5ed7a6740c78b41e957ea61470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  attackPoint: {fileID: 6723503539099072264}
+  player: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887, type: 3}
   castPoint: {fileID: 6505714161262731999}
   radius: 10
-  agroRange: 5
+  aggroRange: 5
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
+  attackRange: 0.5
+  enemyDamage: 3
+  animator: {fileID: 6505714162733085955}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  maxHealth: 10
+  cooldown: 3
 --- !u!50 &6505714162733085982
 Rigidbody2D:
   serializedVersion: 4
