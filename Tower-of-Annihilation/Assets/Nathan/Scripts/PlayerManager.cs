@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        Camera.main.GetComponent<FollowCamera>().player=transform;
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class PlayerManager : MonoBehaviour
             Die();
         }
     }
-    
+
     public void Die()
     {
         animator.SetBool("isDead", true);

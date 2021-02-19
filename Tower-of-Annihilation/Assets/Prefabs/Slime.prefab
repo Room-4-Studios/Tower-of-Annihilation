@@ -213,12 +213,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a5f5ed7a6740c78b41e957ea61470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  attackPoint: {fileID: 0}
+  player: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887, type: 3}
   castPoint: {fileID: 6505714161262731999}
   radius: 10
-  agroRange: 5
+  aggroRange: 0
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
+  attackRange: 0
+  enemyDamage: 0
+  animator: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxHealth: 0
+  cooldown: 0
 --- !u!50 &6505714162733085982
 Rigidbody2D:
   serializedVersion: 4
@@ -239,7 +248,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2958850083446495345
 CircleCollider2D:
   m_ObjectHideFlags: 0
