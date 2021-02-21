@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using CodeMonkey.Utils;
 
 public class Shop : MonoBehaviour
 {
@@ -10,21 +11,21 @@ public class Shop : MonoBehaviour
     public Sprite bigHealthPotion;
     private Transform container;
     private Transform shopItemTemplate;
-    public Button shopButton;
+
+    private ShopInterface customer;
 
     private void Awake()
     {
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
-        shopItemTemplate.gameObject.SetActive(false);
+        shopItemTemplate.gameObject.SetActive(true);
     }
 
     private void Start()
     {
-        Button btn = shopButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
-        CreateItemButton(smallHealthPotion, "Small Health Potion", 10, 0);
-        CreateItemButton(bigHealthPotion, "Big Health Potion", 40, 1);
+        CreateItemButton(smallHealthPotion, "Small Health Potion", 1, 0);
+        CreateItemButton(bigHealthPotion, "Big Health Potion", 4, 1);
+        Hide();
     }
 
 
@@ -38,10 +39,29 @@ public class Shop : MonoBehaviour
         shopItemTransform.Find("itemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
         shopItemTransform.Find("itemImag").GetComponent<Image>().sprite = itemSprite;
 
+        shopItemTransform.GetComponent<Button_UI>().ClickFunc = () =>
+        {
+            Purchase(itemName, itemCost);
+        };
     }
-    void TaskOnClick()
+
+    private void Purchase(string name, int cost) 
     {
-        Debug.Log("You have clicked the button!");
+        if (customer.AttemptBuy(cost))
+        {
+            customer.BoughtItem(name, cost);
+        }
+    }
+
+    public void Show(ShopInterface customer) 
+    {
+        this.customer = customer;
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
 }

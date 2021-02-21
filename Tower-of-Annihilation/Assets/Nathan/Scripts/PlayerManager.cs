@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, ShopInterface
 {
     public float moveSpeed;
     public Animator animator;
@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     public Rigidbody2D rb;
     public int maxHealth;
     private int currentHealth;
-    public int money; 
+    public int money;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +33,30 @@ public class PlayerManager : MonoBehaviour
     public void Die()
     {
         animator.SetBool("isDead", true);
+    }
+
+    //Regarding purchasing items.
+    public int CurrentMoney()
+    {
+        return money;
+    }
+
+    public void BoughtItem(string name, int cost)
+    {
+        Debug.Log("Bought: " + name + " with " + cost + " gold.");
+    }
+
+    public bool AttemptBuy(int cost)
+    {
+        if (CurrentMoney() >= cost) 
+        {
+            money -= cost;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }
