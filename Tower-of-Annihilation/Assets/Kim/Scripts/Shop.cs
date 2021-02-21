@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     public Sprite bigHealthPotion;
     private Transform container;
     private Transform shopItemTemplate;
+    public Button shopButton;
 
     private void Awake()
     {
@@ -20,6 +21,8 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        Button btn = shopButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
         CreateItemButton(smallHealthPotion, "Small Health Potion", 10, 0);
         CreateItemButton(bigHealthPotion, "Big Health Potion", 40, 1);
     }
@@ -34,5 +37,11 @@ public class Shop : MonoBehaviour
         shopItemTransform.Find("itemDesc").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("itemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
         shopItemTransform.Find("itemImag").GetComponent<Image>().sprite = itemSprite;
+
     }
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
+    }
+
 }
