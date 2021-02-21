@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //public float moveSpeed;
+    // public Rigidbody2D rb;
+    //public Animator animator;
+    //public Transform player;
+
     private float previousMovement;
     public Vector2 movement;
 
@@ -28,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //rb.MovePosition(rb.position + movement * GetComponent<PlayerManager>().moveSpeed * Time.fixedDeltaTime);
-        GetComponent<PlayerManager>().rb.MovePosition(GetComponent<PlayerManager>().rb.position + movement * GetComponent<PlayerManager>().moveSpeed * Time.fixedDeltaTime);
+        GetComponent<PlayerManager>().rb.MovePosition(GetComponent<PlayerManager>().rb.position+ movement * GetComponent<PlayerManager>().moveSpeed * Time.fixedDeltaTime);
     }
 
     public float GetPreviousMovement()
