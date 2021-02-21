@@ -34,4 +34,10 @@ public class PlayerManager : MonoBehaviour
     {
         animator.SetBool("isDead", true);
     }
+
+    public void Money()
+    {
+        money++;
+        Debug.Log("Coin!");
+    }
 }
