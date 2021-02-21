@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChestManager : MonoBehaviour
 {
     public Animator animator;
+
     // These are referenced in Unity -Nathan
     // [SerializeField]
     // private SpriteRenderer spriteRenderer;
@@ -17,8 +18,6 @@ public class ChestManager : MonoBehaviour
         if(collision.gameObject.name == "Player" )
         {
             animator.SetTrigger("Open");
-            //GetComponent<Animator>().enabled = false;
-            this.enabled = false;    
         }
     }
 }

@@ -10,7 +10,9 @@ public class PlayerManager : MonoBehaviour
     public Rigidbody2D rb;
     public int maxHealth;
     private int currentHealth;
-    public int money; 
+    public int money;
+    //public float thrust; ?? for Knockback later - Nathan
+
 
     // Start is called before the first frame update
     void Start()
