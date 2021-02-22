@@ -11,7 +11,7 @@ public class Level2 : MonoBehaviour
     {
         if (Collision.gameObject.name == "NLCollider" && Input.GetKey(KeyCode.Return))
         {
-             SceneManager.LoadScene(1);
+             SceneManager.LoadScene(2);
         }
     }
 }

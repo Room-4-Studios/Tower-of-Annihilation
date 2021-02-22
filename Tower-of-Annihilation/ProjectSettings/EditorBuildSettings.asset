@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scott/Scenes/Level 2.unity
     guid: b139ca490de76bf439f0a69e4523e679
   - enabled: 1
+    path: Assets/Dawson/StartMenu.unity
+    guid: 76d515dccc178db4d895d7cf534a1d30
+  - enabled: 1
     path: Assets/Scenes/Demo Scene.unity
     guid: efd0dacecc380e941a9ada98951eb07a
   - enabled: 1
