@@ -30,6 +30,8 @@ public class enemy : MonoBehaviour
     float timerForNextAttack;
     public float cooldown;
 
+    private ItemDrop getItem;
+
     // These do not need declared with values. setup per 
     // public float radius = 50;
     // public float agroRange = 30;
@@ -45,6 +47,8 @@ public class enemy : MonoBehaviour
 
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
+
+        getItem = GetComponent<ItemDrop>();
     }
 
     void Update()
@@ -161,11 +165,12 @@ public class enemy : MonoBehaviour
     {
         Debug.Log("Enemy Died");
         animator.SetBool("isDead", true);
-
+        getItem.DropItem();
         GetComponent<Collider2D>().enabled = false;
         GetComponent<AIPath>().enabled = false;
         this.enabled = false;
         Destroy(this);
+        Destroy(gameObject, 2);
     }
 
     void OnDrawGizmosSelected() 
