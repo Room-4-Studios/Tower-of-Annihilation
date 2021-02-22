@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     void Start()
     {
         currentHealth = maxHealth;
-        Camera.main.GetComponent<FollowCamera>().player=transform; /*  Follow Camera properly placed on spawning character -Matt */
+        Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
 
     public void TakeDamage(int Damage)
