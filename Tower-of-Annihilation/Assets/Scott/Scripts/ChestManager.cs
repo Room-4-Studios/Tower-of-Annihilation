@@ -18,7 +18,7 @@ public class ChestManager : MonoBehaviour
         {
             animator.SetTrigger("Open");
             //GetComponent<Animator>().enabled = false;
-            this.enabled = false;    
+            //Destroy(gameObject);
         }
     }
 }
