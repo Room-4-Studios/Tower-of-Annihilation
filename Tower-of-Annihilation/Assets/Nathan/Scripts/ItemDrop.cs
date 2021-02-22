@@ -28,4 +28,16 @@ public class ItemDrop : MonoBehaviour
             Instantiate(itemList[itemNum], dropPos.position, Quaternion.identity);
         }
     }
+
+    public void ChestDropItem()
+    {
+        randNum = Random.Range(0,101); 
+        Debug.Log("Random number is " + randNum);
+
+        if (randNum >= 0)
+        {
+            itemNum = 0;
+            Instantiate(itemList[itemNum], dropPos.position, Quaternion.identity);
+        }
+    }
 }

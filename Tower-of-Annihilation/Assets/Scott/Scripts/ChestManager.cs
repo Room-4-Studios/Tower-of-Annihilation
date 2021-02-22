@@ -5,20 +5,21 @@ using UnityEngine;
 public class ChestManager : MonoBehaviour
 {
     public Animator animator;
-    // These are referenced in Unity -Nathan
-    // [SerializeField]
-    // private SpriteRenderer spriteRenderer;
+    private ItemDrop getItem;
+    private bool isOpen = false;
 
-    // [SerializeField]
-    // private Sprite openSprite, closedSprite;
+    void Start()
+    {
+        getItem = GetComponent<ItemDrop>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player" )
+        if(collision.gameObject.name == "Player"  && isOpen == false)
         {
             animator.SetTrigger("Open");
-            //GetComponent<Animator>().enabled = false;
-            //Destroy(gameObject);
+            getItem.ChestDropItem();
+            isOpen = true;
         }
     }
 }
