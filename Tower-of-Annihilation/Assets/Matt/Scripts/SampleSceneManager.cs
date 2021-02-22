@@ -12,7 +12,7 @@ public class SampleSceneManager : MonoBehaviour
         float x = Random.Range(-6, 6);
         float y = Random.Range(-6, 6);
 
-        Instantiate(Slime, new Vector2(3,1), Quaternion.identity);
+        //Instantiate(Slime, new Vector2(3,1), Quaternion.identity);
         Instantiate(Player, new Vector2(3,1), Quaternion.identity);
 
     }

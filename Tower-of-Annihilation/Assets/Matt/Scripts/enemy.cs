@@ -41,6 +41,7 @@ public class enemy : MonoBehaviour
     {
         ai = GetComponent<IAstarAI>();
         rb2d = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
@@ -61,10 +62,10 @@ public class enemy : MonoBehaviour
         LookForPlayer();
 
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
-            //Debug.Log("Player is in range");
+            Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
                 timerForNextAttack -= Time.deltaTime;
