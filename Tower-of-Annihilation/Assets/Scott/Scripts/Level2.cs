@@ -9,7 +9,6 @@ public class Level2 : MonoBehaviour
      * pressed the next level will be initiated. */
     private void OnCollisionStay2D(Collision2D Collision)
     {
-        if (Collision.gameObject.name == "NLCollider" && Input.GetKey(KeyCode.Return))
         {
              SceneManager.LoadScene(2);
         }
