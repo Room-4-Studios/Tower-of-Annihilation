@@ -41,6 +41,11 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         return money;
     }
 
+    public void Money() 
+    {
+        money++;
+    }
+
     public void BoughtItem(string name, int cost)
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");

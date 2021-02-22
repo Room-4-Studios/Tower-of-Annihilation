@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public GameObject mngr;
+    public GameObject mgmt;
 
     // Start is called before the first frame update
     void Start()
     {
-        mngr = GameObject.FindGameObjectWithTag("GameController");
+        mgmt = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            mngr.SendMessage("money");
+            mgmt.SendMessage("Money");
             Destroy(gameObject);
         }
     }
