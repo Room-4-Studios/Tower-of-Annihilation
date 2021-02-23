@@ -30,6 +30,8 @@ public class enemy : MonoBehaviour
     float timerForNextAttack;
     public float cooldown;
 
+    private ItemDrop getItem;
+
     // These do not need declared with values. setup per 
     // public float radius = 50;
     // public float agroRange = 30;
@@ -39,12 +41,15 @@ public class enemy : MonoBehaviour
     {
         ai = GetComponent<IAstarAI>();
         rb2d = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
 
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
+
+        getItem = GetComponent<ItemDrop>();
     }
 
     void Update()
@@ -57,9 +62,10 @@ public class enemy : MonoBehaviour
         LookForPlayer();
 
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
+            Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
                 timerForNextAttack -= Time.deltaTime;
@@ -160,11 +166,12 @@ public class enemy : MonoBehaviour
     {
         Debug.Log("Enemy Died");
         animator.SetBool("isDead", true);
-
+        getItem.DropItem();
         GetComponent<Collider2D>().enabled = false;
         GetComponent<AIPath>().enabled = false;
         this.enabled = false;
         Destroy(this);
+        Destroy(gameObject, 2);
     }
 
     void OnDrawGizmosSelected() 
