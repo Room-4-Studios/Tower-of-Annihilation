@@ -50,6 +50,7 @@ public class enemy : MonoBehaviour
         timerForNextAttack = cooldown;
 
         getItem = GetComponent<ItemDrop>();
+        acceptance_test();
     }
 
     void Update()
@@ -182,5 +183,31 @@ public class enemy : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+    void acceptance_test(){
+     Vector3 point;
+
+     Dictionary <float, float> hm = new Dictionary<float, float>(); 
+
+     float[] xpos=new float[1000];
+     float[] ypos=new float[1000];
+     float[] zpos=new float[1000];
+
+     for(int i=0; i <= 1000; i++){
+         point=PickRandomPoint();
+         xpos[i]=point.x;
+         ypos[i]=point.y;
+         zpos[i]=point.z;
+     }
+
+      for (int i = 0; i <= 1000; i++){
+        if (hm.ContainsKey(xpos[i]) ) {
+            hm[xpos[i]] = hm[xpos[i]] + 1; 
+        }
+        else {
+            hm.Add(xpos[i], 1);
+        } 
+    }
+     }
+  
 }
 
