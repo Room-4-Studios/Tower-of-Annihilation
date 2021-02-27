@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.IO;
 
 
 public class enemy : MonoBehaviour
@@ -186,28 +187,29 @@ public class enemy : MonoBehaviour
     void acceptance_test(){
      Vector3 point;
 
-     Dictionary <float, float> hm = new Dictionary<float, float>(); 
+     string path ="Assets/Matt/Scripts/Test.txt";
+     StreamWriter writer = new StreamWriter(path,true);
 
-     float[] xpos=new float[1000];
-     float[] ypos=new float[1000];
-     float[] zpos=new float[1000];
+     float xavg=0;
+     float yavg=0;
+     float path_size=0;
 
-     for(int i=0; i <= 1000; i++){
+     for(int i=0; i < 1000; i++){
          point=PickRandomPoint();
-         xpos[i]=point.x;
-         ypos[i]=point.y;
-         zpos[i]=point.z;
+         xavg+=point.x;
+         yavg+=point.y;
+         
      }
 
-      for (int i = 0; i <= 1000; i++){
-        if (hm.ContainsKey(xpos[i]) ) {
-            hm[xpos[i]] = hm[xpos[i]] + 1; 
-        }
-        else {
-            hm.Add(xpos[i], 1);
-        } 
+
+     xavg= xavg/1000;
+     yavg= yavg/1000;
+
+     path_size=Mathf.Pow(2,xavg) + Mathf.Pow(2,yavg);
+     path_size=Mathf.Sqrt(path_size);
+
+     writer.WriteLine("X-AVG: {0}, Y-AVG {1}, Path_Size {2}",xavg,yavg,path_size); 
+     writer.Close();
     }
-     }
-  
 }
 
