@@ -51,7 +51,7 @@ public class enemy : MonoBehaviour
         timerForNextAttack = cooldown;
 
         getItem = GetComponent<ItemDrop>();
-        acceptance_test();
+       // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
     }
 
     void Update()
@@ -186,29 +186,29 @@ public class enemy : MonoBehaviour
     }
     void acceptance_test(){
      Vector3 point;
-
+     // Points to TXT file in docs and opens it
      string path ="Assets/Matt/Scripts/Test.txt";
      StreamWriter writer = new StreamWriter(path,true);
 
-     float xavg=0;
+     float xavg=0;   //Keep track of average and path size
      float yavg=0;
      float path_size=0;
 
      for(int i=0; i < 1000; i++){
          point=PickRandomPoint();
          xavg+=point.x;
-         yavg+=point.y;
+         yavg+=point.y;  //Run 1000 test 
          
      }
 
 
-     xavg= xavg/1000;
+     xavg= xavg/1000; //Get average of of x and y coor
      yavg= yavg/1000;
 
      path_size=Mathf.Pow(2,xavg) + Mathf.Pow(2,yavg);
-     path_size=Mathf.Sqrt(path_size);
+     path_size=Mathf.Sqrt(path_size); //Pythagorean theorem to find average path length
 
-     writer.WriteLine("X-AVG: {0}, Y-AVG {1}, Path_Size {2}",xavg,yavg,path_size); 
+     writer.WriteLine("X-AVG: {0}, Y-AVG {1}, Path_Size {2}",xavg,yavg,path_size); //write to txt file and close 
      writer.Close();
     }
 }
