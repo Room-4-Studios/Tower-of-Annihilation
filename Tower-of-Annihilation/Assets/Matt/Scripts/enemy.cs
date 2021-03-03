@@ -46,7 +46,7 @@ public class enemy : MonoBehaviour
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
-
+        //Generate a Rotating Raycast
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
 
@@ -62,8 +62,7 @@ public class enemy : MonoBehaviour
             ai.SearchPath();
         }
         LookForPlayer();
-
-
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
@@ -95,16 +94,17 @@ public class enemy : MonoBehaviour
         
         Vector2 endPos = castPoint.position + direction * distance;
         RaycastHit2D hit = Physics2D.Linecast(castPoint.position, endPos, 1 << LayerMask.NameToLayer("Action"));
-       
+        //generate raycast
         if(hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                //Lets Aggro the Enemy
+                //if the raycasy collides with the player stop rotating and and flag seeplayer
                 seePlayer = true;          
             }
             else
             {
+                //if player is not colliding return seeplayer = false and cintinue rotating raycast
                 Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
                 direction = q * direction;
                 seePlayer = false;
@@ -112,6 +112,7 @@ public class enemy : MonoBehaviour
         }
         else
         {
+            //if nothing is colliding continue rotation
             Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
             direction = q * direction;
         }
@@ -121,6 +122,7 @@ public class enemy : MonoBehaviour
 
     void ChasePlayer()
     {
+        //move toward the player
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
     }
     
