@@ -374,6 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallHealthPotion: {fileID: 21300000, guid: 47680be80bac8344ba8bd711732f423f, type: 3}
   bigHealthPotion: {fileID: 21300000, guid: b5d923e759210b747a991d1a47d5d43f, type: 3}
+  hpHeart: {fileID: 21300000, guid: 1bde895cf81f69346ade48e2da394eeb, type: 3}
 --- !u!1001 &356275785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5989,6 +5990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424971548940076584, guid: cb8233c461680da42aa3e6d700ca1887,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5424971550528104449, guid: cb8233c461680da42aa3e6d700ca1887,
         type: 3}
