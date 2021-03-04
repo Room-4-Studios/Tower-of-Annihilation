@@ -9,12 +9,13 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Transform player;
     public Rigidbody2D rb;
     public int maxHealth;
-    private int currentHealth;
+    public int currentHealth; 
     public int money;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Makes the players current health into the max health
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
@@ -30,20 +31,21 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         }
     }
 
+    // When the player dies, sets the animation to play
     public void Die()
     {
         animator.SetBool("isDead", true);
     }
 
     //Regarding purchasing items.
-    public int CurrentMoney()
+    public int CurrentMoney() //For showing coins on screen.
     {
         return money;
     }
 
-    public void Money() 
+    public void Money() //Increase coin amount if pick up coin.
     {
-        money++;
+        money++; 
     }
 
     public void BoughtItem(string name, int cost)
@@ -53,15 +55,28 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public bool AttemptBuy(int cost)
     {
-        if (CurrentMoney() >= cost) 
+        if (money >= cost) //Enough money.
         {
             money -= cost;
             return true;
         }
-        else
+        else //Not enough money.
         {
-            return false;
+            return false; 
         }
 
+    }
+
+    public void useHealItem(int healAmount) 
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth; //Cap health.
+    }
+
+    public void upgradeHealth()
+    {
+        maxHealth += 10;
+        currentHealth += 10; //Matches max if full health. If not, just give free +10 heal.
     }
 }

@@ -6,4 +6,6 @@ public interface ShopInterface
 {
     void BoughtItem(string name, int cost);
     bool AttemptBuy(int cost);
+    void useHealItem(int healAmount);
+    void upgradeHealth();
 }

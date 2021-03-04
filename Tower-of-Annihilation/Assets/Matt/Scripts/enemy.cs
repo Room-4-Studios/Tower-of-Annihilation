@@ -46,12 +46,12 @@ public class enemy : MonoBehaviour
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
-
+        //Generate a Rotating Raycast
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
 
         getItem = GetComponent<ItemDrop>();
-        acceptance_test();
+       // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
     }
 
     void Update()
@@ -62,8 +62,7 @@ public class enemy : MonoBehaviour
             ai.SearchPath();
         }
         LookForPlayer();
-
-
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if(distanceToPlayer < attackRange)
         {
@@ -95,16 +94,17 @@ public class enemy : MonoBehaviour
         
         Vector2 endPos = castPoint.position + direction * distance;
         RaycastHit2D hit = Physics2D.Linecast(castPoint.position, endPos, 1 << LayerMask.NameToLayer("Action"));
-       
+        //generate raycast
         if(hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
-                //Lets Aggro the Enemy
+                //if the raycasy collides with the player stop rotating and and flag seeplayer
                 seePlayer = true;          
             }
             else
             {
+                //if player is not colliding return seeplayer = false and cintinue rotating raycast
                 Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
                 direction = q * direction;
                 seePlayer = false;
@@ -112,6 +112,7 @@ public class enemy : MonoBehaviour
         }
         else
         {
+            //if nothing is colliding continue rotation
             Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
             direction = q * direction;
         }
@@ -121,6 +122,7 @@ public class enemy : MonoBehaviour
 
     void ChasePlayer()
     {
+        //move toward the player
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
     }
     
@@ -186,29 +188,29 @@ public class enemy : MonoBehaviour
     }
     void acceptance_test(){
      Vector3 point;
-
+     // Points to TXT file in docs and opens it
      string path ="Assets/Matt/Scripts/Test.txt";
      StreamWriter writer = new StreamWriter(path,true);
 
-     float xavg=0;
+     float xavg=0;   //Keep track of average and path size
      float yavg=0;
      float path_size=0;
 
      for(int i=0; i < 1000; i++){
          point=PickRandomPoint();
          xavg+=point.x;
-         yavg+=point.y;
+         yavg+=point.y;  //Run 1000 test 
          
      }
 
 
-     xavg= xavg/1000;
+     xavg= xavg/1000; //Get average of of x and y coor
      yavg= yavg/1000;
 
      path_size=Mathf.Pow(2,xavg) + Mathf.Pow(2,yavg);
-     path_size=Mathf.Sqrt(path_size);
+     path_size=Mathf.Sqrt(path_size); //Pythagorean theorem to find average path length
 
-     writer.WriteLine("X-AVG: {0}, Y-AVG {1}, Path_Size {2}",xavg,yavg,path_size); 
+     writer.WriteLine("X-AVG: {0}, Y-AVG {1}, Path_Size {2}",xavg,yavg,path_size); //write to txt file and close 
      writer.Close();
     }
 }

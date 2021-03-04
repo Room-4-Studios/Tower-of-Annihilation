@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
 {
     public Sprite smallHealthPotion;
     public Sprite bigHealthPotion;
+    public Sprite hpHeart;
     private Transform container;
     private Transform shopItemTemplate;
 
@@ -25,6 +26,7 @@ public class Shop : MonoBehaviour
     {
         CreateItemButton(smallHealthPotion, "Small Health Potion", 1, 0);
         CreateItemButton(bigHealthPotion, "Big Health Potion", 4, 1);
+        CreateItemButton(hpHeart, "Health Upgrade", 10, 2);
         Hide();
     }
 
@@ -50,6 +52,12 @@ public class Shop : MonoBehaviour
         if (customer.AttemptBuy(cost))
         {
             customer.BoughtItem(name, cost);
+            if (name == "Small Health Potion")
+                customer.useHealItem(5);
+            else if (name == "Big Health Potion")
+                customer.useHealItem(10);
+            else if (name == "Health Upgrade")
+                customer.upgradeHealth();
         }
     }
 
