@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemDrop : MonoBehaviour
 {
+    // Each object prefab is going to placed into this field in unity
     [SerializeField]
     private GameObject[] itemList;
     private int itemNum; // selects a number to chose from the itemList.
@@ -17,10 +18,11 @@ public class ItemDrop : MonoBehaviour
         Debug.Log(itemList);
     }
 
+    // Grabs a random item from the item list and puts it onto the map
     public void DropItem()
     {
         randNum = Random.Range(0,101); 
-        Debug.Log("Random number is " + randNum);
+        //Debug.Log("Random number is " + randNum);
 
         if (randNum >= 0)
         {
@@ -28,11 +30,11 @@ public class ItemDrop : MonoBehaviour
             Instantiate(itemList[itemNum], dropPos.position, Quaternion.identity);
         }
     }
-
+    // Grabs a random item from the item list for chests to drop
     public void ChestDropItem()
     {
         randNum = Random.Range(0,101); 
-        Debug.Log("Random number is " + randNum);
+        //Debug.Log("Random number is " + randNum);
 
         if (randNum >= 0)
         {

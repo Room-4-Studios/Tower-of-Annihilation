@@ -9,12 +9,13 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Transform player;
     public Rigidbody2D rb;
     public int maxHealth;
-    public int currentHealth; //private int currentHealth;
+    public int currentHealth; 
     public int money;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Makes the players current health into the max health
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         }
     }
 
+    // When the player dies, sets the animation to play
     public void Die()
     {
         animator.SetBool("isDead", true);
