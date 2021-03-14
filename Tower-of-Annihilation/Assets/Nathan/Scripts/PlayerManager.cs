@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public int maxHealth;
     public int currentHealth; 
     public int money;
+    public Attack attack;
 
     // Start is called before the first frame update
     void Start()
@@ -78,5 +79,10 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         maxHealth += 10;
         currentHealth += 10; //Matches max if full health. If not, just give free +10 heal.
+    }
+
+    public void upgradeDamage()
+    {
+        attack.attackDamage+=10;
     }
 }

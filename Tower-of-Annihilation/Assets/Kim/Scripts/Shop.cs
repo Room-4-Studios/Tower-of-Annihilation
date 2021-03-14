@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     public Sprite smallHealthPotion;
     public Sprite bigHealthPotion;
     public Sprite hpHeart;
+    public Sprite sword;
 
     //Other
 
@@ -29,15 +30,17 @@ public class Shop : MonoBehaviour
     {
         SmallHealthPotion,
         BigHealthPotion,
-        UpgradeHP
+        UpgradeHP,
+        UpgradeDMG
     }
     public Item[] itemDB;
 
     public int[] lootTable =
     { 
-        10,
-        30, 
-        10
+        20,
+        20, 
+        20,
+        20
     };
 
     public static int GetCost(Item itemType)
@@ -48,6 +51,7 @@ public class Shop : MonoBehaviour
             case Item.SmallHealthPotion: return 1;
             case Item.BigHealthPotion: return 4;
             case Item.UpgradeHP: return 10;
+            case Item.UpgradeDMG: return 10;
         }
     }
     public Sprite GetSprite(Item itemType)
@@ -58,6 +62,7 @@ public class Shop : MonoBehaviour
             case Item.SmallHealthPotion: return smallHealthPotion;
             case Item.BigHealthPotion: return bigHealthPotion;
             case Item.UpgradeHP: return hpHeart;
+            case Item.UpgradeDMG: return sword;
         }
     }
     public string GetDesc(Item itemType)
@@ -68,6 +73,7 @@ public class Shop : MonoBehaviour
             case Item.SmallHealthPotion: return "Small Health Potion";
             case Item.BigHealthPotion: return "Big Health Potion";
             case Item.UpgradeHP: return "Health Upgrade";
+            case Item.UpgradeDMG: return "Damage Upgrade";
         }
     }
 
@@ -82,10 +88,16 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        CreateItemButton(smallHealthPotion, "Small Health Potion", 1, 0);
+        /*CreateItemButton(smallHealthPotion, "Small Health Potion", 1, 0);
         CreateItemButton(bigHealthPotion, "Big Health Potion", 4, 1);
         CreateItemButton(hpHeart, "Health Upgrade", 10, 2);
+        CreateItemButton(sword, "Damage Upgrade", 11, 3);*/
         itemDB = (Item[])System.Enum.GetValues(typeof(Item));
+        List<Item> itemList = new List<Item>(itemDB);
+        Item item1 = RandomChooser(itemList);
+        Item item2 = RandomChooser(itemList);
+        CreateItemButton(GetSprite(item1), GetDesc(item1), GetCost(item1), 0);
+        CreateItemButton(GetSprite(item2), GetDesc(item2), GetCost(item2), 1);
         Hide();
     }
 
@@ -117,6 +129,8 @@ public class Shop : MonoBehaviour
                 customer.useHealItem(10);
             else if (name == "Health Upgrade")
                 customer.upgradeHealth();
+            else if (name == "Damage Upgrade")
+                customer.upgradeDamage();
         }
     }
 
@@ -129,13 +143,12 @@ public class Shop : MonoBehaviour
             total += item;
         }
         randomNumber = Random.Range(0, total);
-        for (int i = 0; i < lootTable.Length; i++)
+        for (int i = 0; i < 2; i++)
         {
             if (randomNumber <= lootTable[i])
             {
-                CreateItemButton(GetSprite(itemDB[i]), GetDesc(itemDB[i]), GetCost(itemDB[i]), 0);
+                CreateItemButton(GetSprite(itemDB[i]), GetDesc(itemDB[i]), GetCost(itemDB[i]), i);
                 Debug.Log("Randomized an item!");
-                return;
             }
             else
             {
@@ -147,6 +160,14 @@ public class Shop : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    Item RandomChooser(List<Item> arr)
+    {
+        int index = Random.Range(0, arr.Count);
+        Item value = arr[index];
+        arr.RemoveAt(index);
+        return value;
     }
 
 }

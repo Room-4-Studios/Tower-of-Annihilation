@@ -375,6 +375,11 @@ MonoBehaviour:
   smallHealthPotion: {fileID: 21300000, guid: 47680be80bac8344ba8bd711732f423f, type: 3}
   bigHealthPotion: {fileID: 21300000, guid: b5d923e759210b747a991d1a47d5d43f, type: 3}
   hpHeart: {fileID: 21300000, guid: 1bde895cf81f69346ade48e2da394eeb, type: 3}
+  sword: {fileID: 21300000, guid: 5e7ca1967f6f3d446b915b4084bbc97a, type: 3}
+  total: 0
+  randomNumber: 0
+  itemDB: 
+  lootTable: 0a0000001e0000000a000000
 --- !u!1001 &356275785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4562,7 +4567,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -5926,6 +5931,11 @@ PrefabInstance:
       propertyPath: money
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -3528490812747139524, guid: cb8233c461680da42aa3e6d700ca1887,
+        type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 1939185493}
     - target: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887,
         type: 3}
       propertyPath: m_RootOrder
@@ -9966,6 +9976,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf0ae53f45882b428a037fd2778a052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1939185493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5424971548940076590, guid: cb8233c461680da42aa3e6d700ca1887,
+    type: 3}
+  m_PrefabInstance: {fileID: 1471335746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939185485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160701b62db976f4bbce1f72aeb2ad6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2050472008
