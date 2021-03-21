@@ -75,5 +75,33 @@ public class ShopDialogue : MonoBehaviour
         //TextWriter.AddWriter_Static(messageText, "This is the assistant speaking, hello and goodbye, see you next time!", .1f, true);
     }
 
+    public void thankPlayer(string name, int cost)
+    {
+        string[] messageArray = new string[] {
+            "Thanks, that'll help my rent.",
+            "More funds for Genshin Impact. Thanks!",
+            "That'll go towards my World of Warcraft subscription.",
+            "Thanks for your patronage.",
+            "Do you think this is enough for Overwatch by any chance?",
+            "Sweet, more money for gambli--nevermind. Thanks.",
+            $"A {name}? Very nice choice. 11/10 ratings from fellow peers of mine."
+        };
+        string message = messageArray[Random.Range(0, messageArray.Length)];
+        textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
+    }
+
+    public void insultPlayer(int cost, int currentMoney)
+    {
+        string[] messageArray = new string[] {
+            "You're kinda poor, aren't you? Come back with more money.",
+            "Do you see those yellow coins around the place? Gimme those. Then buy something from me.",
+            "Do you wanna keep your liver, or do you wanna keep your kneecaps? Because this ain't free.",
+            $"Geez mate, it's only {cost} coin(s). How freaking expensive can it be?",
+            $"You only need {cost-currentMoney} more coin(s), okay? Come back to me later."
+        };
+        string message = messageArray[Random.Range(0, messageArray.Length)];
+        textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
+    }
+
 }
 

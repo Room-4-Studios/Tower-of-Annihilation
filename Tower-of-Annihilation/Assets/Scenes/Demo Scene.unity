@@ -6209,6 +6209,11 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 1939185493}
+    - target: {fileID: -3528490812747139524, guid: cb8233c461680da42aa3e6d700ca1887,
+        type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 1494088484}
     - target: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887,
         type: 3}
       propertyPath: m_RootOrder
