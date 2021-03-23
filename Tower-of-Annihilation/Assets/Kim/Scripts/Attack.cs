@@ -5,12 +5,12 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float attackRange;
-    public int attackDamage;
     public Transform attackPoint;
     public Transform attackPointLeft;
     public LayerMask enemyLayer;
     private float nextAttackTime = 0f;
     public float attackRate;
+    public int attackDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -76,4 +76,10 @@ public class Attack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
     }
+
+    public void IncreaseAttackDmg(int dmg)
+    {
+        attackDamage += dmg;
+    }
+
 }

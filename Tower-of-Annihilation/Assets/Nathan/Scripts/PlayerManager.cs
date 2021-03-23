@@ -12,6 +12,9 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public int currentHealth; 
     public int money;
 
+    public Attack attack;
+    public ShopDialogue message;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void BoughtItem(string name, int cost)
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");
+        message.thankPlayer(name, cost);
     }
 
     public bool AttemptBuy(int cost)
@@ -61,8 +65,9 @@ public class PlayerManager : MonoBehaviour, ShopInterface
             return true;
         }
         else //Not enough money.
-        {
-            return false; 
+        { 
+            message.insultPlayer(cost, money);
+            return false;
         }
 
     }
@@ -78,5 +83,10 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         maxHealth += 10;
         currentHealth += 10; //Matches max if full health. If not, just give free +10 heal.
+    }
+
+    public void upgradeDamage()
+    {
+        attack.attackDamage+=10;
     }
 }
