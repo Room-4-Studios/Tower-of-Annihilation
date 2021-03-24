@@ -47,7 +47,7 @@ public class ShopDialogue : MonoBehaviour
                     "Nevermind that. Do you have some coins?",
                     "Yeah, I've got rent to pay too you know? There's been some mild inflation nowadays.",
                     "I even have an exam to study for...you too? Uh, what's software engineering?",
-                    "Also, have you seen a flying spagetti monster anywhere? I'm hungry.",
+                    "Also, have you seen a flying spaghetti monster anywhere? I'm hungry.",
                     "Stay safe, generic-protagonist-of-the-day. (snicker)"
                 };
                 //string message = messageArray[Random.Range(0, messageArray.Length)];
