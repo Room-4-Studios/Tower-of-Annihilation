@@ -68,6 +68,7 @@ namespace Tests
                 count++;
             }
             Assert.AreNotEqual(count, 900, "Test Failed after scene changed " + count + " times");
+            /* Test fails around a count of 800 */
             yield return null;
         }
     }
