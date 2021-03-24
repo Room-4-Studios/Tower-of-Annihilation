@@ -49,5 +49,26 @@ namespace Tests
                 }
             }
         }
+
+        [UnityTest]
+        public IEnumerator ChangeLevelsStress()
+        {
+            int i = 0;
+            int count = 0;
+            for(i = 0; i < 300; i++)
+            {
+                SceneManager.LoadScene("Demo Scene");
+                yield return new WaitForSeconds(0.2f);
+                count++;
+                SceneManager.LoadScene("Introduction Scene");
+                yield return new WaitForSeconds(0.2f);
+                count++;
+                SceneManager.LoadScene("ScottScene");
+                yield return new WaitForSeconds(0.2f);
+                count++;
+            }
+            Assert.AreNotEqual(count, 900, "Test Failed after scene changed " + count + " times");
+            yield return null;
+        }
     }
 }
