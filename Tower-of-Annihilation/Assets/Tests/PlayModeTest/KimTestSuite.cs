@@ -11,8 +11,10 @@ namespace Tests
     {
         private GameObject shopkeeper;
         private GameObject canvas;
+        private GameObject coin;
         GameObject clone_shop;
         GameObject clone_canvas;
+        GameObject clone_coin;
 
         [OneTimeSetUp]
         public void LoadScene()
@@ -31,16 +33,23 @@ namespace Tests
             int totalShop = 1;
             shopkeeper = GameObject.Find("Shopkeeper");
             canvas = GameObject.Find("Canvas");
+            coin = GameObject.Find("Coin");
+            float x;
+            float y;
             for (i = 0; i < 1000; i++)
             {
-                yield return new WaitForSeconds(0.1f);
+                //yield return new WaitForSeconds(0.0001f);
+                x = Random.Range(-3f, 42f);
+                y = Random.Range(-1f, -0.9f);
                 clone_shop = GameObject.Instantiate(shopkeeper, shopkeeper.GetComponent<Transform>().position, Quaternion.identity) as GameObject;
                 clone_canvas = GameObject.Instantiate(canvas, canvas.GetComponent<Transform>().position, Quaternion.identity) as GameObject;
+                if (coin != null)
+                    clone_coin = GameObject.Instantiate(coin, new Vector2(x,y), Quaternion.identity) as GameObject;
                 totalShop++;
                 Debug.Log($"Total number of shopkeepers in scene: {totalShop}");
             }
-            Assert.AreNotEqual(totalShop, 1001, "Test failed after " + totalShop + " shopkeepers were spawned.");
-            //Fails at 950 or less.
+            Assert.AreNotEqual(totalShop, 999, "Game slowed tremendously after " + totalShop + " shopkeepers and coins were spawned.");
+            //Failure depends on RAM.
             yield return null;
         }
     }
