@@ -27,14 +27,14 @@ namespace Tests
         }
 
         [UnityTest]
-        public static void ClickButton()
+        public IEnumerator ClickPlayButton()
         {
-        // Find button Game Object
-        string name = "PlayButton";
-        var go = GameObject.Find(name);
-        Assert.IsNotNull(go, "Missing button " + name);
-        // Invoke click
-        go.GetComponent<Button>().onClick.Invoke();
+            string name = "PlayButton";
+            var go = GameObject.Find(name);
+            Assert.IsNotNull(go, "Missing button " + name);
+            go.GetComponent<Button>().onClick.Invoke();
+            DidSceneLoad();
+            yield return null;
         }
     }
 }
