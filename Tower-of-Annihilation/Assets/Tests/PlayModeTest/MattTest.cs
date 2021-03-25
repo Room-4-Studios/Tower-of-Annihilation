@@ -10,6 +10,8 @@ namespace Tests
     public class MattTest
     {
         public GameObject Slime;
+        public GameObject Player;
+        
         GameObject clone_slime;
         
         [OneTimeSetUp]
@@ -30,22 +32,25 @@ namespace Tests
         [UnityTest]
         public IEnumerator Nickelodeon()
         {
-            int i = 0;
+            
             int allSlime= 8;
             Slime=GameObject.Find("Slime");
-            for(i = 0; i < 800000; i++)
+            Player=GameObject.Find("Player");
+
+            while(Player.transform.position.x>21.66f&&Player.transform.position.y<4.81f)
             {
-               
-               float x = Random.Range(-3.4f, 41.69f);
-               float y = Random.Range(-1.45f, -.94f);
+               yield return new WaitForSeconds(0.1f);
+               //float x = Random.Range(-3.4f, 41.69f);
+               //float y = Random.Range(-1.45f, -.94f);
 
                allSlime++;
 
-               clone_slime = GameObject.Instantiate(Slime, new Vector2(x,y), Quaternion.identity) as GameObject;
+               clone_slime = GameObject.Instantiate(Slime, new Vector2(23.74f,1.14f), Quaternion.identity) as GameObject;
                Debug.Log($"Total number of slimes in scene: {allSlime}");
  
             }
-            Assert.AreNotEqual(allSlime, 800008, "Test Failed after " + allSlime + " slimes spawned");
+
+            Assert.AreNotEqual(allSlime, 8, "Test failed after " + allSlime + " slimes were spawned.");
            
             yield return null;
         }
