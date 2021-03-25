@@ -117,6 +117,7 @@ public class enemy : MonoBehaviour
             direction = q * direction;
         }
         //For raycast to work! set player(Tag:Player , Layer:Action) enemy(s)(Tag:Enemy, Layer:Default)
+        //Debug.DrawLine(castPoint.position,endPos,Color.red,radius);
         return seePlayer;
     }
 
