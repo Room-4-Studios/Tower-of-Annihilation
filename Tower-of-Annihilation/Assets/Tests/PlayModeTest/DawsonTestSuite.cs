@@ -17,13 +17,7 @@ namespace Tests
         public void LoadScene()
         {
             SceneManager.LoadScene("StartMenu");
-        }
-
-        [UnityTest]
-        public IEnumerator DidSceneLoad()
-        {
-            Assert.AreEqual(SceneManager.sceneCount, 1);
-            yield return null;
+            DidSceneLoad("StartMenu");
         }
 
         [UnityTest]
@@ -33,7 +27,13 @@ namespace Tests
             var go = GameObject.Find(name);
             Assert.IsNotNull(go, "Missing button " + name);
             go.GetComponent<Button>().onClick.Invoke();
-            DidSceneLoad();
+            DidSceneLoad("Introduction Scene");
+            yield return null;
+        }
+
+        public IEnumerator DidSceneLoad(string sceneName)
+        {
+            Assert.AreEqual(SceneManager.GetActiveScene(), sceneName);
             yield return null;
         }
     }
