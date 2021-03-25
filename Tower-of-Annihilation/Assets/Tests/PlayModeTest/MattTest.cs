@@ -40,8 +40,7 @@ namespace Tests
             while(Player.transform.position.x>21.66f&&Player.transform.position.y<4.81f)
             {
                yield return new WaitForSeconds(0.1f);
-               //float x = Random.Range(-3.4f, 41.69f);
-               //float y = Random.Range(-1.45f, -.94f);
+               
 
                allSlime++;
 
