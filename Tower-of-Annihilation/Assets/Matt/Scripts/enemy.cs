@@ -72,13 +72,16 @@ public class enemy : MonoBehaviour
         
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        float distanceToBattleBuddy=Vector2.Distance(transform.position,battlebuddy.position);
-
-        if(distanceToBattleBuddy < attackRange)
+        if(GameObject.FindGameObjectWithTag("Enemy")!=null)
         {
-            seeker.CancelCurrentPathRequest();
-            ai.destination=PickRandomPoint();
-            ai.SearchPath();
+           float distanceToBattleBuddy=Vector2.Distance(transform.position, battlebuddy.position);
+        
+            if(distanceToBattleBuddy < attackRange)
+            {
+                seeker.CancelCurrentPathRequest();
+                ai.destination=PickRandomPoint();
+                ai.SearchPath();
+            }
         }
         if(distanceToPlayer < attackRange)
         {

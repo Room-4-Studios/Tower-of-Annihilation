@@ -4575,6 +4575,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dedf79ace64fca144b72ea43ccb698de, type: 3}
+--- !u!4 &782119874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8318041118891215165, guid: 453f8b228363447959b19b5cc201688b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2323848540645317437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &889243849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4644,6 +4650,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
+--- !u!4 &1123954027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1770419303082252132, guid: 453f8b228363447959b19b5cc201688b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2323848540645317437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1143720886
 GameObject:
   m_ObjectHideFlags: 0
@@ -20662,6 +20674,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1123954027}
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackRange
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackPointLeft
+      value: 
+      objectReference: {fileID: 782119874}
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1770419302504675701, guid: 453f8b228363447959b19b5cc201688b,
         type: 3}
       propertyPath: m_Name
@@ -20735,22 +20777,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2323848540645317437}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4084269080086864457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4084269080086864456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869bb2d8ec5244c74ab7dabaa3004c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5
-  rb2d: {fileID: 4084269080086864503}
-  player: {fileID: 4084269080086864456}
-  movement: {x: 0, y: 0}
 --- !u!114 &4084269080086864458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20781,7 +20807,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.5
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -20815,12 +20841,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!50 &4084269080086864503 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1770419302504675658, guid: 453f8b228363447959b19b5cc201688b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2323848540645317437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8782381700949906866
 PrefabInstance:
   m_ObjectHideFlags: 0
