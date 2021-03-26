@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public static enemy isBusy;
     public Transform attackPoint;
     public Transform player;
+    
     public Transform castPoint;
     Quaternion q;
     public float radius;
@@ -18,6 +19,8 @@ public class enemy : MonoBehaviour
     public Rigidbody2D rb2d;
     Vector3 direction;
     IAstarAI ai;
+    Seeker seeker;
+    Transform battlebuddy;
 
     public float attackRange;
     public int enemyDamage;
@@ -41,29 +44,42 @@ public class enemy : MonoBehaviour
     void Start()
     {
         ai = GetComponent<IAstarAI>();
+        seeker= GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        battlebuddy = GameObject.FindGameObjectWithTag("Enemy").transform;
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
         //Generate a Rotating Raycast
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
-
+        
         getItem = GetComponent<ItemDrop>();
        // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
     }
 
     void Update()
     {
-        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
             ai.destination = PickRandomPoint();
             ai.SearchPath();
         }
+       
+        
         LookForPlayer();
         
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToBattleBuddy=Vector2.Distance(transform.position,battlebuddy.position);
+
+        if(distanceToBattleBuddy < attackRange)
+        {
+            seeker.CancelCurrentPathRequest();
+            ai.destination=PickRandomPoint();
+            ai.SearchPath();
+        }
         if(distanceToPlayer < attackRange)
         {
             Debug.Log("Player is in range");
@@ -124,14 +140,17 @@ public class enemy : MonoBehaviour
     void ChasePlayer()
     {
         //move toward the player
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        seeker.CancelCurrentPathRequest();
+        ai.destination=player.position;
+        ai.SearchPath();
     }
     
     public bool StopChasingPlayer()
     {
         if (canSeePlayer(aggroRange) == false)
         {
-            return true;
+          
+          return true;
         }
         return false;
     }
@@ -139,7 +158,7 @@ public class enemy : MonoBehaviour
     Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitSphere * radius;
-        point.y = Random.Range(-5,5);
+        point.y = Random.Range(-5f,5f);
         // point.y = 0; // Added a range value for vertical movement.
         point += ai.position;
         return point;
@@ -187,6 +206,8 @@ public class enemy : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+    
+   
     void acceptance_test(){
      Vector3 point;
      // Points to TXT file in docs and opens it
