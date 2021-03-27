@@ -20,7 +20,7 @@ public class enemy : MonoBehaviour
     Vector3 direction;
     IAstarAI ai;
     Seeker seeker;
-    Transform battlebuddy;
+    GameObject[] battlebuddy;
 
     public float attackRange;
     public int enemyDamage;
@@ -35,6 +35,8 @@ public class enemy : MonoBehaviour
     public float cooldown;
 
     private ItemDrop getItem;
+    
+  
 
     // These do not need declared with values. setup per 
     // public float radius = 50;
@@ -47,13 +49,14 @@ public class enemy : MonoBehaviour
         seeker= GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        battlebuddy = GameObject.FindGameObjectWithTag("Enemy").transform;
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
         //Generate a Rotating Raycast
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
+        
         
         getItem = GetComponent<ItemDrop>();
        // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
@@ -63,26 +66,17 @@ public class enemy : MonoBehaviour
     {
          if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
-            ai.destination = PickRandomPoint();
+            ai.destination=PickRandomPoint();
             ai.SearchPath();
         }
        
-        
+       
         LookForPlayer();
-        
-        
+        CheckDistance();
+       
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if(GameObject.FindGameObjectWithTag("Enemy")!=null)
-        {
-           float distanceToBattleBuddy=Vector2.Distance(transform.position, battlebuddy.position);
-        
-            if(distanceToBattleBuddy < attackRange)
-            {
-                seeker.CancelCurrentPathRequest();
-                ai.destination=PickRandomPoint();
-                ai.SearchPath();
-            }
-        }
+
         if(distanceToPlayer < attackRange)
         {
             Debug.Log("Player is in range");
@@ -106,6 +100,8 @@ public class enemy : MonoBehaviour
         }
 
     }
+
+   
 
     public bool canSeePlayer(float distance)
     {
@@ -143,6 +139,7 @@ public class enemy : MonoBehaviour
     void ChasePlayer()
     {
         //move toward the player
+        
         seeker.CancelCurrentPathRequest();
         ai.destination=player.position;
         ai.SearchPath();
@@ -160,10 +157,10 @@ public class enemy : MonoBehaviour
 
     Vector3 PickRandomPoint()
     {
-        var point = Random.insideUnitSphere * radius;
-        point.y = Random.Range(-5f,5f);
+        var point = Random.insideUnitCircle* radius;
+        point.y = Random.Range(-2.5f,2.5f);
         // point.y = 0; // Added a range value for vertical movement.
-        point += ai.position;
+        point += (Vector2)ai.position;
         return point;
     }
 
@@ -199,6 +196,7 @@ public class enemy : MonoBehaviour
         this.enabled = false;
         Destroy(this);
         Destroy(gameObject, 2);
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void OnDrawGizmosSelected() 
@@ -210,8 +208,32 @@ public class enemy : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
     
-   
-    void acceptance_test(){
+    void CheckDistance()
+    {
+      
+        
+        for(int i=0; i < battlebuddy.Length; i++)
+        {
+            if(battlebuddy[i]!=null)
+            {
+                float distanceToBattleBuddy=Vector2.Distance(transform.position, battlebuddy[i].transform.position);
+                 
+                    if(distanceToBattleBuddy < attackRange&&distanceToBattleBuddy!=0)
+                    {
+                        seeker.CancelCurrentPathRequest();
+                        ai.destination=PickRandomPoint();
+                        ai.SearchPath();
+                    }
+            }
+               
+        }
+        
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
+        
+    }
+    
+    void acceptance_test()
+    {
      Vector3 point;
      // Points to TXT file in docs and opens it
      string path ="Assets/Matt/Scripts/Test.txt";
