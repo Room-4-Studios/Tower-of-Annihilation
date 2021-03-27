@@ -14,52 +14,59 @@ public class playerAI : MonoBehaviour
      private float previousMovement;
      public GameObject player;
      public Vector2 movement;
-     Transform enemy;
+     GameObject[] enemy;
+     GameObject nextLevel;
     public Transform attackPoint;
     public Transform attackPointLeft;
-    public LayerMask enemyLayer;
-    private float nextAttackTime = 0f;
-    public float attackRate;
+    public Transform attackPointTop;
+    public Transform attackPointBottom;
+    public LayerMask enemylair;
     public int attackDamage;
     void Start()
     {
       ai = GetComponent<IAstarAI>();
       rb2d = GetComponent<Rigidbody2D>();
-      enemy = GameObject.FindGameObjectWithTag("Player").transform;
+      enemy = GameObject.FindGameObjectsWithTag("Enemy");
+      nextLevel = GameObject.FindGameObjectWithTag("NL");
     }
     void Update()
     {
          if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
-            ai.destination = PickRandomPoint();
+            if(enemy!=null)
+            {
+             for(int i=0; i < enemy.Length; i++)
+             {
+                if(enemy[i]!=null)
+                {
+                  ai.destination = enemy[i].transform.position;
+                }
+             }
+             
+            }
+            else
+            {
+                ai.destination=nextLevel.transform.position;
+            } 
             ai.SearchPath();
+            enemy = GameObject.FindGameObjectsWithTag("Enemy");
         }
-        movement.x=player.transform.position.x;
-        movement.y=player.transform.position.y;
+        movement.x=ai.steeringTarget.x;
+        movement.y=ai.steeringTarget.y;
         GetComponent<PlayerManager>().animator.SetFloat("Horizontal", movement.x);
         GetComponent<PlayerManager>().animator.SetFloat("Vertical", movement.y);
-        if(ai.velocity.x>0)
-        {
-            GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.x);
-        }
-        else
-        {
-            GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.y);
-        }
-        if(Input.GetAxis("Horizontal") >= 1 || Input.GetAxis("Horizontal") >= -1)
+        GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.sqrMagnitude);
+        
+
+        if(movement.x >= 0 || movement.x <= 0)
         {
             // Animator setting, checking if the player is moving left or right
-            GetComponent<PlayerManager>().animator.SetFloat("LastMoveX", Input.GetAxis("Horizontal"));
-            previousMovement = Input.GetAxis("Horizontal");
+            GetComponent<PlayerManager>().animator.SetFloat("LastMoveX", movement.x);
+            previousMovement = movement.x;
         }
-
-        float distanceToEnemy = Vector2.Distance(transform.position, enemy.position);
         
-        if(distanceToEnemy < attackRange)
-        {
-            Debug.Log("Attacking");
-            AttackEnemy();
-        }
+        AttackEnemy();
+
     }
 
     Vector3 PickRandomPoint()
@@ -70,27 +77,36 @@ public class playerAI : MonoBehaviour
         point += ai.position;
         return point;
     }
-     void AttackEnemy() 
-    { 
-        //Debug.Log(GetComponent<PlayerMovement>().GetPreviousMovement());
-        GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-        if(previousMovement >= 1)
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+    void AttackEnemy()
+    {
+        
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemies)
             {
+                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                Debug.Log("We hit " + enemy.name);
             }
-        }
-        else if(previousMovement <= -1)
-        {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemyLayer);
-            foreach(Collider2D enemy in hitEnemies)
+        
+            Collider2D[] hitEnemiesl = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemylair);
+            foreach(Collider2D enemy in hitEnemiesl)
             {
+                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                Debug.Log("We hit " + enemy.name);
+                
             }
-        }
+            Collider2D[] hitEnemiest = Physics2D.OverlapCircleAll(attackPointTop.position, attackRange, enemylair);
+            foreach(Collider2D enemy in hitEnemiest)
+            {
+                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
+                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            }
+            Collider2D[] hitEnemiesb = Physics2D.OverlapCircleAll(attackPointBottom.position, attackRange, enemylair);
+            foreach(Collider2D enemy in hitEnemiesb)
+            {
+                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
+                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            }
+        
     }
+    
 }
