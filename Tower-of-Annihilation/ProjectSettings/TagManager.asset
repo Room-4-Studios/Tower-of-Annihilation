@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Chest
+  - NL
   layers:
   - Default
   - TransparentFX
