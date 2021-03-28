@@ -15,6 +15,8 @@ public class playerAI : MonoBehaviour
      public GameObject player;
      public Vector2 movement;
      GameObject[] enemy;
+     GameObject[] coin;
+     GameObject[] chest;
      GameObject nextLevel;
     public Transform attackPoint;
     public Transform attackPointLeft;
@@ -22,18 +24,29 @@ public class playerAI : MonoBehaviour
     public Transform attackPointBottom;
     public LayerMask enemylair;
     public int attackDamage;
+    private float direction;
+    
+
+    private IEnumerator stop()
+    {
+        ai.isStopped=true;
+        yield return new WaitForSeconds(0.75f);
+        ai.isStopped=false;
+    }
     void Start()
     {
       ai = GetComponent<IAstarAI>();
       rb2d = GetComponent<Rigidbody2D>();
       enemy = GameObject.FindGameObjectsWithTag("Enemy");
+      coin = GameObject.FindGameObjectsWithTag("Coin");
+      chest = GameObject.FindGameObjectsWithTag("Chest");
       nextLevel = GameObject.FindGameObjectWithTag("NL");
     }
     void Update()
     {
          if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
-            if(enemy!=null)
+            if(enemy.Length!=0)
             {
              for(int i=0; i < enemy.Length; i++)
              {
@@ -44,31 +57,43 @@ public class playerAI : MonoBehaviour
              }
              
             }
+            else if(coin.Length!=0){
+                for(int i=0; i < coin.Length; i++)
+                {
+                    if(coin[i]!=null)
+                    {
+                        ai.destination = coin[i].transform.position;
+                    }
+                }
+            }
+            else if(chest.Length!=null)
+            {
+                for(int i=0; i < chest.Length; i++)
+                {
+                    if(ChestManager.checker.IsOpen()==false)
+                    {
+                        ai.destination = chest[i].transform.position;
+                    }
+                }
+            }
             else
             {
-                ai.destination=nextLevel.transform.position;
+              //  ai.destination=nextLevel.transform.position;
             } 
             ai.SearchPath();
             enemy = GameObject.FindGameObjectsWithTag("Enemy");
+            coin = GameObject.FindGameObjectsWithTag("Coin");
         }
-        movement.x=ai.steeringTarget.x;
-        movement.y=ai.steeringTarget.y;
+        movement.x=ai.desiredVelocity.x;
+        movement.y=ai.desiredVelocity.y;
         GetComponent<PlayerManager>().animator.SetFloat("Horizontal", movement.x);
         GetComponent<PlayerManager>().animator.SetFloat("Vertical", movement.y);
         GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.sqrMagnitude);
         
-
-        if(movement.x >= 0 || movement.x <= 0)
-        {
-            // Animator setting, checking if the player is moving left or right
-            GetComponent<PlayerManager>().animator.SetFloat("LastMoveX", movement.x);
-            previousMovement = movement.x;
-        }
-        
         AttackEnemy();
 
     }
-
+   
     Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitSphere * radius;
@@ -83,13 +108,16 @@ public class playerAI : MonoBehaviour
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemies)
             {
+                StartCoroutine(stop());
                 GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+                
             }
         
             Collider2D[] hitEnemiesl = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiesl)
             {
+                StartCoroutine(stop());
                 GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
                 
@@ -97,14 +125,18 @@ public class playerAI : MonoBehaviour
             Collider2D[] hitEnemiest = Physics2D.OverlapCircleAll(attackPointTop.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiest)
             {
+                StartCoroutine(stop());
                 GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+               
             }
             Collider2D[] hitEnemiesb = Physics2D.OverlapCircleAll(attackPointBottom.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiesb)
             {
+                StartCoroutine(stop());
                 GetComponent<PlayerManager>().animator.SetTrigger("Attack");
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+                
             }
         
     }

@@ -7,7 +7,8 @@ public class ChestManager : MonoBehaviour
 {
     public Animator animator;
     private ItemDrop getItem;
-    private bool isOpen = false;
+    public static ChestManager checker;
+    public bool isOpen = false; /*Made Public so its accesible outside class for PlayerAI */
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class ChestManager : MonoBehaviour
     }
 
     /* Checks is chest has been previously opened */
-    private bool IsOpen()
+    public bool IsOpen()
     {
         if(isOpen == true)
         {
