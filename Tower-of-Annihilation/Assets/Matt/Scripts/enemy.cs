@@ -35,6 +35,7 @@ public class enemy : MonoBehaviour
     public float cooldown;
 
     private ItemDrop getItem;
+    public bool dead = false;
     
   
 
@@ -79,6 +80,8 @@ public class enemy : MonoBehaviour
 
         if(distanceToPlayer < attackRange)
         {
+            ai.isStopped=true;
+            
             Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
@@ -92,13 +95,19 @@ public class enemy : MonoBehaviour
 
                 foreach(Collider2D player in hitPlayers)
                 {
+                    
                     player.GetComponent<PlayerManager>().TakeDamage(enemyDamage);
                 }
                 timerForNextAttack = cooldown;
-
+                
             }
         }
-
+        else
+        {
+            ai.isStopped=false;
+        }
+       
+       
     }
 
    
@@ -191,6 +200,7 @@ public class enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Died");
+        dead=true;
         animator.SetBool("isDead", true);
         getItem.DropItem();
         GetComponent<Collider2D>().enabled = false;

@@ -24,16 +24,24 @@ public class playerAI : MonoBehaviour
     public Transform attackPointTop;
     public Transform attackPointBottom;
     public LayerMask enemylair;
+    bool attacking = false;
     public int attackDamage;
     private int treasure;
     private float direction;
     
 
-    private IEnumerator stop()
+    private IEnumerator attack(Collider2D enemy)
     {
         ai.isStopped=true;
-        yield return new WaitForSeconds(0.75f);
+        attacking = true;
+        
+            GetComponent<PlayerManager>().animator.SetTrigger("Attack");
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            
+            yield return new WaitForSeconds(1f);
+        
         ai.isStopped=false;
+        attacking = false;
     }
     private IEnumerator wait()
     {
@@ -106,7 +114,7 @@ public class playerAI : MonoBehaviour
         GetComponent<PlayerManager>().animator.SetFloat("Vertical", movement.y);
         GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.sqrMagnitude);
         
-        AttackEnemy();
+      
 
         if(Input.anyKey)
         {
@@ -114,8 +122,13 @@ public class playerAI : MonoBehaviour
         }
         if(player.GetComponent<PlayerManager>().dead==true)
         {
-            GetComponent<PlayerManager>().animator.SetBool("isDead", true);
             ai.isStopped=true;
+            GetComponent<PlayerManager>().animator.SetBool("isDead", true);
+            StartCoroutine(wait());
+        }
+        else
+        {
+            AttackEnemy();
         }
 
     }
@@ -126,35 +139,35 @@ public class playerAI : MonoBehaviour
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemies)
             {
-                StartCoroutine(stop());
-                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                
+                if(attacking==false)
+                {
+                  StartCoroutine(attack(enemy));
+                }
             }
         
             Collider2D[] hitEnemiesl = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiesl)
             {
-                StartCoroutine(stop());
-                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                
+                if(attacking==false)
+                {
+                  StartCoroutine(attack(enemy));
+                }
             }
             Collider2D[] hitEnemiest = Physics2D.OverlapCircleAll(attackPointTop.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiest)
             {
-                StartCoroutine(stop());
-                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-               
+                if(attacking==false)
+                {
+                  StartCoroutine(attack(enemy));
+                }
             }
             Collider2D[] hitEnemiesb = Physics2D.OverlapCircleAll(attackPointBottom.position, attackRange, enemylair);
             foreach(Collider2D enemy in hitEnemiesb)
             {
-                StartCoroutine(stop());
-                GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-                enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                
+                if(attacking==false)
+                {
+                  StartCoroutine(attack(enemy));
+                }
             }
         
     }
@@ -173,7 +186,6 @@ public class playerAI : MonoBehaviour
                 break;
         }
     }
-   
-    
+ 
     
 }
