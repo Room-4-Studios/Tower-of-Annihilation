@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 public class playerAI : MonoBehaviour
@@ -34,6 +35,11 @@ public class playerAI : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         ai.isStopped=false;
     }
+    private IEnumerator wait()
+    {
+        yield return new WaitForSeconds(3.0f);
+        pickScene();
+    }
     void Start()
     {
       ai = GetComponent<IAstarAI>();
@@ -42,7 +48,7 @@ public class playerAI : MonoBehaviour
       coin = GameObject.FindGameObjectsWithTag("Coin");
       chest = GameObject.FindGameObjectsWithTag("Chest");
       nextLevel = GameObject.FindGameObjectWithTag("NL");
-      treasure = chest.Length+1;
+      treasure=chest.Length;
     }
     void Update()
     {
@@ -69,29 +75,24 @@ public class playerAI : MonoBehaviour
                     }
                 }
             }
-         /*   else if(treasure!=0)
+            /*else if(treasure!=0)
             {
-                for(int i=0; i < chest.Length; i++)
+                for(int i=0;i<=treasure;i++)
                 {
-                    Debug.Log(chest[i].GetComponent<ChestManager>().isOpen);
-                   if(chest[i].GetComponent<ChestManager>().isOpen==false)
-                   {
-                     ai.destination=chest[i].transform.position;
-                     
-                   }
-                   else
-                   {
-                       treasure-=1;
-                   }
-                
-                   
-                }
-               
+                    foreach (GameObject Chest in chest)
+                    {
+                        if(Chest.GetComponent<ChestManager>().isOpen==true)
+                        {
+                           treasure-=1;
+                        }
+                        
+                    }
+                    ai.destination = chest[i].transform.position;
+                }  
             }*/
-            
             else
             {
-              ai.destination=nextLevel.transform.position;
+              StartCoroutine(wait());
             } 
             ai.SearchPath();
 
@@ -105,6 +106,11 @@ public class playerAI : MonoBehaviour
         GetComponent<PlayerManager>().animator.SetFloat("Speed", ai.velocity.sqrMagnitude);
         
         AttackEnemy();
+
+        if(Input.anyKey)
+        {
+           SceneManager.LoadScene("StartMenu");
+        }
 
     }
    
@@ -146,7 +152,21 @@ public class playerAI : MonoBehaviour
             }
         
     }
+    void pickScene()
+    {
+        int scene=0;
+        scene=Random.Range(0,0);
 
+        switch (scene)
+        {
+            case 0:
+                SceneManager.LoadScene("Demo_Mode_Pass");
+                break;
+            default:
+                pickScene();
+                break;
+        }
+    }
    
     
     
