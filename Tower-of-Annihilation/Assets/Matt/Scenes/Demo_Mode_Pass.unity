@@ -20737,57 +20737,20 @@ PrefabInstance:
       propertyPath: message
       value: 
       objectReference: {fileID: 1494088484}
+    - target: {fileID: 2321797005744546940, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: endReachedDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453f8b228363447959b19b5cc201688b, type: 3}
---- !u!1 &4084269080086864456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1770419302504675701, guid: 453f8b228363447959b19b5cc201688b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2323848540645317437}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4084269080086864458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4084269080086864456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
-  radius: 0.5
-  height: 2
-  repathRate: 0.5
-  canSearch: 1
-  canMove: 1
-  maxSpeed: 3.25
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  orientation: 1
-  enableRotation: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 0.5
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
 --- !u!114 &4084269080086864463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2076401684885506398, guid: 453f8b228363447959b19b5cc201688b,
     type: 3}
   m_PrefabInstance: {fileID: 2323848540645317437}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4084269080086864456}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8639d89dce0df4c4cacdfa6d44a466e6, type: 3}

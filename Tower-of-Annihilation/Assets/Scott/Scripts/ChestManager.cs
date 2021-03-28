@@ -37,7 +37,7 @@ public class ChestManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         /* Player collides with chest, if statement is called */
-        if(collision.gameObject.name == "Player"  && IsOpen() == false)
+        if((collision.gameObject.name == "Player"||collision.gameObject.name == "PlayerAI")  && IsOpen() == false)
         {
             /* Animation is triggered, Item in chest is dropped */
             Animator();

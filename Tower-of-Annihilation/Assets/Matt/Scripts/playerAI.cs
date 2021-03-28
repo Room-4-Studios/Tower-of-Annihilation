@@ -24,6 +24,7 @@ public class playerAI : MonoBehaviour
     public Transform attackPointBottom;
     public LayerMask enemylair;
     public int attackDamage;
+    private int treasure;
     private float direction;
     
 
@@ -41,9 +42,11 @@ public class playerAI : MonoBehaviour
       coin = GameObject.FindGameObjectsWithTag("Coin");
       chest = GameObject.FindGameObjectsWithTag("Chest");
       nextLevel = GameObject.FindGameObjectWithTag("NL");
+      treasure = chest.Length+1;
     }
     void Update()
     {
+        
          if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
             if(enemy.Length!=0)
@@ -66,21 +69,32 @@ public class playerAI : MonoBehaviour
                     }
                 }
             }
-            else if(chest.Length!=null)
+         /*   else if(treasure!=0)
             {
                 for(int i=0; i < chest.Length; i++)
                 {
-                    if(ChestManager.checker.IsOpen()==false)
-                    {
-                        ai.destination = chest[i].transform.position;
-                    }
+                    Debug.Log(chest[i].GetComponent<ChestManager>().isOpen);
+                   if(chest[i].GetComponent<ChestManager>().isOpen==false)
+                   {
+                     ai.destination=chest[i].transform.position;
+                     
+                   }
+                   else
+                   {
+                       treasure-=1;
+                   }
+                
+                   
                 }
-            }
+               
+            }*/
+            
             else
             {
-              //  ai.destination=nextLevel.transform.position;
+              ai.destination=nextLevel.transform.position;
             } 
             ai.SearchPath();
+
             enemy = GameObject.FindGameObjectsWithTag("Enemy");
             coin = GameObject.FindGameObjectsWithTag("Coin");
         }
@@ -94,14 +108,6 @@ public class playerAI : MonoBehaviour
 
     }
    
-    Vector3 PickRandomPoint()
-    {
-        var point = Random.insideUnitSphere * radius;
-        point.y = Random.Range(-5,5);
-        // point.y = 0; // Added a range value for vertical movement.
-        point += ai.position;
-        return point;
-    }
     void AttackEnemy()
     {
         
@@ -140,5 +146,8 @@ public class playerAI : MonoBehaviour
             }
         
     }
+
+   
+    
     
 }
