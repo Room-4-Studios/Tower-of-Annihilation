@@ -178,6 +178,8 @@ public class enemy : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
+        Debug.Log(Damage);
+        Debug.Log(currentHealth);
         currentHealth -= Damage;
         animator.SetTrigger("Hurt");
         if(currentHealth <= 0)
