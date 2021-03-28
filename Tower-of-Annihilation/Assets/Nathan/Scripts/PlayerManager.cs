@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public int maxHealth;
     public int currentHealth; 
     public int money;
+    public bool dead = false;
 
     public Attack attack;
     public ShopDialogue message;
@@ -19,6 +20,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     void Start()
     {
         // Makes the players current health into the max health
+        
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
@@ -38,6 +40,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
+        dead=true;
     }
 
     //Regarding purchasing items.

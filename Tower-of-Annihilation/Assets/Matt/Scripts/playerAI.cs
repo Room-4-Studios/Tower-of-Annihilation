@@ -111,6 +111,10 @@ public class playerAI : MonoBehaviour
         {
            SceneManager.LoadScene("StartMenu");
         }
+        if(GetComponent<PlayerManager>().dead==true)
+        {
+            ai.isStopped=true;
+        }
 
     }
    
