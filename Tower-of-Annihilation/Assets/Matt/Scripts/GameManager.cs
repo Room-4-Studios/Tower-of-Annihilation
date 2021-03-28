@@ -8,17 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI coin;
-
+    GameObject Player;
     private IEnumerator dead()
     {
         
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("StartMenu");
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Player= GameObject.FindGameObjectWithTag("Player");
         gameOverText.gameObject.SetActive(false);
     }
 
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void gameover()
     {
-        if(GetComponent<PlayerManager>().dead == true)
+        if(Player.GetComponent<PlayerManager>().dead == true)
         {
            gameOverText.gameObject.SetActive(true);
            StartCoroutine(dead());

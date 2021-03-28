@@ -253,12 +253,12 @@ MonoBehaviour:
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
   attackRange: 0.5
-  enemyDamage: 3
+  enemyDamage: 10
   animator: {fileID: 6505714162733085955}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxHealth: 10
+  maxHealth: 55
   cooldown: 3
 --- !u!50 &6505714162733085982
 Rigidbody2D:

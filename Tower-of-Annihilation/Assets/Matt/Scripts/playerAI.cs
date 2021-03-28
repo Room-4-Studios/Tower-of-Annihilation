@@ -44,6 +44,7 @@ public class playerAI : MonoBehaviour
     {
       ai = GetComponent<IAstarAI>();
       rb2d = GetComponent<Rigidbody2D>();
+      player = GameObject.FindGameObjectWithTag("Player");
       enemy = GameObject.FindGameObjectsWithTag("Enemy");
       coin = GameObject.FindGameObjectsWithTag("Coin");
       chest = GameObject.FindGameObjectsWithTag("Chest");
@@ -111,8 +112,9 @@ public class playerAI : MonoBehaviour
         {
            SceneManager.LoadScene("StartMenu");
         }
-        if(GetComponent<PlayerManager>().dead==true)
+        if(player.GetComponent<PlayerManager>().dead==true)
         {
+            GetComponent<PlayerManager>().animator.SetBool("isDead", true);
             ai.isStopped=true;
         }
 
