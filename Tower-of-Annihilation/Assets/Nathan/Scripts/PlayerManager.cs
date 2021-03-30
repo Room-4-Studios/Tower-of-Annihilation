@@ -16,6 +16,14 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Attack attack;
     public ShopDialogue message;
 
+    /* Audio Changes were done by Scott if you have questions */
+    public AudioSource coinAud;
+    public AudioClip coinSound;
+    public AudioSource buyAud;
+    public AudioClip coinSound2;
+    public AudioSource damageAud;
+    public AudioClip damageSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +31,9 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
+        coinAud = GetComponent<AudioSource>();
+        buyAud = GetComponent<AudioSource>();
+        damageAud = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int Damage)
@@ -30,6 +41,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         animator.SetTrigger("Hurt");
         Debug.Log("Taking Damage");
         currentHealth -= Damage;
+        damageAud.PlayOneShot(damageSound);
         if(currentHealth <= 0)
         {
             Die();
@@ -51,6 +63,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public void Money() //Increase coin amount if pick up coin.
     {
+        coinAud.PlayOneShot(coinSound);
         money++; 
     }
 
@@ -65,6 +78,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         if (money >= cost) //Enough money.
         {
             money -= cost;
+            buyAud.PlayOneShot(coinSound2);
             return true;
         }
         else //Not enough money.

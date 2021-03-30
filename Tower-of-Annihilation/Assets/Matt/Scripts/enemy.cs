@@ -36,6 +36,10 @@ public class enemy : MonoBehaviour
 
     private ItemDrop getItem;
     public bool dead = false;
+
+    /* Audio added by Scott if you have questions */
+    public AudioSource slimeDeathAud;
+    public AudioClip slimeSound;
     
   
 
@@ -60,7 +64,9 @@ public class enemy : MonoBehaviour
         
         
         getItem = GetComponent<ItemDrop>();
-       // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
+        // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
+
+        slimeDeathAud = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -199,6 +205,8 @@ public class enemy : MonoBehaviour
 
     void Die()
     {
+        slimeDeathAud.PlayOneShot(slimeSound);
+
         Debug.Log("Enemy Died");
         dead=true;
         animator.SetBool("isDead", true);

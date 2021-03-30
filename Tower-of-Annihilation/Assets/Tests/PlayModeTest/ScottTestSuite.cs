@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 namespace Tests
 {
@@ -55,21 +56,50 @@ namespace Tests
         {
             int i = 0;
             int count = 0;
-            for(i = 0; i < 300; i++)
+            int initializedScenes = 0;
+            float time = 0.2f;
+            for(i = 0; i < 30; i++)
             {
                 SceneManager.LoadScene("Demo Scene");
-                yield return new WaitForSeconds(0.2f);
+                if (time > 0.0001)
+                {
+                    yield return new WaitForSecondsRealtime(time);
+                }
                 count++;
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Demo Scene"))
+                {
+                    initializedScenes++;
+                }
                 SceneManager.LoadScene("Introduction Scene");
-                yield return new WaitForSeconds(0.2f);
-                count++;
+                if (time > 0.0000001)
+                {
+                    yield return new WaitForSecondsRealtime(time);
+                }
+                 count++;
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Introduction Scene"))
+                {
+                    initializedScenes++;
+                }
                 SceneManager.LoadScene("ScottScene");
-                yield return new WaitForSeconds(0.2f);
+                if (time > 0.0000001)
+                {
+                    yield return new WaitForSecondsRealtime(time);
+                }
                 count++;
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ScottScene"))
+                {
+                    initializedScenes++;
+                }
+                time /= 2;
+                if (initializedScenes != count)
+                {
+                    Assert.AreEqual(count, initializedScenes, "Test Failed after scene changed " + initializedScenes);
+                }
             }
-            Assert.AreNotEqual(count, 900, "Test Failed after scene changed " + count + " times");
+            Assert.AreEqual(count, initializedScenes);
             /* Test fails around a count of 800 */
             yield return null;
         }
+
     }
 }
