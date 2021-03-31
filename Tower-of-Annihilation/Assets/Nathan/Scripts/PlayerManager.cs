@@ -16,13 +16,16 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Attack attack;
     public ShopDialogue message;
 
+    private SoundManager sh;
+
     /* Audio Changes were done by Scott if you have questions */
-    public AudioSource coinAud;
-    public AudioClip coinSound;
-    public AudioSource buyAud;
-    public AudioClip coinSound2;
-    public AudioSource damageAud;
-    public AudioClip damageSound;
+    /* Moved to SOUNDMANAGER.CS */
+    // public AudioSource coinAud;
+    // public AudioClip coinSound;
+    // public AudioSource buyAud;
+    // public AudioClip coinSound2;
+    // public AudioSource damageAud;
+    // public AudioClip damageSound;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +34,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
-        coinAud = GetComponent<AudioSource>();
-        buyAud = GetComponent<AudioSource>();
-        damageAud = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int Damage)
@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         animator.SetTrigger("Hurt");
         Debug.Log("Taking Damage");
         currentHealth -= Damage;
-        damageAud.PlayOneShot(damageSound);
+        FindObjectOfType<SoundManager>().Play("Player Hurt");
         if(currentHealth <= 0)
         {
             Die();
@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
-        dead=true;
+        dead = true;
     }
 
     //Regarding purchasing items.
@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public void Money() //Increase coin amount if pick up coin.
     {
-        coinAud.PlayOneShot(coinSound);
+        //coinAud.PlayOneShot(coinSound);
         money++; 
     }
 
@@ -78,7 +78,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         if (money >= cost) //Enough money.
         {
             money -= cost;
-            buyAud.PlayOneShot(coinSound2);
+            //buyAud.PlayOneShot(coinSound2);
             return true;
         }
         else //Not enough money.

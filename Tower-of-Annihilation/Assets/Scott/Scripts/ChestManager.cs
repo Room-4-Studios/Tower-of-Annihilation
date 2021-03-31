@@ -9,13 +9,14 @@ public class ChestManager : MonoBehaviour
     private ItemDrop getItem;
     public static ChestManager checker;
     public bool isOpen = false; /*Made Public so its accesible outside class for PlayerAI */
-    public AudioSource chestSound;
-    public AudioClip chestOpening;
+
+    // public AudioSource chestSound;
+    // public AudioClip chestOpening;
 
     void Start()
     {
         getItem = GetComponent<ItemDrop>();
-        chestSound = GetComponent<AudioSource>();
+        //chestSound = GetComponent<AudioSource>();
     }
 
     /* Checks is chest has been previously opened */
@@ -32,7 +33,7 @@ public class ChestManager : MonoBehaviour
     }
 
     /* Sets trigger to open for animation */
-    private void Animator()
+    private void AnimateObject()
     {
         animator.SetTrigger("Open");
     }
@@ -43,9 +44,8 @@ public class ChestManager : MonoBehaviour
         if((collision.gameObject.name == "Player"||collision.gameObject.name == "PlayerAI")  && IsOpen() == false)
         {
             /* Animation is triggered, Item in chest is dropped */
-            Animator();
+            AnimateObject();
             getItem.ChestDropItem();
-            chestSound.PlayOneShot(chestOpening);
             isOpen = true;
         }
     }

@@ -11,10 +11,12 @@ public class Attack : MonoBehaviour
     private float nextAttackTime = 0f;
     public float attackRate;
     public int attackDamage;
+    private SoundManager sh;
 
     // Start is called before the first frame update
     void Start()
     {
+        sh = GetComponent<SoundManager>();
         GetComponent<PlayerManager>().rb = GetComponent<Rigidbody2D>(); //Get the players Rigidbody2D 
     }
 
@@ -35,6 +37,7 @@ public class Attack : MonoBehaviour
     { 
         //Debug.Log(GetComponent<PlayerMovement>().GetPreviousMovement());
         GetComponent<PlayerManager>().animator.SetTrigger("Attack");
+        //sh.PlayPlayerAttack();
         if(GetComponent<PlayerMovement>().GetPreviousMovement() == 1)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
