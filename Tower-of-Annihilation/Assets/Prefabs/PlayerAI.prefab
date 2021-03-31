@@ -221,6 +221,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   money: 10
+  isDead: 0
   attack: {fileID: 1770419302504675660}
   message: {fileID: 0}
 --- !u!114 &7552642282653661021
@@ -281,7 +282,7 @@ MonoBehaviour:
   attackPointLeft: {fileID: 8318041118891215165}
   attackPointTop: {fileID: 7199067216528591438}
   attackPointBottom: {fileID: 5328236475567567362}
-  enemylair:
+  enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
   attackDamage: 10
