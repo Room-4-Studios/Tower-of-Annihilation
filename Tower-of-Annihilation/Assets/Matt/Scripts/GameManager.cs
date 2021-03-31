@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI coin;
     GameObject Player;
-    private IEnumerator dead()
+    private IEnumerator isDead()
     {
         
         yield return new WaitForSeconds(3);
@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour
 
     void gameover()
     {
-        if(Player.GetComponent<PlayerManager>().dead == true)
+        if(Player.GetComponent<PlayerManager>().isDead == true)
         {
            gameOverText.gameObject.SetActive(true);
-           StartCoroutine(dead());
+           StartCoroutine(isDead());
         }
     }
 }

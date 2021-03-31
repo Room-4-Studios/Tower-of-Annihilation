@@ -38,8 +38,9 @@ public class enemy : MonoBehaviour
     public bool dead = false;
 
     /* Audio added by Scott if you have questions */
-    public AudioSource slimeDeathAud;
-    public AudioClip slimeSound;
+    // Added to Sound Manager - Nate
+    // public AudioSource slimeDeathAud;
+    // public AudioClip slimeSound;
     
   
 
@@ -66,7 +67,7 @@ public class enemy : MonoBehaviour
         getItem = GetComponent<ItemDrop>();
         // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
 
-        slimeDeathAud = GetComponent<AudioSource>();
+        //slimeDeathAud = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -197,15 +198,17 @@ public class enemy : MonoBehaviour
         Debug.Log(currentHealth);
         currentHealth -= Damage;
         animator.SetTrigger("Hurt");
+        FindObjectOfType<SoundManager>().Play("Slime Hurt");
         if(currentHealth <= 0)
         {
+            
             Die();
         }
     }
 
     void Die()
     {
-        slimeDeathAud.PlayOneShot(slimeSound);
+        FindObjectOfType<SoundManager>().Play("Slime Death");
 
         Debug.Log("Enemy Died");
         dead=true;

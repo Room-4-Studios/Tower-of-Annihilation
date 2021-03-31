@@ -3,7 +3,14 @@ guid: 8639d89dce0df4c4cacdfa6d44a466e6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - player: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - fullHeart: {fileID: 21300000, guid: 9a36146a671204642b08da6c8f1bf530, type: 3}
+  - emptyHeart: {fileID: 21300000, guid: a91ae0be62edf284c94392ece2d97a8d, type: 3}
+  - attack: {instanceID: 0}
+  - message: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

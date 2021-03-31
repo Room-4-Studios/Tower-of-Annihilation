@@ -8,22 +8,22 @@ using UnityEngine.SceneManagement;
 
 public class playerAI : MonoBehaviour
 {
-     IAstarAI ai;
-     public float radius;
-     public Rigidbody2D rb2d;
-     public float attackRange;
-     private float previousMovement;
-     public GameObject player;
-     public Vector2 movement;
-     GameObject[] enemy;
-     GameObject[] coin;
-     GameObject[] chest;
-     GameObject nextLevel;
+    IAstarAI ai;
+    public float radius;
+    public Rigidbody2D rb2d;
+    public float attackRange;
+    private float previousMovement;
+    public GameObject player;
+    public Vector2 movement;
+    GameObject[] enemy;
+    GameObject[] coin;
+    GameObject[] chest;
+    GameObject nextLevel;
     public Transform attackPoint;
     public Transform attackPointLeft;
     public Transform attackPointTop;
     public Transform attackPointBottom;
-    public LayerMask enemylair;
+    public LayerMask enemyLayer;
     bool attacking = false;
     public int attackDamage;
     private int treasure;
@@ -120,7 +120,7 @@ public class playerAI : MonoBehaviour
         {
            SceneManager.LoadScene("StartMenu");
         }
-        if(player.GetComponent<PlayerManager>().dead==true)
+        if(player.GetComponent<PlayerManager>().isDead==true)
         {
             ai.isStopped=true;
             GetComponent<PlayerManager>().animator.SetBool("isDead", true);
@@ -136,7 +136,7 @@ public class playerAI : MonoBehaviour
     void AttackEnemy()
     {
         
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylair);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
             foreach(Collider2D enemy in hitEnemies)
             {
                 if(attacking==false)
@@ -145,7 +145,7 @@ public class playerAI : MonoBehaviour
                 }
             }
         
-            Collider2D[] hitEnemiesl = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemylair);
+            Collider2D[] hitEnemiesl = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, enemyLayer);
             foreach(Collider2D enemy in hitEnemiesl)
             {
                 if(attacking==false)
@@ -153,7 +153,7 @@ public class playerAI : MonoBehaviour
                   StartCoroutine(attack(enemy));
                 }
             }
-            Collider2D[] hitEnemiest = Physics2D.OverlapCircleAll(attackPointTop.position, attackRange, enemylair);
+            Collider2D[] hitEnemiest = Physics2D.OverlapCircleAll(attackPointTop.position, attackRange, enemyLayer);
             foreach(Collider2D enemy in hitEnemiest)
             {
                 if(attacking==false)
@@ -161,7 +161,7 @@ public class playerAI : MonoBehaviour
                   StartCoroutine(attack(enemy));
                 }
             }
-            Collider2D[] hitEnemiesb = Physics2D.OverlapCircleAll(attackPointBottom.position, attackRange, enemylair);
+            Collider2D[] hitEnemiesb = Physics2D.OverlapCircleAll(attackPointBottom.position, attackRange, enemyLayer);
             foreach(Collider2D enemy in hitEnemiesb)
             {
                 if(attacking==false)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour, ShopInterface
 {
@@ -8,10 +9,13 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Animator animator;
     public Transform player;
     public Rigidbody2D rb;
+
     public int maxHealth;
-    public int currentHealth; 
+    public int currentHealth;
+    private int numberOfHearts;
+
     public int money;
-    public bool dead = false;
+    public bool isDead = false;
 
     public Attack attack;
     public ShopDialogue message;
@@ -33,6 +37,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         // Makes the players current health into the max health
         
         currentHealth = maxHealth;
+        numberOfHearts = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
     }
 
@@ -40,8 +45,8 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         animator.SetTrigger("Hurt");
         Debug.Log("Taking Damage");
-        currentHealth -= Damage;
         FindObjectOfType<SoundManager>().Play("Player Hurt");
+        currentHealth -= Damage;
         if(currentHealth <= 0)
         {
             Die();
@@ -52,7 +57,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
-        dead = true;
+        isDead = true;
     }
 
     //Regarding purchasing items.
@@ -70,6 +75,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void BoughtItem(string name, int cost)
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");
+        FindObjectOfType<SoundManager>().Play("Purchase Item");
         message.thankPlayer(name, cost);
     }
 
