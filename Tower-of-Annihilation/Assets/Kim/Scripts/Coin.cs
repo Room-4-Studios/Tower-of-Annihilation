@@ -33,6 +33,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             mgmt.SendMessage("Money");
+            FindObjectOfType<SoundManager>().Play("Pickup Coin");
             Destroy(gameObject);
         }
     }

@@ -45,6 +45,7 @@ public class ChestManager : MonoBehaviour
         {
             /* Animation is triggered, Item in chest is dropped */
             AnimateObject();
+            FindObjectOfType<SoundManager>().Play("Open Chest");
             getItem.ChestDropItem();
             isOpen = true;
         }

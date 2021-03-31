@@ -37,7 +37,7 @@ public class Attack : MonoBehaviour
     { 
         //Debug.Log(GetComponent<PlayerMovement>().GetPreviousMovement());
         GetComponent<PlayerManager>().animator.SetTrigger("Attack");
-        //sh.PlayPlayerAttack();
+        FindObjectOfType<SoundManager>().Play("Player Attack");
         if(GetComponent<PlayerMovement>().GetPreviousMovement() == 1)
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
