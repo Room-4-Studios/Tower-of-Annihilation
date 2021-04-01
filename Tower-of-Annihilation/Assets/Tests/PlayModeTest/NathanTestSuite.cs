@@ -33,7 +33,7 @@ namespace Tests
                 moneyOnTheScreen++; 
             }
             Debug.Log($"Total number of coins in scene: {moneyOnTheScreen}");
-            Assert.AreNotEqual(moneyOnTheScreen, 9999, "Test Failed after " + moneyOnTheScreen + " coins on screen.");
+            Assert.AreEqual(moneyOnTheScreen, 9999, "Test Failed after " + moneyOnTheScreen + " coins on screen.");
             yield return null;
         }
     }

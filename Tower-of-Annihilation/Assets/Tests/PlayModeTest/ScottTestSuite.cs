@@ -61,7 +61,7 @@ namespace Tests
             for(i = 0; i < 30; i++)
             {
                 SceneManager.LoadScene("Demo Scene");
-                if (time > 0.0001)
+                if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);
                 }

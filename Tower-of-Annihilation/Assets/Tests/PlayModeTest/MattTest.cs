@@ -59,11 +59,13 @@ namespace Tests
                
             
             Debug.Log($"Total number of slimes in scene: {allSlime}");
-            Assert.AreNotEqual(allSlime, 49, "A* was no longer efficiently compute when " + allSlime + " Slimes were spawned.");
+            Assert.AreEqual(49, allSlime, "A* was no longer efficiently compute when " + allSlime + " Slimes were spawned.");
            
             yield return null;
-            /* This test stresses the A* Pathfinding system for the Enemy AI feature. Essentially, the pathfinder dictates movement for the enemy AI if too many agents are spawned the pathfinding
-            algorithm cannot process movement, thus, the slimes cease movement and the while loop exits completing the stress test and returning count of enemies spawned */
+            /* This test stresses the A* Pathfinding system for the Enemy AI feature. Essentially, 
+             * the pathfinder dictates movement for the enemy AI if too many agents are spawned the pathfinding
+             * algorithm cannot process movement, thus, the slimes cease movement and the while loop exits completing 
+             * the stress test and returning count of enemies spawned */
         }
 
        
