@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+
 using UnityEngine.TestTools;
 
 using UnityEngine.SceneManagement;
@@ -10,16 +11,16 @@ namespace Tests
 {
     public class MattTest
     {
-        public GameObject Slime;
-        public GameObject Player;
-        Vector3 location;
+        private GameObject[] Slime;
+        private GameObject Player;
+        Vector3 movement;
         
         GameObject clone_slime;
         
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Demo Scene");
+            SceneManager.LoadScene("Demo Scene 2");
         }
 
         [UnityTest]
@@ -36,25 +37,29 @@ namespace Tests
         {
             
             int allSlime= 0;
-            Slime=GameObject.Find("Slime");
+            Slime=GameObject.FindGameObjectsWithTag("Enemy");
             Player=GameObject.Find("Player");
             
 
             Player.GetComponent<PlayerManager>().currentHealth=100000;
             
-            while(Slime.transform.position!=location)
-            {
-               yield return new WaitForSeconds(2f);
-               
+            
+        
+            movement = new Vector3 (0,0,0);
                 
-               allSlime++;
+                while(movement!=Slime[0].transform.position)
+                {
+                    movement=Slime[0].transform.position;
+                    yield return new WaitForSeconds(.5f);
+                    clone_slime = GameObject.Instantiate(Slime[0], new Vector2(2,-2), Quaternion.identity) as GameObject;
+                    allSlime++;   
+                    Debug.Log("Slimes in scene: {allSlime}");
+                }
+                
+               
+            
 
-               clone_slime = GameObject.Instantiate(Slime, new Vector2(4f,0f), Quaternion.identity) as GameObject;
-               Debug.Log($"Total number of slimes in scene: {allSlime}");
-               location= Slime.transform.position;
-            }
-
-            Assert.AreEqual(allSlime, 1000, "Test failed after " + allSlime + " slimes were spawned.");
+            Assert.AreNotEqual(allSlime, 1000, "Test failed after " + allSlime + " slimes were spawned.");
            
             yield return null;
         }

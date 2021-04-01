@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo_Mode_Pass.unity
     guid: d8f08c7c84163441d918afab514717d5
+  - enabled: 1
+    path: Assets/Scenes/Demo Scene 2.unity
+    guid: 8f73ae380ee22465bb1caf851e378f15
   m_configObjects: {}
