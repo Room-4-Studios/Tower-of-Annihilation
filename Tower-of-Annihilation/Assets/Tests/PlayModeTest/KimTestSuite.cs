@@ -26,8 +26,8 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
 
-        // I don't know if this works well enough.
-        [UnityTest]
+        //See if coin moves from stack.
+        /*[UnityTest]
         public IEnumerator CoinPositionStress()
         {
             int i = 0;
@@ -57,7 +57,36 @@ namespace Tests
                 Debug.Log($"Total number of shopkeepers in scene: {totalShop}");
             }
             Assert.AreEqual(100, totalShop, "Coin moved after " + totalShop + " coins were added to the scene.");
-            //Failure depends on RAM.
+
+            yield return null;
+        }*/
+
+        [UnityTest]
+        public IEnumerator HowManyShopkeepersBreakGame()
+        {
+            int i = 0;
+            int totalShop = 1;
+            shopkeeper = GameObject.Find("Shopkeeper");
+            canvas = GameObject.Find("Canvas");
+            coin = GameObject.Find("Coin");
+            float x;
+            float y;
+            for (i = 0; i < 2000; i++)
+            {
+                //yield return new WaitForSeconds(0.0001f);
+                x = Random.Range(-3f, -2.9f);
+                y = Random.Range(-1f, -0.9f);
+                clone_shop = GameObject.Instantiate(shopkeeper, shopkeeper.GetComponent<Transform>().position, Quaternion.identity) as GameObject;
+                clone_canvas = GameObject.Instantiate(canvas, canvas.GetComponent<Transform>().position, Quaternion.identity) as GameObject;
+                if (coin != null)
+                {
+                    clone_coin = GameObject.Instantiate(coin, new Vector2(x, y), Quaternion.identity) as GameObject;
+                }
+                totalShop++;
+                Debug.Log($"Total number of shopkeepers in scene: {totalShop}");
+            }
+            Assert.AreNotEqual(2000, totalShop, "Number of shopkeepers that break Unity: " + totalShop);
+
             yield return null;
         }
     }
