@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+
 using UnityEngine.SceneManagement;
 
 namespace Tests
@@ -11,6 +12,7 @@ namespace Tests
     {
         public GameObject Slime;
         public GameObject Player;
+        Vector3 location;
         
         GameObject clone_slime;
         
@@ -30,29 +32,34 @@ namespace Tests
  
 
         [UnityTest]
-        public IEnumerator Nickelodeon()
+        public IEnumerator Stampede()
         {
             
-            int allSlime= 8;
+            int allSlime= 0;
             Slime=GameObject.Find("Slime");
             Player=GameObject.Find("Player");
+            
 
-            while(Player.transform.position.x>21.66f&&Player.transform.position.y<4.81f)
+            Player.GetComponent<PlayerManager>().currentHealth=100000;
+            
+            while(Slime.transform.position!=location)
             {
-               yield return new WaitForSeconds(0.1f);
+               yield return new WaitForSeconds(2f);
                
-
+                
                allSlime++;
 
-               clone_slime = GameObject.Instantiate(Slime, new Vector2(23.74f,1.14f), Quaternion.identity) as GameObject;
+               clone_slime = GameObject.Instantiate(Slime, new Vector2(4f,0f), Quaternion.identity) as GameObject;
                Debug.Log($"Total number of slimes in scene: {allSlime}");
- 
+               location= Slime.transform.position;
             }
 
-            Assert.AreNotEqual(allSlime, 8, "Test failed after " + allSlime + " slimes were spawned.");
+            Assert.AreEqual(allSlime, 1000, "Test failed after " + allSlime + " slimes were spawned.");
            
             yield return null;
         }
+
+       
     }
 }
 

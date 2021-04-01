@@ -87,7 +87,7 @@ public class enemy : MonoBehaviour
 
         if(distanceToPlayer < attackRange)
         {
-            ai.isStopped=true;
+            //ai.isStopped=true;
             
             Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
@@ -111,7 +111,7 @@ public class enemy : MonoBehaviour
         }
         else
         {
-            ai.isStopped=false;
+           // ai.isStopped=false;
         }
        
        
