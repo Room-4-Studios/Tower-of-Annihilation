@@ -53,15 +53,17 @@ namespace Tests
                     yield return new WaitForSeconds(.5f);
                     clone_slime = GameObject.Instantiate(Slime[0], new Vector2(2,-2), Quaternion.identity) as GameObject;
                     allSlime++;   
-                    Debug.Log("Slimes in scene: {allSlime}");
+                    Debug.Log($"Total number of slimes in scene: {allSlime}");
                 }
                 
                
             
-
-            Assert.AreNotEqual(allSlime, 1000, "Test failed after " + allSlime + " slimes were spawned.");
+            Debug.Log($"Total number of slimes in scene: {allSlime}");
+            Assert.AreNotEqual(allSlime, 49, "A* was no longer efficiently compute when " + allSlime + " Slimes were spawned.");
            
             yield return null;
+            /* This test stresses the A* Pathfinding system for the Enemy AI feature. Essentially, the pathfinder dictates movement for the enemy AI if too many agents are spawned the pathfinding
+            algorithm cannot process movement, thus, the slimes cease movement and the while loop exits completing the stress test and returning count of enemies spawned */
         }
 
        
