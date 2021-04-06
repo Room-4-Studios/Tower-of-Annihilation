@@ -20,6 +20,7 @@ public class Shop : MonoBehaviour
     private Transform shopItemTemplate;
 
     private ShopInterface customer;
+    GameObject message;
 
     public int total;
     public int randomNumber;
@@ -88,10 +89,15 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        message = GameObject.Find("dialogue");
+
+        //Manually create options.
         /*CreateItemButton(smallHealthPotion, "Small Health Potion", 1, 0);
         CreateItemButton(bigHealthPotion, "Big Health Potion", 4, 1);
         CreateItemButton(hpHeart, "Health Upgrade", 10, 2);
         CreateItemButton(sword, "Damage Upgrade", 11, 3);*/
+
+        //Randomize options.
         itemDB = (Item[])System.Enum.GetValues(typeof(Item));
         List<Item> itemList = new List<Item>(itemDB);
         Item item1 = RandomChooser(itemList);
@@ -123,6 +129,8 @@ public class Shop : MonoBehaviour
         if (customer.AttemptBuy(cost))
         {
             customer.BoughtItem(name, cost);
+            message.GetComponent<ShopDialogue>().thankPlayer(name, cost);
+
             if (name == "Small Health Potion")
                 customer.useHealItem(5);
             else if (name == "Big Health Potion")
@@ -132,6 +140,7 @@ public class Shop : MonoBehaviour
             else if (name == "Damage Upgrade")
                 customer.upgradeDamage();
         }
+        else message.GetComponent<ShopDialogue>().insultPlayer(cost);
     }
 
     public void Show(ShopInterface customer) 

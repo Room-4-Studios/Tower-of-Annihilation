@@ -17,8 +17,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public int money;
     public bool isDead = false;
 
-    public Attack attack;
-    public ShopDialogue message;
+    Attack attack;
 
     private SoundManager sh;
 
@@ -39,6 +38,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         currentHealth = maxHealth;
         numberOfHearts = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
+        attack = GetComponent<Attack>(); //Get Attack script.
     }
 
     public void TakeDamage(int Damage)
@@ -76,7 +76,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");
         FindObjectOfType<SoundManager>().Play("Purchase Item");
-        message.thankPlayer(name, cost);
     }
 
     public bool AttemptBuy(int cost)
@@ -89,7 +88,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         }
         else //Not enough money.
         { 
-            message.insultPlayer(cost, money);
             return false;
         }
 
