@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private IEnumerator wait()
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(60);
-        pickScene();
+        PickScene();
     }
 
     void Start()
     {
-      StartCoroutine(wait());
+      StartCoroutine(Wait());
     }
     public void PlayGame()
     {
-        StopCoroutine(wait());
+        StopCoroutine(Wait());
         SceneManager.LoadScene("Introduction Scene");
     }
 
@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    void pickScene()
+    void PickScene()
     {
         int scene=0;
         scene=Random.Range(0,0);
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
                 SceneManager.LoadScene("Demo_Mode_Pass");
                 break;
             default:
-                pickScene();
+                PickScene();
                 break;
         }
     }
