@@ -20,7 +20,7 @@ namespace Tests
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Demo Scene 2");
+            SceneManager.LoadScene("Level 1");
         }
 
         [UnityTest]
