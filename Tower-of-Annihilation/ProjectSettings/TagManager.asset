@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Chest
+  - NL
+  - Coin
   layers:
   - Default
   - TransparentFX

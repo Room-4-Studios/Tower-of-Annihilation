@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6505714162733085955}
+  isOpen: 0
 --- !u!114 &1290110002479506267
 MonoBehaviour:
   m_ObjectHideFlags: 0

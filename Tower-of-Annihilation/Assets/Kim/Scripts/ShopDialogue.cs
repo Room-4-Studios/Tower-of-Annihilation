@@ -90,14 +90,13 @@ public class ShopDialogue : MonoBehaviour
         textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
     }
 
-    public void insultPlayer(int cost, int currentMoney)
+    public void insultPlayer(int cost)
     {
         string[] messageArray = new string[] {
             "You're kinda poor, aren't you? Come back with more money.",
             "Do you see those yellow coins around the place? Gimme those. Then buy something from me.",
             "Do you wanna keep your liver, or do you wanna keep your kneecaps? Because this ain't free.",
-            $"Geez mate, it's only {cost} coin(s). How freaking expensive can it be?",
-            $"You only need {cost-currentMoney} more coin(s), okay? Come back to me later."
+            $"Geez mate, it's only {cost} coin(s). How freaking expensive can it be?"
         };
         string message = messageArray[Random.Range(0, messageArray.Length)];
         textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);

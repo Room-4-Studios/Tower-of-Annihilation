@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+
 using UnityEngine.TestTools;
+
 using UnityEngine.SceneManagement;
 
 namespace Tests
 {
     public class MattTest
     {
-        public GameObject Slime;
-        public GameObject Player;
+        private GameObject[] Slime;
+        private GameObject Player;
+        Vector3 movement;
         
         GameObject clone_slime;
         
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Demo Scene");
+            SceneManager.LoadScene("Level 1");
         }
 
         [UnityTest]
@@ -30,29 +33,42 @@ namespace Tests
  
 
         [UnityTest]
-        public IEnumerator Nickelodeon()
+        public IEnumerator Stampede()
         {
             
-            int allSlime= 8;
-            Slime=GameObject.Find("Slime");
+            int allSlime= 0;
+            Slime=GameObject.FindGameObjectsWithTag("Enemy");
             Player=GameObject.Find("Player");
+            
 
-            while(Player.transform.position.x>21.66f&&Player.transform.position.y<4.81f)
-            {
-               yield return new WaitForSeconds(0.1f);
+            Player.GetComponent<PlayerManager>().currentHealth=100000;
+            
+            
+        
+            movement = new Vector3 (0,0,0);
+                
+                while(movement!=Slime[0].transform.position)
+                {
+                    movement=Slime[0].transform.position;
+                    yield return new WaitForSeconds(.5f);
+                    clone_slime = GameObject.Instantiate(Slime[0], new Vector2(2,-2), Quaternion.identity) as GameObject;
+                    allSlime++;   
+                    Debug.Log($"Total number of slimes in scene: {allSlime}");
+                }
+                
                
-
-               allSlime++;
-
-               clone_slime = GameObject.Instantiate(Slime, new Vector2(23.74f,1.14f), Quaternion.identity) as GameObject;
-               Debug.Log($"Total number of slimes in scene: {allSlime}");
- 
-            }
-
-            Assert.AreNotEqual(allSlime, 8, "Test failed after " + allSlime + " slimes were spawned.");
+            
+            Debug.Log($"Total number of slimes in scene: {allSlime}");
+            Assert.AreEqual(49, allSlime, "A* was no longer efficiently compute when " + allSlime + " Slimes were spawned.");
            
             yield return null;
+            /* This test stresses the A* Pathfinding system for the Enemy AI feature. Essentially, 
+             * the pathfinder dictates movement for the enemy AI if too many agents are spawned the pathfinding
+             * algorithm cannot process movement, thus, the slimes cease movement and the while loop exits completing 
+             * the stress test and returning count of enemies spawned */
         }
+
+       
     }
 }
 

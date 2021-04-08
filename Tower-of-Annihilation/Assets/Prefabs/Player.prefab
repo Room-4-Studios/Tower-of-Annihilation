@@ -23,7 +23,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5424971548940076565
 Transform:
@@ -157,13 +157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 0.4
-  attackDamage: 10
   attackPoint: {fileID: 5424971550528104454}
   attackPointLeft: {fileID: 2357364249623213663}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
   attackRate: 2
+  attackDamage: 10
 --- !u!58 &5424971548940076587
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,8 +196,12 @@ MonoBehaviour:
   animator: {fileID: 5424971548940076585}
   player: {fileID: 5424971548940076565}
   rb: {fileID: 5424971548940076584}
-  maxHealth: 50
-  money: 0
+  maxHealth: 4
+  currentHealth: 0
+  money: 10
+  isDead: 0
+  attack: {fileID: 5424971548940076590}
+  message: {fileID: 0}
 --- !u!114 &4253918385568417855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +241,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5424971550528104454
 Transform:
@@ -267,7 +271,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2357364249623213663
 Transform:

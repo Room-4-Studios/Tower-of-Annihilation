@@ -10,6 +10,7 @@ public class enemy : MonoBehaviour
     public static enemy isBusy;
     public Transform attackPoint;
     public Transform player;
+    
     public Transform castPoint;
     Quaternion q;
     public float radius;
@@ -18,6 +19,8 @@ public class enemy : MonoBehaviour
     public Rigidbody2D rb2d;
     Vector3 direction;
     IAstarAI ai;
+    Seeker seeker;
+    GameObject[] battlebuddy;
 
     public float attackRange;
     public int enemyDamage;
@@ -32,6 +35,14 @@ public class enemy : MonoBehaviour
     public float cooldown;
 
     private ItemDrop getItem;
+    public bool dead = false;
+
+    /* Audio added by Scott if you have questions */
+    // Added to Sound Manager - Nate
+    // public AudioSource slimeDeathAud;
+    // public AudioClip slimeSound;
+    
+  
 
     // These do not need declared with values. setup per 
     // public float radius = 50;
@@ -41,31 +52,43 @@ public class enemy : MonoBehaviour
     void Start()
     {
         ai = GetComponent<IAstarAI>();
+        seeker= GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
         direction = transform.up;
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
         //Generate a Rotating Raycast
         currentHealth = maxHealth;
         timerForNextAttack = cooldown;
-
+        
+        
         getItem = GetComponent<ItemDrop>();
-       // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
+        // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
+
+        //slimeDeathAud = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
-            ai.destination = PickRandomPoint();
+            ai.destination=PickRandomPoint();
             ai.SearchPath();
         }
+       
+       
         LookForPlayer();
-        
+        CheckDistance();
+       
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
         if(distanceToPlayer < attackRange)
         {
+            //ai.isStopped=true;
+            
             Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
@@ -79,14 +102,22 @@ public class enemy : MonoBehaviour
 
                 foreach(Collider2D player in hitPlayers)
                 {
+                    
                     player.GetComponent<PlayerManager>().TakeDamage(enemyDamage);
                 }
                 timerForNextAttack = cooldown;
-
+                
             }
         }
-
+        else
+        {
+           // ai.isStopped=false;
+        }
+       
+       
     }
+
+   
 
     public bool canSeePlayer(float distance)
     {
@@ -117,30 +148,35 @@ public class enemy : MonoBehaviour
             direction = q * direction;
         }
         //For raycast to work! set player(Tag:Player , Layer:Action) enemy(s)(Tag:Enemy, Layer:Default)
+        //Debug.DrawLine(castPoint.position,endPos,Color.red,radius);
         return seePlayer;
     }
 
     void ChasePlayer()
     {
         //move toward the player
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        
+        seeker.CancelCurrentPathRequest();
+        ai.destination=player.position;
+        ai.SearchPath();
     }
     
     public bool StopChasingPlayer()
     {
         if (canSeePlayer(aggroRange) == false)
         {
-            return true;
+          
+          return true;
         }
         return false;
     }
 
     Vector3 PickRandomPoint()
     {
-        var point = Random.insideUnitSphere * radius;
-        point.y = Random.Range(-5,5);
+        var point = Random.insideUnitCircle* radius;
+        point.y = Random.Range(-2.5f,2.5f);
         // point.y = 0; // Added a range value for vertical movement.
-        point += ai.position;
+        point += (Vector2)ai.position;
         return point;
     }
 
@@ -158,17 +194,24 @@ public class enemy : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
+        Debug.Log(Damage);
+        Debug.Log(currentHealth);
         currentHealth -= Damage;
         animator.SetTrigger("Hurt");
+        FindObjectOfType<SoundManager>().Play("Slime Hurt");
         if(currentHealth <= 0)
         {
+            
             Die();
         }
     }
 
     void Die()
     {
+        FindObjectOfType<SoundManager>().Play("Slime Death");
+
         Debug.Log("Enemy Died");
+        dead=true;
         animator.SetBool("isDead", true);
         getItem.DropItem();
         GetComponent<Collider2D>().enabled = false;
@@ -176,6 +219,7 @@ public class enemy : MonoBehaviour
         this.enabled = false;
         Destroy(this);
         Destroy(gameObject, 2);
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     void OnDrawGizmosSelected() 
@@ -186,7 +230,33 @@ public class enemy : MonoBehaviour
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    void acceptance_test(){
+    
+    void CheckDistance()
+    {
+      
+        
+        for(int i=0; i < battlebuddy.Length; i++)
+        {
+            if(battlebuddy[i]!=null)
+            {
+                float distanceToBattleBuddy=Vector2.Distance(transform.position, battlebuddy[i].transform.position);
+                 
+                    if(distanceToBattleBuddy < attackRange&&distanceToBattleBuddy!=0)
+                    {
+                        seeker.CancelCurrentPathRequest();
+                        ai.destination=PickRandomPoint();
+                        ai.SearchPath();
+                    }
+            }
+               
+        }
+        
+        battlebuddy = GameObject.FindGameObjectsWithTag("Enemy");
+        
+    }
+    
+    void acceptance_test()
+    {
      Vector3 point;
      // Points to TXT file in docs and opens it
      string path ="Assets/Matt/Scripts/Test.txt";

@@ -14,16 +14,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 76d515dccc178db4d895d7cf534a1d30
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo Scene.unity
     guid: efd0dacecc380e941a9ada98951eb07a
   - enabled: 1
-    path: Assets/Scenes/Introduction Scene.unity
+    path: Assets/Scenes/Shopkeeper Level.unity
     guid: 4266acdd94cb3994089767865328c5ed
   - enabled: 0
     path: Assets/Tests/TestScenes/ScottTest.unity
     guid: 79b5a6cea103bab4797a65778da70719
   - enabled: 1
-    path: Assets/Scenes/ScottScene.unity
+    path: Assets/Scenes/Level 2.unity
     guid: fbc0e8c624f436846904e950d748d822
+  - enabled: 1
+    path: Assets/Scenes/Demo_Mode_Pass.unity
+    guid: d8f08c7c84163441d918afab514717d5
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 8f73ae380ee22465bb1caf851e378f15
+  - enabled: 1
+    path: Assets/Scenes/Introduction Level.unity
+    guid: a5ca199e34e6dd94a8c8fbd90043578a
   m_configObjects: {}

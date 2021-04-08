@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: fff56c4d25641064d9d56acb588a9af0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -186,8 +186,8 @@ MonoBehaviour:
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
+    exactStartPoint: 0
+    exactEndPoint: 0
     useRaycasting: 0
     mask:
       serializedVersion: 2
@@ -227,7 +227,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.5
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -248,18 +248,19 @@ MonoBehaviour:
   attackPoint: {fileID: 6723503539099072264}
   player: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887, type: 3}
   castPoint: {fileID: 6505714161262731999}
-  radius: 10
+  radius: 2.5
   aggroRange: 5
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
   attackRange: 0.5
-  enemyDamage: 3
+  enemyDamage: 10
   animator: {fileID: 6505714162733085955}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxHealth: 10
+  maxHealth: 55
   cooldown: 3
+  dead: 0
 --- !u!50 &6505714162733085982
 Rigidbody2D:
   serializedVersion: 4

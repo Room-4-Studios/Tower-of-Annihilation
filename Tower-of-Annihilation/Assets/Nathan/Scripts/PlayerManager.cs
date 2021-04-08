@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour, ShopInterface
 {
@@ -8,25 +9,43 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public Animator animator;
     public Transform player;
     public Rigidbody2D rb;
-    public int maxHealth;
-    public int currentHealth; 
-    public int money;
 
-    public Attack attack;
-    public ShopDialogue message;
+    public int maxHealth;
+    public int currentHealth;
+    private int numberOfHearts;
+
+    public int money;
+    public bool isDead = false;
+
+    Attack attack;
+
+    private SoundManager sh;
+
+    /* Audio Changes were done by Scott if you have questions */
+    /* Moved to SOUNDMANAGER.CS */
+    // public AudioSource coinAud;
+    // public AudioClip coinSound;
+    // public AudioSource buyAud;
+    // public AudioClip coinSound2;
+    // public AudioSource damageAud;
+    // public AudioClip damageSound;
 
     // Start is called before the first frame update
     void Start()
     {
         // Makes the players current health into the max health
+        
         currentHealth = maxHealth;
+        numberOfHearts = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
+        attack = GetComponent<Attack>(); //Get Attack script.
     }
 
     public void TakeDamage(int Damage)
     {
         animator.SetTrigger("Hurt");
         Debug.Log("Taking Damage");
+        FindObjectOfType<SoundManager>().Play("Player Hurt");
         currentHealth -= Damage;
         if(currentHealth <= 0)
         {
@@ -38,6 +57,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
+        isDead = true;
     }
 
     //Regarding purchasing items.
@@ -48,13 +68,14 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public void Money() //Increase coin amount if pick up coin.
     {
+        //coinAud.PlayOneShot(coinSound);
         money++; 
     }
 
     public void BoughtItem(string name, int cost)
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");
-        message.thankPlayer(name, cost);
+        FindObjectOfType<SoundManager>().Play("Purchase Item");
     }
 
     public bool AttemptBuy(int cost)
@@ -62,11 +83,11 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         if (money >= cost) //Enough money.
         {
             money -= cost;
+            //buyAud.PlayOneShot(coinSound2);
             return true;
         }
         else //Not enough money.
         { 
-            message.insultPlayer(cost, money);
             return false;
         }
 

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4186181085700432658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4186181085700432748}
+  - component: {fileID: 4186181085700432659}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4186181085700432748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186181085700432658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.37342, y: 2.8025062, z: -1.9365377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4186181085700432659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186181085700432658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045125e94a877814aa6ec9c6cfd1778f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Player Hurt
+    clip: {fileID: 8300000, guid: 5b21c97a5b25bd948961eb5876457043, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Player Attack
+    clip: {fileID: 8300000, guid: 62a790870ea658043a057ad356005e19, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Pickup Coin
+    clip: {fileID: 8300000, guid: cd146caeb78c7e747bef94dad9c8ebd4, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Open Chest
+    clip: {fileID: 8300000, guid: 6e2f66b960e87b7469db26c63f8eb9ec, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Purchase Item
+    clip: {fileID: 8300000, guid: 8e301ca0527fef0479e01c3d332ae9b5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Slime Hurt
+    clip: {fileID: 8300000, guid: f14bdc8455226434c8307c2ef8fadd3b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Slime Death
+    clip: {fileID: 8300000, guid: f556361a7e1ecc54488dc9c27428b3da, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
