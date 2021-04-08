@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI coin;
     GameObject Player;
-    private IEnumerator isDead()
-    {
-        
+
+    private IEnumerator IsDead()
+    { 
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("StartMenu");
     }
@@ -26,15 +26,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      gameover();
+      GameOver();
     }
 
-    void gameover()
+    void GameOver()
     {
         if(Player.GetComponent<PlayerManager>().isDead == true)
         {
            gameOverText.gameObject.SetActive(true);
-           StartCoroutine(isDead());
+           StartCoroutine(IsDead());
         }
     }
 }
