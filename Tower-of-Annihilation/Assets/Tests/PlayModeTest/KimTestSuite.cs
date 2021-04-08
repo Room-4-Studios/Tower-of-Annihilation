@@ -21,15 +21,15 @@ namespace Tests
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Demo Scene");
+            SceneManager.LoadScene("Level 1");
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
 
         //See if coin moves from stack.
-        /*[UnityTest]
-        public IEnumerator CoinPositionStress()
+        [UnityTest]
+        public IEnumerator CoinPositionTest()
         {
             int i = 0;
             int totalShop = 1;
@@ -60,7 +60,7 @@ namespace Tests
             Assert.AreEqual(100, totalShop, "Coin moved after " + totalShop + " coins were added to the scene.");
 
             yield return null;
-        }*/
+        }
 
         [UnityTest]
         public IEnumerator HowManyShopkeepersBreakGame()
@@ -72,7 +72,7 @@ namespace Tests
             coin = GameObject.Find("Coin");
             float x;
             float y;
-            for (i = 0; i < 2000; i++)
+            for (i = 0; i < 1500; i++)
             {
                 //yield return new WaitForSeconds(0.0001f);
                 x = Random.Range(-3f, -2.9f);
@@ -86,7 +86,7 @@ namespace Tests
                 totalShop++;
                 Debug.Log($"Total number of shopkeepers in scene: {totalShop}");
             }
-            Assert.AreNotEqual(2000, totalShop, "Number of shopkeepers that break Unity: " + totalShop);
+            Assert.AreNotEqual(1500, totalShop, "Number of shopkeepers that break Unity: " + totalShop);
 
             yield return null;
         }
