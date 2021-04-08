@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         StopCoroutine(Wait());
-        SceneManager.LoadScene("Introduction Scene");
+        SceneManager.LoadScene("Introduction Level");
     }
 
     public void QuitGame()

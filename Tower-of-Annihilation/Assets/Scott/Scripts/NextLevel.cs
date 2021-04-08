@@ -15,7 +15,7 @@ public class NextLevel : MonoBehaviour
             //Debug.Log("Henlo");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
             /* Scene changes */
-            SceneManager.LoadScene("Demo Scene");
+            SceneManager.LoadScene("Level 1");
         }
     }
 }

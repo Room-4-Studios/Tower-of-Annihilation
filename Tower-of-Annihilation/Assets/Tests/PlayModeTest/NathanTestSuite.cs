@@ -9,8 +9,8 @@ namespace Tests
 {
     public class NathanTestSuite
     {
-        private GameObject coin;
-        GameObject clone_coin;
+        private GameObject coin = GameObject.Find("Coin");
+        GameObject coinInstance;
 
         [OneTimeSetUp]
         public void LoadScene()
@@ -22,18 +22,33 @@ namespace Tests
         public IEnumerator How_many_coins_overload_the_game_and_break_something()
         {
             int moneyOnTheScreen = 0;
-
-
+            int startSeconds = System.DateTime.Now.Second;
             coin = GameObject.Find("Coin");
-            for (int i = 0; i < 10000; i++)
+            //float time = ;
+            for (int i = 0; i < 1000000; i++)
             {
+                // Start Timer
+                // Make Coin
+                // if time > expected time for spawn break;
+                
+                // Create coin at position
                 float x = Random.Range(-3f, 42f);
                 float y = Random.Range(-1f, -0.9f);
-                clone_coin = GameObject.Instantiate(coin, new Vector2(23.74f,1.14f), Quaternion.identity) as GameObject;
-                moneyOnTheScreen++; 
+                coinInstance = Object.Instantiate(coin, new Vector3(x, y, 0), Quaternion.identity);
+                moneyOnTheScreen++;
+                
+                int endSeconds = System.DateTime.Now.Second;
+                int timeDiff = endSeconds - startSeconds;
+                Debug.Log($"Waited {timeDiff} Seconds");
+                if(timeDiff == 10)
+                {
+                    break;
+                }
+                // Debug.Log($"Start seconds: {startSeconds}");
+                // Debug.Log($"End seconds: {endSeconds}");
             }
             Debug.Log($"Total number of coins in scene: {moneyOnTheScreen}");
-            Assert.AreEqual(moneyOnTheScreen, 9999, "Test Failed after " + moneyOnTheScreen + " coins on screen.");
+            //Assert.AreEqual(moneyOnTheScreen, 9999, "Test Failed after " + moneyOnTheScreen + " coins on screen.");
             yield return null;
         }
     }
