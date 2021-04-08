@@ -17,7 +17,7 @@ namespace Tests
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Demo Scene");
         }
 
         [UnityTest]
@@ -60,33 +60,33 @@ namespace Tests
             float time = 0.2f;
             for(i = 0; i < 30; i++)
             {
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Demo Scene");
                 if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);
                 }
                 count++;
-                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level 1"))
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Demo Scene"))
                 {
                     initializedScenes++;
                 }
-                SceneManager.LoadScene("Introduction Level");
+                SceneManager.LoadScene("Introduction Scene");
                 if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);
                 }
                  count++;
-                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Introduction Level"))
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Introduction Scene"))
                 {
                     initializedScenes++;
                 }
-                SceneManager.LoadScene("Level 2");
+                SceneManager.LoadScene("ScottScene");
                 if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);
                 }
                 count++;
-                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level 2"))
+                if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ScottScene"))
                 {
                     initializedScenes++;
                 }

@@ -27,7 +27,7 @@ namespace Tests
             var go = GameObject.Find(name);
             Assert.IsNotNull(go, "Missing button " + name);
             go.GetComponent<Button>().onClick.Invoke();
-            DidSceneLoad("Introduction Level");
+            DidSceneLoad("Introduction Scene");
             yield return null;
         }
 
