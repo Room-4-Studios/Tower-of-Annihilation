@@ -4269,26 +4269,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &482111872 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8782381700972521719, guid: c702477ab3144c54e8179947e019ca44,
-    type: 3}
-  m_PrefabInstance: {fileID: 8782381700949906866}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &482111877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482111872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8312d2e5ca2c84658bd1897e8661e7d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverText: {fileID: 1737369389}
-  coin: {fileID: 759382377}
 --- !u!1 &587835930
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,18 +4444,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &759382377 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8782381701763709424, guid: c702477ab3144c54e8179947e019ca44,
-    type: 3}
-  m_PrefabInstance: {fileID: 8782381700949906866}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &776301757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8436,18 +8404,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1737369389 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7473165648600862642, guid: c702477ab3144c54e8179947e019ca44,
-    type: 3}
-  m_PrefabInstance: {fileID: 8782381700949906866}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1826645559
 GameObject:
   m_ObjectHideFlags: 0
@@ -21022,5 +20978,6 @@ PrefabInstance:
       propertyPath: mgmt
       value: 
       objectReference: {fileID: 1574395892}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5973349140426972711, guid: c702477ab3144c54e8179947e019ca44, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c702477ab3144c54e8179947e019ca44, type: 3}
