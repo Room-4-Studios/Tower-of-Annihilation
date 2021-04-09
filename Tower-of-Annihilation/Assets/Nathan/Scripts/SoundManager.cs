@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     
     public Sound[] sounds;
-    // Start is called before the first frame update
+
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -25,9 +25,8 @@ public class SoundManager : MonoBehaviour
         s.source.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-
+        DontDestroyOnLoad(gameObject);
     }
 }
