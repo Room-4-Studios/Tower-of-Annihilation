@@ -132,13 +132,13 @@ public class Shop : MonoBehaviour
             message.GetComponent<ShopDialogue>().thankPlayer(name, cost);
 
             if (name == "Small Health Potion")
-                customer.useHealItem(5);
+                customer.UseHealItem(2);
             else if (name == "Big Health Potion")
-                customer.useHealItem(10);
+                customer.UseHealItem(5);
             else if (name == "Health Upgrade")
-                customer.upgradeHealth();
+                customer.UpgradeHealth();
             else if (name == "Damage Upgrade")
-                customer.upgradeDamage();
+                customer.UpgradeDamage();
         }
         else message.GetComponent<ShopDialogue>().insultPlayer(cost);
     }

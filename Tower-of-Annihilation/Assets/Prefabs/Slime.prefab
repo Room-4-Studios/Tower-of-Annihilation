@@ -252,7 +252,7 @@ MonoBehaviour:
   aggroRange: 5
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
-  attackRange: 0.5
+  attackRange: 1
   enemyDamage: 1
   animator: {fileID: 6505714162733085955}
   playerLayer:
