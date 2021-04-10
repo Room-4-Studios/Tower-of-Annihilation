@@ -164,7 +164,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRate: 2
-  attackDamage: 10
+  attackDamage: 1
 --- !u!58 &5424971548940076587
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,13 +193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8639d89dce0df4c4cacdfa6d44a466e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   animator: {fileID: 5424971548940076585}
   player: {fileID: 5424971548940076565}
   rb: {fileID: 5424971548940076584}
   maxHealth: 5
   currentHealth: 5
-  money: 10
+  money: 0
   isDead: 0
 --- !u!114 &4253918385568417855
 MonoBehaviour:

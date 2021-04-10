@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator IsDead()
     { 
         yield return new WaitForSeconds(3);
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Destroy(Player);
         SceneManager.LoadScene("StartMenu");
     }
 

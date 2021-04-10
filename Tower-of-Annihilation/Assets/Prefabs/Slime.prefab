@@ -258,7 +258,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxHealth: 55
+  maxHealth: 6
   cooldown: 3
   dead: 0
 --- !u!50 &6505714162733085982

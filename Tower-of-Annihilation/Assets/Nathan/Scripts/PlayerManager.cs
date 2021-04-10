@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
+        moveSpeed = 0;
+        //attack.attackRate = 0;
         isDead = true;
     }
 
@@ -99,6 +101,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public void UpgradeDamage()
     {
-        attack.attackDamage+=10;
+        attack.attackDamage += 1;
     }
 }

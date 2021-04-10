@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDelete : MonoBehaviour
 {
@@ -8,11 +9,15 @@ public class DontDelete : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        Scene scene = SceneManager.GetActiveScene();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
-        
+        if (scene.name == "StartMenu") 
+        {
+                Destroy(gameObject);
+                Debug.Log("I am inside the if statement");
+        }
     }
 }

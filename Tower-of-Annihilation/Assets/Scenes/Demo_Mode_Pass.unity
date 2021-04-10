@@ -8225,6 +8225,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421743446463129634, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1770419302504675701, guid: 453f8b228363447959b19b5cc201688b,
         type: 3}
       propertyPath: m_Name
@@ -8430,24 +8435,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
---- !u!1 &1639932077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4186181085700432658, guid: 54bc72d2c2ebcde4099415ed5ee31e8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1914246013}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1639932080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639932077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7da293f64279cf49ba48806e71a64a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1665446301
 GameObject:
   m_ObjectHideFlags: 0

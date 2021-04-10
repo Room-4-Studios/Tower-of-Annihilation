@@ -185,7 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRate: 2
-  attackDamage: 10
+  attackDamage: 1
 --- !u!58 &1770419302504675657
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -222,8 +222,6 @@ MonoBehaviour:
   currentHealth: 0
   money: 10
   isDead: 0
-  attack: {fileID: 1770419302504675660}
-  message: {fileID: 0}
 --- !u!114 &7552642282653661021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +283,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
-  attackDamage: 10
+  attackDamage: 1
 --- !u!114 &2409305425274775031
 MonoBehaviour:
   m_ObjectHideFlags: 0
