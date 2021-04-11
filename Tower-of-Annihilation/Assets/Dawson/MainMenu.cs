@@ -30,12 +30,15 @@ public class MainMenu : MonoBehaviour
     void PickScene()
     {
         int scene=0;
-        scene=Random.Range(0,0);
+        scene=Random.Range(0,1);
 
         switch (scene)
         {
             case 0:
-                SceneManager.LoadScene("Demo_Mode_Pass");
+                SceneManager.LoadScene("DemoMode_level1");
+                break;
+            case 1:
+                SceneManager.LoadScene("DemoMode_level2");
                 break;
             default:
                 PickScene();
