@@ -40,7 +40,7 @@ namespace Tests
                 int endSeconds = System.DateTime.Now.Second;
                 int timeDiff = endSeconds - startSeconds;
                 Debug.Log($"Waited {timeDiff} Seconds");
-                if(timeDiff == 30)
+                if(timeDiff == 20)
                 {
                     break;
                 }

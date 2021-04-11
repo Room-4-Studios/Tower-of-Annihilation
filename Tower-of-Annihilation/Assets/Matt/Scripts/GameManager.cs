@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -13,19 +13,25 @@ public class GameManager : MonoBehaviour
     private IEnumerator IsDead()
     { 
         yield return new WaitForSeconds(3);
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Destroy(Player);
         SceneManager.LoadScene("StartMenu");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Player= GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
         gameOverText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Player == null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
       GameOver();
     }
 

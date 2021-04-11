@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 5424971548940076587}
   - component: {fileID: -3528490812747139524}
   - component: {fileID: 4253918385568417855}
-  - component: {fileID: 3181659622999086256}
+  - component: {fileID: 514907995453568326}
+  - component: {fileID: 7016219438055313483}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -33,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5424971548940076567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.18, y: -2.23, z: 0}
+  m_LocalPosition: {x: 24.02, y: 2.48, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 5424971550528104454}
@@ -163,7 +164,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRate: 2
-  attackDamage: 10
+  attackDamage: 1
 --- !u!58 &5424971548940076587
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,16 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8639d89dce0df4c4cacdfa6d44a466e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   animator: {fileID: 5424971548940076585}
   player: {fileID: 5424971548940076565}
   rb: {fileID: 5424971548940076584}
-  maxHealth: 4
-  currentHealth: 0
-  money: 10
+  maxHealth: 5
+  currentHealth: 5
+  money: 0
   isDead: 0
-  attack: {fileID: 5424971548940076590}
-  message: {fileID: 0}
 --- !u!114 &4253918385568417855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5424971548940076565}
---- !u!114 &3181659622999086256
+--- !u!114 &514907995453568326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,6 +224,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf0ae53f45882b428a037fd2778a052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7016219438055313483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424971548940076567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7da293f64279cf49ba48806e71a64a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5424971550528104449

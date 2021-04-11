@@ -8,6 +8,7 @@ TagManager:
   - Chest
   - NL
   - Coin
+  - Spawn
   layers:
   - Default
   - TransparentFX

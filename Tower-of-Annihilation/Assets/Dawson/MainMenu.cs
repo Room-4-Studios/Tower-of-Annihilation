@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(2);
         PickScene();
     }
 
@@ -29,13 +29,15 @@ public class MainMenu : MonoBehaviour
 
     void PickScene()
     {
-        int scene=0;
-        scene=Random.Range(0,0);
+        int scene = Random.Range(0,2);
 
         switch (scene)
         {
             case 0:
-                SceneManager.LoadScene("Demo_Mode_Pass");
+                SceneManager.LoadScene("DemoMode_Level1");
+                break;
+            case 1:
+                SceneManager.LoadScene("DemoMode_Level2");
                 break;
             default:
                 PickScene();

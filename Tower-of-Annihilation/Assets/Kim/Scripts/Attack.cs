@@ -23,7 +23,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextAttackTime)
+        if(Time.time >= nextAttackTime && GetComponent<PlayerManager>().isDead == false)
         {
             if (Input.GetKeyDown("space"))
             {

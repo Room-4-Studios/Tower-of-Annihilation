@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     
     public Sound[] sounds;
-    // Start is called before the first frame update
+
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -23,11 +23,5 @@ public class SoundManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

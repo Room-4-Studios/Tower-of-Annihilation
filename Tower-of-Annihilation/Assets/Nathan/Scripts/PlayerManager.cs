@@ -12,8 +12,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public int maxHealth;
     public int currentHealth;
-    private int numberOfHearts;
-
+ 
     public int money;
     public bool isDead = false;
 
@@ -21,22 +20,12 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     private SoundManager sh;
 
-    /* Audio Changes were done by Scott if you have questions */
-    /* Moved to SOUNDMANAGER.CS */
-    // public AudioSource coinAud;
-    // public AudioClip coinSound;
-    // public AudioSource buyAud;
-    // public AudioClip coinSound2;
-    // public AudioSource damageAud;
-    // public AudioClip damageSound;
 
     // Start is called before the first frame update
     void Start()
     {
         // Makes the players current health into the max health
-        
         currentHealth = maxHealth;
-        numberOfHearts = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
         attack = GetComponent<Attack>(); //Get Attack script.
     }
@@ -44,7 +33,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void TakeDamage(int Damage)
     {
         animator.SetTrigger("Hurt");
-        Debug.Log("Taking Damage");
+        //Debug.Log("Taking Damage");
         FindObjectOfType<SoundManager>().Play("Player Hurt");
         currentHealth -= Damage;
         if(currentHealth <= 0)
@@ -57,6 +46,8 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void Die()
     {
         animator.SetBool("isDead", true);
+        moveSpeed = 0;
+        //attack.attackRate = 0;
         isDead = true;
     }
 
@@ -93,21 +84,23 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     }
 
-    public void useHealItem(int healAmount) 
+    public void UseHealItem(int healAmount) 
     {
         currentHealth += healAmount;
         if (currentHealth > maxHealth)
+        {
             currentHealth = maxHealth; //Cap health.
+        }
     }
 
-    public void upgradeHealth()
+    public void UpgradeHealth()
     {
-        maxHealth += 10;
-        currentHealth += 10; //Matches max if full health. If not, just give free +10 heal.
+        maxHealth += 1;
+        currentHealth += 1; //Matches max if full health. If not, just give free +10 heal.
     }
 
-    public void upgradeDamage()
+    public void UpgradeDamage()
     {
-        attack.attackDamage+=10;
+        attack.attackDamage += 1;
     }
 }

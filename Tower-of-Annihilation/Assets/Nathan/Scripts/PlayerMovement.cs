@@ -38,4 +38,14 @@ public class PlayerMovement : MonoBehaviour
     {
         return previousMovement;
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos();
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("Spawn").transform.position; 
+    }
 }
