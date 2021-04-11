@@ -28,8 +28,8 @@ public class enemy : MonoBehaviour
     public Animator animator;
     public LayerMask playerLayer;
 
-    public int maxHealth;
-    private int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     float timerForNextAttack;
     public float cooldown;
@@ -72,7 +72,7 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
-         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
         {
             ai.destination=PickRandomPoint();
             ai.SearchPath();
@@ -157,7 +157,7 @@ public class enemy : MonoBehaviour
         //move toward the player
         
         seeker.CancelCurrentPathRequest();
-        ai.destination=player.position;
+        ai.destination = player.position;
         ai.SearchPath();
     }
     
@@ -174,7 +174,7 @@ public class enemy : MonoBehaviour
     Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitCircle* radius;
-        point.y = Random.Range(-2.5f,2.5f);
+        point.y = Random.Range(-.5f, .5f);
         // point.y = 0; // Added a range value for vertical movement.
         point += (Vector2)ai.position;
         return point;
@@ -237,14 +237,14 @@ public class enemy : MonoBehaviour
         
         for(int i=0; i < battlebuddy.Length; i++)
         {
-            if(battlebuddy[i]!=null)
+            if(battlebuddy[i] != null)
             {
                 float distanceToBattleBuddy=Vector2.Distance(transform.position, battlebuddy[i].transform.position);
                  
                     if(distanceToBattleBuddy < attackRange&&distanceToBattleBuddy!=0)
                     {
                         seeker.CancelCurrentPathRequest();
-                        ai.destination=PickRandomPoint();
+                        ai.destination = PickRandomPoint();
                         ai.SearchPath();
                     }
             }

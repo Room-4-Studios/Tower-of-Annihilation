@@ -227,7 +227,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 0.5
+  pickNextWaypointDist: 0.2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -252,13 +252,14 @@ MonoBehaviour:
   aggroRange: 5
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
-  attackRange: 1
+  attackRange: 0.5
   enemyDamage: 1
   animator: {fileID: 6505714162733085955}
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
   maxHealth: 6
+  currentHealth: 0
   cooldown: 3
   dead: 0
 --- !u!50 &6505714162733085982
