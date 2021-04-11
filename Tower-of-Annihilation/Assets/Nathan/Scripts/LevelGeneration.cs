@@ -6,10 +6,9 @@ public class LevelGeneration : MonoBehaviour
 {
     GameObject[] badBois;
     public GameObject Slime;
-    public GameObject Leroyyy;
-
+    
     public GameObject Plunder;
-    GameObject Jenkinsss;
+
     GameObject[] Shinies;
     
 
@@ -18,10 +17,10 @@ public class LevelGeneration : MonoBehaviour
         
         badBois = GameObject.FindGameObjectsWithTag("E_Spawn");
         Shinies = GameObject.FindGameObjectsWithTag("L_Spawn");
-        Jenkinsss= GameObject.FindGameObjectWithTag("P_Spawn");
+        
         spawnEnemies();
         spawnBooty();
-        beamMeDown();
+       
         //int rand = Random.Range(0, objects.Length);
         //Instantiate(objects[rand], transform.position, Quaternion.identity);
     }
@@ -47,9 +46,5 @@ public class LevelGeneration : MonoBehaviour
        }
     }
 
-    void beamMeDown()
-    {
-        Instantiate(Leroyyy,Jenkinsss.transform.position,Quaternion.identity);
-        //see what i did there....
-    }
+    
 }
