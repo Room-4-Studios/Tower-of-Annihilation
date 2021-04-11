@@ -9,6 +9,9 @@ TagManager:
   - NL
   - Coin
   - Spawn
+  - E_Spawn
+  - P_Spawn
+  - L_Spawn
   layers:
   - Default
   - TransparentFX
