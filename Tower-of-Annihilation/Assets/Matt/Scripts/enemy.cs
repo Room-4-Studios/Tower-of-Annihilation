@@ -29,7 +29,8 @@ public class enemy : MonoBehaviour
     public LayerMask playerLayer;
 
     public int maxHealth;
-    private int currentHealth;
+    public int currentHealth;
+    public EnemyHealthBar HealthBar;
 
     float timerForNextAttack;
     public float cooldown;
@@ -60,7 +61,10 @@ public class enemy : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(Vector2.SignedAngle(castPoint.position, player.position) * 2, Vector3.forward);
         direction = q * direction;
         //Generate a Rotating Raycast
+
         currentHealth = maxHealth;
+        HealthBar.SetHealth(currentHealth, maxHealth);
+
         timerForNextAttack = cooldown;
         
         
@@ -197,11 +201,11 @@ public class enemy : MonoBehaviour
         Debug.Log(Damage);
         Debug.Log(currentHealth);
         currentHealth -= Damage;
+        HealthBar.SetHealth(currentHealth, maxHealth);
         animator.SetTrigger("Hurt");
         FindObjectOfType<SoundManager>().Play("Slime Hurt");
         if(currentHealth <= 0)
         {
-            
             Die();
         }
     }
