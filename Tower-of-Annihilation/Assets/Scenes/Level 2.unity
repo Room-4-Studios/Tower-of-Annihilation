@@ -30791,6 +30791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &284645324
 GameObject:
@@ -30917,6 +30918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &334682426
 GameObject:
@@ -31064,7 +31066,7 @@ Transform:
   m_LocalScale: {x: 11, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640542100
 PrefabInstance:
@@ -31081,7 +31083,7 @@ PrefabInstance:
     - target: {fileID: 4186181085700432748, guid: 54bc72d2c2ebcde4099415ed5ee31e8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4186181085700432748, guid: 54bc72d2c2ebcde4099415ed5ee31e8a,
         type: 3}
@@ -31242,7 +31244,7 @@ Transform:
   - {fileID: 1583109243}
   - {fileID: 1677567213}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813408402
 GameObject:
@@ -31399,6 +31401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1001 &923333498
 PrefabInstance:
@@ -31410,7 +31413,7 @@ PrefabInstance:
     - target: {fileID: 251537581181910333, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 251537581181910333, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
         type: 3}
@@ -31564,6 +31567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &993131363
 GameObject:
@@ -31660,6 +31664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1028047953
 GameObject:
@@ -31786,6 +31791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1122218126
 GameObject:
@@ -31912,6 +31918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1203358406
 GameObject:
@@ -32380,7 +32387,7 @@ PrefabInstance:
     - target: {fileID: 251537581181910333, guid: 9353c2850ff13e64091a822b7b9bdb8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 251537581181910333, guid: 9353c2850ff13e64091a822b7b9bdb8a,
         type: 3}
@@ -32534,6 +32541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1324971036
 GameObject:
@@ -39304,6 +39312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1393087033
 GameObject:
@@ -39390,7 +39399,7 @@ PrefabInstance:
     - target: {fileID: 8782381700972521723, guid: c702477ab3144c54e8179947e019ca44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8782381700972521723, guid: c702477ab3144c54e8179947e019ca44,
         type: 3}
@@ -39609,6 +39618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1583109242
 GameObject:
@@ -41565,6 +41575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
+  Leroyyy: {fileID: 5424971548940076567, guid: cb8233c461680da42aa3e6d700ca1887, type: 3}
   Plunder: {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
 --- !u!1 &1677567212
 GameObject:
@@ -41783,7 +41794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760037145
 GameObject:
@@ -44038,6 +44049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &1818518484
 GameObject:
@@ -44098,6 +44110,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1593421404}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1826113102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826113106}
+  - component: {fileID: 1826113105}
+  - component: {fileID: 1826113104}
+  - component: {fileID: 1826113103}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1826113103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826113102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4b9e3258e86154c9cef2038e97e835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5424971548940076565, guid: cb8233c461680da42aa3e6d700ca1887, type: 3}
+--- !u!81 &1826113104
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826113102}
+  m_Enabled: 1
+--- !u!20 &1826113105
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826113102}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 2
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 26.991467
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1826113106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826113102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.823874, y: 1.1550431, z: -16.4096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1980095615
 GameObject:
@@ -44224,6 +44333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
+  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
 --- !u!1 &2067145998
 GameObject:
@@ -44254,5 +44364,5 @@ Transform:
   m_Children:
   - {fileID: 1593421404}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
