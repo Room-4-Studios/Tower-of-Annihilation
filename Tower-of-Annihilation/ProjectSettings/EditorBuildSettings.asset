@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/Tests/TestScenes/ScottTest.unity
     guid: 79b5a6cea103bab4797a65778da70719
   - enabled: 1
-    path: Assets/Scenes/DemoMode_Level1.unity
+    path: Assets/Scenes/Demo_Mode_Pass.unity
     guid: d8f08c7c84163441d918afab514717d5
   m_configObjects: {}
