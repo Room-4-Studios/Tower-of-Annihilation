@@ -174,12 +174,15 @@ public class playerAI : MonoBehaviour
     void pickScene()
     {
         int scene=0;
-        scene=Random.Range(0,0);
+        scene=Random.Range(0,1);
 
         switch (scene)
         {
             case 0:
                 SceneManager.LoadScene("DemoMode_level1");
+                break;
+            case 1:
+                SceneManager.LoadScene("DemoMode_level2");
                 break;
             default:
                 pickScene();
