@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
         switch (scene)
         {
             case 0:
-                SceneManager.LoadScene("Demo_Mode_Pass");
+                SceneManager.LoadScene("DemoMode_level1");
                 break;
             default:
                 PickScene();

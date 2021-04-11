@@ -72,16 +72,15 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
-         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
             ai.destination=PickRandomPoint();
             ai.SearchPath();
         }
-       
-       
         LookForPlayer();
         CheckDistance();
        
+        
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -113,7 +112,7 @@ public class enemy : MonoBehaviour
         {
            // ai.isStopped=false;
         }
-       
+        
        
     }
 
@@ -174,7 +173,7 @@ public class enemy : MonoBehaviour
     Vector3 PickRandomPoint()
     {
         var point = Random.insideUnitCircle* radius;
-        point.y = Random.Range(-2.5f,2.5f);
+        point.y = Random.Range(-.5f,.5f);
         // point.y = 0; // Added a range value for vertical movement.
         point += (Vector2)ai.position;
         return point;
