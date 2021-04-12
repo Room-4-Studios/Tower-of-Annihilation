@@ -820,8 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slime: {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
   Plunder: {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
-  Trinkets: {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de,
-    type: 3}
+  Dubloon: {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de, type: 3}
 --- !u!1 &303989030
 GameObject:
   m_ObjectHideFlags: 0
