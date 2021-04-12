@@ -6,9 +6,8 @@ public class LevelGeneration : MonoBehaviour
 {
     GameObject[] badBois;
     public GameObject Slime;
-    
     public GameObject Plunder;
-
+    public GameObject Trinkets;
     GameObject[] Shinies;
     
 
@@ -42,7 +41,21 @@ public class LevelGeneration : MonoBehaviour
        
        for(int i=0; i<rand;i++)
        {
-           Instantiate(Plunder,Shinies[i].transform.position,Quaternion.identity);
+           int roll = Random.Range(0,2);
+
+           switch(roll)
+           {
+               case 0:
+               Instantiate(Plunder,Shinies[i].transform.position,Quaternion.identity);
+               break;
+
+               case 1:
+               Instantiate(Trinkets,Shinies[i].transform.position,Quaternion.identity);
+               break;
+
+               default:
+               break;
+           }
        }
     }
 

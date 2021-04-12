@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     void PickScene()
     {
         int scene=0;
-        scene=Random.Range(0,1);
+        scene=Random.Range(0,2);
 
         switch (scene)
         {

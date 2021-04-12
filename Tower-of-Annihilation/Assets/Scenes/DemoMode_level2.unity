@@ -30791,8 +30791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &284645324
 GameObject:
   m_ObjectHideFlags: 0
@@ -30918,8 +30918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &334682426
 GameObject:
   m_ObjectHideFlags: 0
@@ -30950,6 +30950,75 @@ Transform:
   m_Father: {fileID: 1593421404}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &485871952
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1770419302504675701, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerAI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770419302504675703, guid: 453f8b228363447959b19b5cc201688b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 453f8b228363447959b19b5cc201688b, type: 3}
 --- !u!1 &638175484
 GameObject:
   m_ObjectHideFlags: 0
@@ -31066,7 +31135,7 @@ Transform:
   m_LocalScale: {x: 11, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640542100
 PrefabInstance:
@@ -31083,7 +31152,7 @@ PrefabInstance:
     - target: {fileID: 4186181085700432748, guid: 54bc72d2c2ebcde4099415ed5ee31e8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4186181085700432748, guid: 54bc72d2c2ebcde4099415ed5ee31e8a,
         type: 3}
@@ -31244,7 +31313,7 @@ Transform:
   - {fileID: 1583109243}
   - {fileID: 1677567213}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813408402
 GameObject:
@@ -31401,8 +31470,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1001 &923333498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31413,7 +31482,7 @@ PrefabInstance:
     - target: {fileID: 251537581181910333, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 251537581181910333, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
         type: 3}
@@ -31567,8 +31636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &993131363
 GameObject:
   m_ObjectHideFlags: 0
@@ -31664,8 +31733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1028047953
 GameObject:
   m_ObjectHideFlags: 0
@@ -31791,8 +31860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1122218126
 GameObject:
   m_ObjectHideFlags: 0
@@ -31918,8 +31987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1203358406
 GameObject:
   m_ObjectHideFlags: 0
@@ -32387,7 +32456,7 @@ PrefabInstance:
     - target: {fileID: 251537581181910333, guid: 9353c2850ff13e64091a822b7b9bdb8a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 251537581181910333, guid: 9353c2850ff13e64091a822b7b9bdb8a,
         type: 3}
@@ -32541,8 +32610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1324971036
 GameObject:
   m_ObjectHideFlags: 0
@@ -39312,8 +39381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1393087033
 GameObject:
   m_ObjectHideFlags: 0
@@ -39399,7 +39468,7 @@ PrefabInstance:
     - target: {fileID: 8782381700972521723, guid: c702477ab3144c54e8179947e019ca44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8782381700972521723, guid: c702477ab3144c54e8179947e019ca44,
         type: 3}
@@ -39618,8 +39687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1583109242
 GameObject:
   m_ObjectHideFlags: 0
@@ -41575,8 +41644,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
-  Leroyyy: {fileID: 1770419302504675701, guid: 453f8b228363447959b19b5cc201688b, type: 3}
   Plunder: {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
+  Trinkets: {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de,
+    type: 3}
 --- !u!1 &1677567212
 GameObject:
   m_ObjectHideFlags: 0
@@ -41794,7 +41864,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760037145
 GameObject:
@@ -44049,8 +44119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &1818518484
 GameObject:
   m_ObjectHideFlags: 0
@@ -44333,8 +44403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slime: {fileID: 0}
-  Leroyyy: {fileID: 0}
   Plunder: {fileID: 0}
+  Trinkets: {fileID: 0}
 --- !u!1 &2067145998
 GameObject:
   m_ObjectHideFlags: 0
@@ -44364,5 +44434,5 @@ Transform:
   m_Children:
   - {fileID: 1593421404}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

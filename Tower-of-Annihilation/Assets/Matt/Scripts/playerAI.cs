@@ -28,6 +28,8 @@ public class playerAI : MonoBehaviour
     public int attackDamage;
     private int treasure;
     private float direction;
+
+    bool isLoading = true;
     
 
     private IEnumerator attack(Collider2D enemy)
@@ -48,6 +50,11 @@ public class playerAI : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         pickScene();
     }
+    private IEnumerator loading()
+    {
+        yield return new WaitForSeconds(3.0f);
+        isLoading = false;
+    }
     void Start()
     {
       ai = GetComponent<IAstarAI>();
@@ -58,6 +65,7 @@ public class playerAI : MonoBehaviour
       chest = GameObject.FindGameObjectsWithTag("Chest");
       nextLevel = GameObject.FindGameObjectWithTag("NL");
       treasure=chest.Length;
+      StartCoroutine(loading());
     }
     void Update()
     {
@@ -99,7 +107,7 @@ public class playerAI : MonoBehaviour
                     ai.destination = chest[i].transform.position;
                 }  
             }*/
-            else
+            else if(isLoading==false)
             {
               StartCoroutine(wait());
             } 
@@ -174,7 +182,7 @@ public class playerAI : MonoBehaviour
     void pickScene()
     {
         int scene=0;
-        scene=Random.Range(0,1);
+        scene=Random.Range(0,2);
 
         switch (scene)
         {
