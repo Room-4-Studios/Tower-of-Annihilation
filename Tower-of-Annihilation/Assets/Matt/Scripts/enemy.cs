@@ -92,7 +92,7 @@ public class enemy : MonoBehaviour
         {
             //ai.isStopped=true;
             
-            Debug.Log("Player is in range");
+            //Debug.Log("Player is in range");
             if(timerForNextAttack > 0)
             {
                 timerForNextAttack -= Time.deltaTime;
@@ -101,7 +101,7 @@ public class enemy : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
                 Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-                Debug.Log("Attacking Player.");
+                //Debug.Log("Attacking Player.");
 
                 foreach(Collider2D player in hitPlayers)
                 {
@@ -197,8 +197,8 @@ public class enemy : MonoBehaviour
 
     public void TakeDamage(int Damage)
     {
-        Debug.Log(Damage);
-        Debug.Log(currentHealth);
+        //Debug.Log(Damage);
+        //Debug.Log(currentHealth);
         currentHealth -= Damage;
         HealthBar.SetHealth(currentHealth, maxHealth);
         animator.SetTrigger("Hurt");
@@ -213,7 +213,7 @@ public class enemy : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().Play("Slime Death");
 
-        Debug.Log("Enemy Died");
+        //Debug.Log("Enemy Died");
         dead=true;
         animator.SetBool("isDead", true);
         getItem.DropItem();

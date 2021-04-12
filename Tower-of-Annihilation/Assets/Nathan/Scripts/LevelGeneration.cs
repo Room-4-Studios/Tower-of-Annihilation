@@ -4,53 +4,54 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    GameObject[] badBois;
-    public GameObject Slime;
-    public GameObject Plunder;
-    public GameObject Trinkets;
-    GameObject[] Shinies;
+    GameObject[] enemySpawnPoints;
+    GameObject[] lootSpawnPoints;
+    public GameObject slime;
+    public GameObject chest;
+    public GameObject coin;
+    
     
 
     void Start()
     {
         
-        badBois = GameObject.FindGameObjectsWithTag("E_Spawn");
-        Shinies = GameObject.FindGameObjectsWithTag("L_Spawn");
+        enemySpawnPoints = GameObject.FindGameObjectsWithTag("E_Spawn");
+        lootSpawnPoints = GameObject.FindGameObjectsWithTag("L_Spawn");
         
-        spawnEnemies();
-        spawnBooty();
+        SpawnEnemies();
+        spawnLoot();
        
         //int rand = Random.Range(0, objects.Length);
         //Instantiate(objects[rand], transform.position, Quaternion.identity);
     }
 
-    void spawnEnemies()
+    void SpawnEnemies()
     {
-       int rand = Random.Range(0, badBois.Length);
+       int rand = Random.Range(0, enemySpawnPoints.Length);
        
-       for(int i=0; i<rand;i++)
+       for(int i = 0; i < rand; i++)
        {
-           Instantiate(Slime,badBois[i].transform.position,Quaternion.identity);
+           Instantiate(slime, enemySpawnPoints[i].transform.position, Quaternion.identity);
        }
 
     }
 
-    void spawnBooty()
+    void spawnLoot()
     {
-       int rand = Random.Range(0, Shinies.Length);
+       int rand = Random.Range(0, lootSpawnPoints.Length);
        
-       for(int i=0; i<rand;i++)
+       for(int i = 0; i < rand; i++)
        {
            int roll = Random.Range(0,2);
 
            switch(roll)
            {
                case 0:
-               Instantiate(Plunder,Shinies[i].transform.position,Quaternion.identity);
+               Instantiate(chest, lootSpawnPoints[i].transform.position, Quaternion.identity);
                break;
 
                case 1:
-               Instantiate(Trinkets,Shinies[i].transform.position,Quaternion.identity);
+               Instantiate(coin, lootSpawnPoints[i].transform.position, Quaternion.identity);
                break;
 
                default:
