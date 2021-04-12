@@ -14,6 +14,10 @@ public class ShowCoin : MonoBehaviour
     void Start()
     {
         mgmt = GameObject.Find("Player");
+        if(mgmt == null)
+        {
+            mgmt = GameObject.Find("PlayerAI");
+        }
     }
 
     // Update is called once per frame
