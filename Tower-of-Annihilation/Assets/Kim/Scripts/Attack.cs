@@ -35,7 +35,6 @@ public class Attack : MonoBehaviour
 
     void AttackEnemy() 
     { 
-        //Debug.Log(GetComponent<PlayerMovement>().GetPreviousMovement());
         GetComponent<PlayerManager>().animator.SetTrigger("Attack");
         FindObjectOfType<SoundManager>().Play("Player Attack");
         if(GetComponent<PlayerMovement>().GetPreviousMovement() == 1)
@@ -44,7 +43,6 @@ public class Attack : MonoBehaviour
             foreach(Collider2D enemy in hitEnemies)
             {
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                Debug.Log("We hit " + enemy.name);
             }
         }
         else if(GetComponent<PlayerMovement>().GetPreviousMovement() == -1)
@@ -53,20 +51,7 @@ public class Attack : MonoBehaviour
             foreach(Collider2D enemy in hitEnemies)
             {
                 enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-                Debug.Log("We hit " + enemy.name);
             }
-        }
-    }
-    
-    void OnTriggerEnter2D(Collider2D collision)
-    { 
-        if (collision.gameObject.tag == "Enemy")
-        {
-            //ScriptNameHere nom = collision.GetComponent<ScriptNameHere>();
-
-            //Health -= nom.damage;
-
-            //Destroy(nom.gameObject);
         }
     }
 

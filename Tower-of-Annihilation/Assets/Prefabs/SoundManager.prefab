@@ -79,3 +79,13 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Drink Potion
+    clip: {fileID: 8300000, guid: 856329fd23542724d8392d5ec1b4bc64, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Pickup Potion
+    clip: {fileID: 8300000, guid: 3cea041a57cec2940886c44cad42d91a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

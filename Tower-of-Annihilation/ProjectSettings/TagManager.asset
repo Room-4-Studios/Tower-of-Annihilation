@@ -10,8 +10,8 @@ TagManager:
   - Coin
   - Spawn
   - E_Spawn
-  - P_Spawn
   - L_Spawn
+  - Shop
   layers:
   - Default
   - TransparentFX
