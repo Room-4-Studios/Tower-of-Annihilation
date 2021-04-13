@@ -64,6 +64,7 @@ public class enemy : MonoBehaviour
         //Generate a Rotating Raycast
 
         currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth, maxHealth); /*Scott's code for enemy health bar.*/
 
         timerForNextAttack = cooldown;
         
