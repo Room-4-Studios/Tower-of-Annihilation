@@ -30,7 +30,6 @@ public class enemy : MonoBehaviour
 
     public int maxHealth;
     public int currentHealth;
-    public EnemyHealthBar HealthBar;
 
     float timerForNextAttack;
     public float cooldown;
@@ -63,10 +62,8 @@ public class enemy : MonoBehaviour
         //Generate a Rotating Raycast
 
         currentHealth = maxHealth;
-        HealthBar.SetHealth(currentHealth, maxHealth);
 
         timerForNextAttack = cooldown;
-        
         
         getItem = GetComponent<ItemDrop>();
         // acceptance_test();  *Runs Acceptance Test for Enemy Patrol Picking random points -Matt
@@ -160,7 +157,7 @@ public class enemy : MonoBehaviour
         //move toward the player
         
         seeker.CancelCurrentPathRequest();
-        ai.destination=player.position;
+        ai.destination = player.position;
         ai.SearchPath();
     }
     
@@ -168,7 +165,6 @@ public class enemy : MonoBehaviour
     {
         if (canSeePlayer(aggroRange) == false)
         {
-          
           return true;
         }
         return false;
@@ -200,7 +196,6 @@ public class enemy : MonoBehaviour
         //Debug.Log(Damage);
         //Debug.Log(currentHealth);
         currentHealth -= Damage;
-        HealthBar.SetHealth(currentHealth, maxHealth);
         animator.SetTrigger("Hurt");
         FindObjectOfType<SoundManager>().Play("Slime Hurt");
         if(currentHealth <= 0)

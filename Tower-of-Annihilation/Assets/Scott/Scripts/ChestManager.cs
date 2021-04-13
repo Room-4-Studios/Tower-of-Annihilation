@@ -10,13 +10,9 @@ public class ChestManager : MonoBehaviour
     public static ChestManager checker;
     public bool isOpen = false; /*Made Public so its accesible outside class for PlayerAI */
 
-    // public AudioSource chestSound;
-    // public AudioClip chestOpening;
-
     void Start()
     {
         getItem = GetComponent<ItemDrop>();
-        //chestSound = GetComponent<AudioSource>();
     }
 
     /* Checks is chest has been previously opened */
@@ -41,7 +37,7 @@ public class ChestManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         /* Player collides with chest, if statement is called */
-        if((collision.gameObject.name == "Player"||collision.gameObject.name == "PlayerAI")  && IsOpen() == false)
+        if((collision.gameObject.name == "Player" || collision.gameObject.name == "PlayerAI")  && IsOpen() == false)
         {
             /* Animation is triggered, Item in chest is dropped */
             AnimateObject();

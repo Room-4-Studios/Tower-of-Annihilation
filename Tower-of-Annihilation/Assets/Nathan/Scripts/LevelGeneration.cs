@@ -6,59 +6,32 @@ public class LevelGeneration : MonoBehaviour
 {
     GameObject[] enemySpawnPoints;
     GameObject[] lootSpawnPoints;
-    public GameObject slime;
-    public GameObject chest;
-    public GameObject coin;
+    [SerializeField] public GameObject[] enemies;
+    [SerializeField] public GameObject[] loots;
     
-    
-
     void Start()
     {
-        
         enemySpawnPoints = GameObject.FindGameObjectsWithTag("E_Spawn");
         lootSpawnPoints = GameObject.FindGameObjectsWithTag("L_Spawn");
-        
         SpawnEnemies();
-        spawnLoot();
-       
-        //int rand = Random.Range(0, objects.Length);
-        //Instantiate(objects[rand], transform.position, Quaternion.identity);
+        SpawnLoot();
     }
 
     void SpawnEnemies()
-    {
-       int rand = Random.Range(0, enemySpawnPoints.Length);
-       
-       for(int i = 0; i < rand; i++)
-       {
-           Instantiate(slime, enemySpawnPoints[i].transform.position, Quaternion.identity);
-       }
-
+    {        
+        // For each spawn point, select an enemy from enemies, and instantiate it at its spawnpoint
+        for(int i = 0; i < enemySpawnPoints.Length; i++)
+        {
+            Instantiate(enemies[Random.Range(0, enemies.Length)], enemySpawnPoints[i].transform.position, Quaternion.identity);
+        }
     }
 
-    void spawnLoot()
+    void SpawnLoot()
     {
-       int rand = Random.Range(0, lootSpawnPoints.Length);
-       
-       for(int i = 0; i < rand; i++)
-       {
-           int roll = Random.Range(0,2);
-
-           switch(roll)
-           {
-               case 0:
-               Instantiate(chest, lootSpawnPoints[i].transform.position, Quaternion.identity);
-               break;
-
-               case 1:
-               Instantiate(coin, lootSpawnPoints[i].transform.position, Quaternion.identity);
-               break;
-
-               default:
-               break;
-           }
-       }
+        // For each loot spawn point, select a piece of loot, and instantiate it at its spawnpoint
+        for(int i = 0; i < lootSpawnPoints.Length; i++)
+        {
+            Instantiate(loots[Random.Range(0, loots.Length)], lootSpawnPoints[i].transform.position, Quaternion.identity);
+        }
     }
-
-    
 }

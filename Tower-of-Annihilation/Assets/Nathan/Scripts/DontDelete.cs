@@ -17,7 +17,7 @@ public class DontDelete : MonoBehaviour
         if (scene.name == "StartMenu") 
         {
                 Destroy(gameObject);
-                Debug.Log("I am inside the if statement");
+                //Debug.Log("I am inside the if statement");
         }
     }
 }

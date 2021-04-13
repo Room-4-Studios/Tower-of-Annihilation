@@ -30790,9 +30790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &284645324
 GameObject:
   m_ObjectHideFlags: 0
@@ -30804,7 +30803,7 @@ GameObject:
   - component: {fileID: 284645325}
   m_Layer: 0
   m_Name: Player Spawn Point
-  m_TagString: P_Spawn
+  m_TagString: Spawn
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30917,9 +30916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &334682426
 GameObject:
   m_ObjectHideFlags: 0
@@ -31400,9 +31398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1001 &923333498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31566,9 +31563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &993131363
 GameObject:
   m_ObjectHideFlags: 0
@@ -31663,9 +31659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1028047953
 GameObject:
   m_ObjectHideFlags: 0
@@ -31790,9 +31785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1122218126
 GameObject:
   m_ObjectHideFlags: 0
@@ -31917,9 +31911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1203358406
 GameObject:
   m_ObjectHideFlags: 0
@@ -32540,9 +32533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1324971036
 GameObject:
   m_ObjectHideFlags: 0
@@ -39311,9 +39303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1393087033
 GameObject:
   m_ObjectHideFlags: 0
@@ -39617,9 +39608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1583109242
 GameObject:
   m_ObjectHideFlags: 0
@@ -41573,9 +41563,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
-  Plunder: {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
-  Dubloon: {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de, type: 3}
+  enemies:
+  - {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
+  loots:
+  - {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de, type: 3}
+  - {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}
 --- !u!1 &1677567212
 GameObject:
   m_ObjectHideFlags: 0
@@ -44047,9 +44039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &1818518484
 GameObject:
   m_ObjectHideFlags: 0
@@ -44234,9 +44225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a7879f0058234bb344be8235cdd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
-  Plunder: {fileID: 0}
-  Dubloon: {fileID: 0}
+  enemies: []
+  loots: []
 --- !u!1 &2067145998
 GameObject:
   m_ObjectHideFlags: 0
