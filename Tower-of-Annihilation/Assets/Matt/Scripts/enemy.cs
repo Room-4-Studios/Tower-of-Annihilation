@@ -37,6 +37,8 @@ public class enemy : MonoBehaviour
     private ItemDrop getItem;
     public bool dead = false;
 
+    public EnemyHealthBar healthBar;
+
     /* Audio added by Scott if you have questions */
     // Added to Sound Manager - Nate
     // public AudioSource slimeDeathAud;
@@ -198,6 +200,7 @@ public class enemy : MonoBehaviour
         currentHealth -= Damage;
         animator.SetTrigger("Hurt");
         FindObjectOfType<SoundManager>().Play("Slime Hurt");
+        healthBar.SetHealth(currentHealth, maxHealth); /*Scott's code for enemy health bar.*/
         if(currentHealth <= 0)
         {
             Die();
