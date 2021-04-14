@@ -2854,6 +2854,43 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8782381700764932457, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: movePotion
+      value: 
+      objectReference: {fileID: 21300000, guid: 2419f03f372ba2b4fb0766cfaaf451a2,
+        type: 3}
+    - target: {fileID: 8782381700764932457, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: weaponPotion
+      value: 
+      objectReference: {fileID: 21300000, guid: 22179712d277f7648bea0e4c0ab495bd,
+        type: 3}
+    - target: {fileID: 8782381700865574209, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 27.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782381700865574209, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 27.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782381700865574209, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782381700865574209, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782381700865574209, guid: c702477ab3144c54e8179947e019ca44,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8782381700972521719, guid: c702477ab3144c54e8179947e019ca44,
         type: 3}
       propertyPath: m_Name

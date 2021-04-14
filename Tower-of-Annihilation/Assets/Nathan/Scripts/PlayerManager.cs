@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         money++; 
     }
 
-    public void BoughtItem(string name, int cost)
+    public void BoughtItem(string name, int cost) //Successfully bought item.
     {
         Debug.Log("Bought: " + name + " with " + cost + " gold.");
         FindObjectOfType<SoundManager>().Play("Purchase Item");
@@ -103,4 +103,14 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         attack.attackDamage += 1;
     }
+
+    public void UpgradeMoveSpeed()
+    {
+        moveSpeed += (float)0.1;
+    }
+
+    public void UpgradeWeaponSpeed()
+    {
+        attack.attackRate += (float)1;
+}
 }
