@@ -3515,6 +3515,11 @@ PrefabInstance:
       propertyPath: hs
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -3528490812747139524, guid: cb8233c461680da42aa3e6d700ca1887,
+        type: 3}
+      propertyPath: spikeDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 985159598870557126, guid: cb8233c461680da42aa3e6d700ca1887,
         type: 3}
       propertyPath: slots.Array.size
