@@ -115,14 +115,4 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         attack.attackRate += (float)1;
     }
-
-    /* Scott's code for damaging player on collision w/ spike.*/
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "SpikeTrap")
-        {
-            Debug.Log("Collision");
-            TakeDamage(spikeDamage);
-        }
-    }
 }
