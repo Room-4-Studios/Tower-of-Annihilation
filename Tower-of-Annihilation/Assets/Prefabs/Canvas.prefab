@@ -1080,6 +1080,8 @@ MonoBehaviour:
   bigHealthPotion: {fileID: 21300000, guid: b5d923e759210b747a991d1a47d5d43f, type: 3}
   hpHeart: {fileID: 21300000, guid: 1bde895cf81f69346ade48e2da394eeb, type: 3}
   sword: {fileID: 21300000, guid: 5e7ca1967f6f3d446b915b4084bbc97a, type: 3}
+  movePotion: {fileID: 0}
+  weaponPotion: {fileID: 0}
   total: 0
   randomNumber: 0
   itemDB: 
