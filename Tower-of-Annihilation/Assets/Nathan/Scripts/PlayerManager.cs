@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     private SoundManager sh;
 
+    public int spikeDamage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -112,5 +114,15 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     public void UpgradeWeaponSpeed()
     {
         attack.attackRate += (float)1;
-}
+    }
+
+    /* Scott's code for damaging player on collision w/ spike.*/
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "SpikeTrap")
+        {
+            Debug.Log("Collision");
+            TakeDamage(spikeDamage);
+        }
+    }
 }
