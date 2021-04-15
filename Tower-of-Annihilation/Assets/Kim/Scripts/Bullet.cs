@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private Vector2 moveDirection;
     private float moveSpeed;
+    public GameObject mgmt;
 
     private void OnEnable()
     {
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mgmt = GameObject.FindGameObjectWithTag("Player");
         moveSpeed = 5f;
     }
 
@@ -37,5 +39,14 @@ public class Bullet : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            mgmt.GetComponent<PlayerManager>().TakeDamage(4);
+            Destroy();
+        }
     }
 }
