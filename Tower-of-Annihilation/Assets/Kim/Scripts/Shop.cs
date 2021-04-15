@@ -13,6 +13,8 @@ public class Shop : MonoBehaviour
     public Sprite bigHealthPotion;
     public Sprite hpHeart;
     public Sprite sword;
+    public Sprite movePotion;
+    public Sprite weaponPotion;
 
     //Other
 
@@ -32,7 +34,9 @@ public class Shop : MonoBehaviour
         SmallHealthPotion,
         BigHealthPotion,
         UpgradeHP,
-        UpgradeDMG
+        UpgradeDMG,
+        UpgradeSpeed,
+        UpgradeWeaponSpeed
     }
     public Item[] itemDB;
 
@@ -53,6 +57,8 @@ public class Shop : MonoBehaviour
             case Item.BigHealthPotion: return 4;
             case Item.UpgradeHP: return 10;
             case Item.UpgradeDMG: return 10;
+            case Item.UpgradeSpeed: return 2;
+            case Item.UpgradeWeaponSpeed: return 2;
         }
     }
     public Sprite GetSprite(Item itemType)
@@ -64,6 +70,8 @@ public class Shop : MonoBehaviour
             case Item.BigHealthPotion: return bigHealthPotion;
             case Item.UpgradeHP: return hpHeart;
             case Item.UpgradeDMG: return sword;
+            case Item.UpgradeSpeed: return movePotion;
+            case Item.UpgradeWeaponSpeed: return weaponPotion;
         }
     }
     public string GetDesc(Item itemType)
@@ -75,6 +83,8 @@ public class Shop : MonoBehaviour
             case Item.BigHealthPotion: return "Big Health Potion";
             case Item.UpgradeHP: return "Health Upgrade";
             case Item.UpgradeDMG: return "Damage Upgrade";
+            case Item.UpgradeSpeed: return "Move Speed Upgrade";
+            case Item.UpgradeWeaponSpeed: return "Weapon Speed Upgrade";
         }
     }
 
@@ -139,6 +149,10 @@ public class Shop : MonoBehaviour
                 customer.UpgradeHealth();
             else if (name == "Damage Upgrade")
                 customer.UpgradeDamage();
+            else if (name == "Move Speed Upgrade")
+                customer.UpgradeMoveSpeed();
+            else if (name == "Weapon Speed Upgrade")
+                customer.UpgradeWeaponSpeed();
         }
         else message.GetComponent<ShopDialogue>().insultPlayer(cost);
     }

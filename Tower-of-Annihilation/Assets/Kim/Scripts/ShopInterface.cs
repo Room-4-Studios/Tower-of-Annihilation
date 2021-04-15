@@ -9,4 +9,6 @@ public interface ShopInterface
     void UseHealItem(int healAmount);
     void UpgradeHealth();
     void UpgradeDamage();
+    void UpgradeMoveSpeed();
+    void UpgradeWeaponSpeed();
 }

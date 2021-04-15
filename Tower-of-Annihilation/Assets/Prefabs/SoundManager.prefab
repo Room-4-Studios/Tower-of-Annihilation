@@ -59,6 +59,16 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Button Click
+    clip: {fileID: 8300000, guid: 31488f7e276fe4ddea3778e5c7f12baf, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Button Hover
+    clip: {fileID: 8300000, guid: 3cea041a57cec2940886c44cad42d91a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: Open Chest
     clip: {fileID: 8300000, guid: 6e2f66b960e87b7469db26c63f8eb9ec, type: 3}
     volume: 1
