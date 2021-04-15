@@ -437,7 +437,7 @@ MonoBehaviour:
   aggroRange: 5
   moveSpeed: 2
   rb2d: {fileID: 6505714162733085982}
-  attackRange: 0.5
+  attackRange: 1
   enemyDamage: 1
   animator: {fileID: 6505714162733085955}
   playerLayer:
@@ -445,7 +445,7 @@ MonoBehaviour:
     m_Bits: 1024
   maxHealth: 6
   currentHealth: 0
-  cooldown: 3
+  cooldown: 1.5
   dead: 0
   healthBar: {fileID: 3831061657415700621}
 --- !u!50 &6505714162733085982
