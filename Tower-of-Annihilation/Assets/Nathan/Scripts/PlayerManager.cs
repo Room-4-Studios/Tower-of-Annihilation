@@ -20,9 +20,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     private SoundManager sh;
 
-    public int spikeDamage;
-
-
     // Start is called before the first frame update
     void Start()
     {

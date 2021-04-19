@@ -9,14 +9,14 @@ public class Potion : PickupItem
         //Debug.Log("Picked Up Potion");
         if(other.CompareTag("Player"))
             {
-                for(int i = 0; i < inventory.slots.Length; i++)
+                for(int i = 0; i < inventory.slots.Length; i++) // Looks at each of the Player's inventory slots. 
                 {
-                    if(inventory.isFull[i] == false)
+                    if(inventory.isFull[i] == false)    // Checks if i item slot has an item in it.
                     {
-                        inventory.isFull[i] = true;
-                        Instantiate(itemButton, inventory.slots[i].transform, false);
-                        FindObjectOfType<SoundManager>().Play("Pickup Potion");
-                        Destroy(gameObject);
+                        inventory.isFull[i] = true; // Sets the inventory slot to full.
+                        Instantiate(itemButton, inventory.slots[i].transform, false);   // Creates the picked up items button. 
+                        FindObjectOfType<SoundManager>().Play("Pickup Potion"); // Plays the potion pickup sound.
+                        Destroy(gameObject); // Destroy the item in the scene.
                         break;
                     }
                 }
