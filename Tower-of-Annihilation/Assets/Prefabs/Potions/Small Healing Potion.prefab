@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2829802967084713892}
   - component: {fileID: 3192395759333720852}
-  - component: {fileID: 5297454125938831359}
   - component: {fileID: 7149268948942002570}
-  - component: {fileID: 8245062656034602706}
+  - component: {fileID: 77135544897254129}
   m_Layer: 0
   m_Name: Small Healing Potion
   m_TagString: Untagged
@@ -84,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5297454125938831359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231561798744516971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4cc58196a45603479e41f13e86006c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemButton: {fileID: 4130156089386606352, guid: 5843f5202a7defa49a6154188826d8c9,
-    type: 3}
 --- !u!58 &7149268948942002570
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +99,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8245062656034602706
+--- !u!114 &77135544897254129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,5 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69a1cd6569e8d64dab6cb92ea0ede51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemButton: {fileID: 4130156089386606352, guid: 5843f5202a7defa49a6154188826d8c9,
+    type: 3}
   speed: 0.5
   followDistance: 1

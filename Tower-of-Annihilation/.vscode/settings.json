@@ -55,6 +55,7 @@
     },
     "files.associations": {
         "stdlib.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "iostream": "cpp"
     }
 }

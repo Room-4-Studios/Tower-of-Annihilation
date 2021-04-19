@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class DontDelete : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -17,7 +16,6 @@ public class DontDelete : MonoBehaviour
         if (scene.name == "StartMenu") 
         {
                 Destroy(gameObject);
-                //Debug.Log("I am inside the if statement");
         }
     }
 }

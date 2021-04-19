@@ -445,7 +445,7 @@ MonoBehaviour:
     m_Bits: 1024
   maxHealth: 6
   currentHealth: 0
-  cooldown: 1.5
+  cooldown: 2
   dead: 0
   healthBar: {fileID: 3831061657415700621}
 --- !u!50 &6505714162733085982
@@ -482,9 +482,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05368316}
+  m_Offset: {x: -0.003918618, y: -0.053683132}
   serializedVersion: 2
-  m_Radius: 0.106316835
+  m_Radius: 0.17032033
 --- !u!114 &1882707703623853997
 MonoBehaviour:
   m_ObjectHideFlags: 0

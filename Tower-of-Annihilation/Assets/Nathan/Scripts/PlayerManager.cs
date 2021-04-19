@@ -113,6 +113,6 @@ public class PlayerManager : MonoBehaviour, ShopInterface
 
     public void UpgradeWeaponSpeed()
     {
-        attack.attackRate += (float)1;
+        attack.attackRate += (float)0.1;
     }
 }

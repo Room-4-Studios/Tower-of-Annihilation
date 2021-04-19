@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
-    private Inventory inventory;
+    protected Inventory inventory;
+    protected Transform player;
+    public GameObject playerMgmt;
     public GameObject itemButton;
+    public float dist;
+    public float speed;
+    public float followDistance;
 
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMgmt = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        if(other.CompareTag("Player"))
+        dist = Vector2.Distance(player.position, transform.position);
+        if(dist <= followDistance)
         {
-            for(int i = 0; i < inventory.slots.Length; i++)
-            {
-                if(inventory.isFull[i] == false)
-                {
-                    inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
-                    FindObjectOfType<SoundManager>().Play("Pickup Potion");
-                    Destroy(gameObject);
-                    break;
-                }
-            }
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Item Picked up");
     }
 }

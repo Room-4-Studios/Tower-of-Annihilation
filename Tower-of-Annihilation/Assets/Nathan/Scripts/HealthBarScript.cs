@@ -12,7 +12,6 @@ public class HealthBarScript : MonoBehaviour
 
     void Start()
     {
-        // Find
         HealthBar = GetComponent<Image>();
         Player = FindObjectOfType<PlayerManager>();
     }

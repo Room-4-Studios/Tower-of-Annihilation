@@ -18,13 +18,12 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<PlayerManager>().animator.SetFloat("Vertical", movement.y);
         GetComponent<PlayerManager>().animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1)
+        if(Input.GetAxisRaw("Horizontal") != 0)
         {
             // Animator setting, checking if the player is moving left or right
             GetComponent<PlayerManager>().animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
             previousMovement = Input.GetAxisRaw("Horizontal");
         }
-
     }
 
     void FixedUpdate()
