@@ -11,29 +11,39 @@ using UnityEditor;
 
 namespace Tests
 {
-    public class DawsonTest
+    public class DawsonTestSuite
     {
+        private GameObject player = GameObject.Find("Player");
+        GameObject playerInstance;
+
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("StartMenu");
-            DidSceneLoad("StartMenu");
+            SceneManager.LoadScene("Introduction Level");
         }
 
         [UnityTest]
-        public IEnumerator ClickPlayButton()
+        public IEnumerator How_many_player_prefabs_break_the_game()
         {
-            string name = "PlayButton";
-            var go = GameObject.Find(name);
-            Assert.IsNotNull(go, "Missing button " + name);
-            go.GetComponent<Button>().onClick.Invoke();
-            DidSceneLoad("Introduction Level");
-            yield return null;
-        }
-
-        public IEnumerator DidSceneLoad(string sceneName)
-        {
-            Assert.AreEqual(SceneManager.GetActiveScene(), sceneName);
+            int everyoneIsHere = 0;
+            int startSeconds = System.DateTime.Now.Second;
+            player = GameObject.Find("Player");
+            for (int i = 0; i < 1000000; i++)
+            {
+                float x = UnityEngine.Random.Range(-3f, 42f);
+                float y = UnityEngine.Random.Range(-1f, -0.9f);
+                playerInstance = UnityEngine.Object.Instantiate(player, new Vector3(x, y, 0), Quaternion.identity);
+                everyoneIsHere++;
+                
+                int endSeconds = System.DateTime.Now.Second;
+                int timeDiff = endSeconds - startSeconds;
+                Debug.Log($"Waited {timeDiff} Seconds");
+                if(timeDiff == 20)
+                {
+                    break;
+                }
+            }
+            Debug.Log($"Total number of players scene: {everyoneIsHere}");
             yield return null;
         }
     }
