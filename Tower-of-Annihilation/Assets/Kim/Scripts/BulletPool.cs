@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //https://www.youtube.com/watch?v=Mq2zYk5tW_E
+/* Example of an Object Pool pattern.
+ * 
+ * Avoid expensive acquisition and release of resources by recycling objects that are no longer in use
+ * The Object Pool lets others "check out" objects from its pool, when those objects are no longer 
+ * needed by their processes, they are returned to the pool in order to be reused.
+ * 
+ * 
+ */
 
 public class BulletPool : MonoBehaviour
 {
@@ -12,9 +20,9 @@ public class BulletPool : MonoBehaviour
     private GameObject pooledBullet;
     private bool notEnoughBullets = true;
 
-    private List<GameObject> bullets;
+    private List<GameObject> bullets; //Create pool.
 
-    private void Awake()
+    private void Awake() //Only one pool instance.
     {
         bulletPoolInstance = this;
     }
@@ -22,10 +30,10 @@ public class BulletPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullets = new List<GameObject>();
+        bullets = new List<GameObject>(); //Instantiate bullet prefab here.
     }
 
-    public GameObject GetBullet()
+    public GameObject GetBullet() 
     {
         if (bullets.Count > 0)
         {

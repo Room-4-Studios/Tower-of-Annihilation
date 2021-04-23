@@ -15,7 +15,6 @@ public class DragonDialogue : MonoBehaviour
     {
         ///messageText = transform.Find("message").Find("dialogueText").GetComponent<Text>();
         int counter = 0;
-        int boredCounter = 0;
         string message = "";
         //transform.Find("message").GetComponent<Button_UI>().ClickFunc = () => {
         dDialogueBox.GetComponent<Button_UI>().ClickFunc = () => {

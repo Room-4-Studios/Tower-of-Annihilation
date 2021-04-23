@@ -75,7 +75,7 @@ public class ShopDialogue : MonoBehaviour
         //TextWriter.AddWriter_Static(messageText, "This is the assistant speaking, hello and goodbye, see you next time!", .1f, true);
     }
 
-    public void thankPlayer(string name, int cost)
+    public void ThankPlayer(string name, int cost)
     {
         string[] messageArray = new string[] {
             "Thanks, that'll help my rent.",
@@ -90,7 +90,7 @@ public class ShopDialogue : MonoBehaviour
         textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
     }
 
-    public void insultPlayer(int cost)
+    public void InsultPlayer(int cost)
     {
         string[] messageArray = new string[] {
             "You're kinda poor, aren't you? Come back with more money.",
