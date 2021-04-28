@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBar : MonoBehaviour
+/* Singleton Pattern? */
+public sealed class EnemyHealthBar : MonoBehaviour
 {
     public Slider slider;
     public Color low;
