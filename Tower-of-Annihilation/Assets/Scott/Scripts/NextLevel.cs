@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
     private int randLevel;
-    private int[] levelArr = {0, 0, 0};
+    private int[] levelArr = {0, 0, 0, 0};
     private int NLColliderTouches = 0;
 
     /* when player and collider at top of stairs are touching 
@@ -20,16 +20,17 @@ public class NextLevel : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
             /* Scene changes */
             NLColliderTouches++;
-            randLevel = Random.Range(2,5); 
-            for(int i = 0; i <= 2; i++)
+            if (NLColliderTouches == 5)
             {
-                if(randLevel == levelArr[i])
-                {
-                    randLevel = Random.Range(2, 5);
-                    i = 0;
-                }
+                SceneManager.LoadScene("Boss Scene");
             }
-            for(int i = 0; i <= 2; i++)
+
+            randLevel = Random.Range(2, 6);
+            while (randLevel == levelArr[0] || randLevel == levelArr[1] || randLevel == levelArr[2] || randLevel == levelArr[3])
+            {
+                randLevel = Random.Range(2, 6);
+            }
+            for(int i = 0; i <= 3; i++)
             {
                 if(levelArr[i] == 0)
                 {
@@ -38,13 +39,6 @@ public class NextLevel : MonoBehaviour
                     break;
                 }
             }
-            if(NLColliderTouches == 4)
-            {
-                SceneManager.LoadScene("Boss Scene");
-            }
-            
-            //Debug.Log("Arr contents; " + levelArr[0] + ", " + levelArr[1] + ", " + levelArr[2] + "\n");
-           
         }
 
         else if (Collision.gameObject.name == "ShopCollider" && (GameObject.Find("Slime(Clone)") == null))
