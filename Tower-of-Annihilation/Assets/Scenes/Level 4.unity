@@ -350,6 +350,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 6903843118991733550, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2376775
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903843118991733550, guid: 6ccbeb8982100fe46b14bb9ec23d15c1,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.07986492
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ccbeb8982100fe46b14bb9ec23d15c1, type: 3}
 --- !u!1 &68121665 stripped
@@ -4318,6 +4328,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StairsShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903843118991733550, guid: 9353c2850ff13e64091a822b7b9bdb8a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2891406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6903843118991733550, guid: 9353c2850ff13e64091a822b7b9bdb8a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.054133356
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9353c2850ff13e64091a822b7b9bdb8a, type: 3}
