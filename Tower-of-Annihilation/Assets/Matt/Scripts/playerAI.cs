@@ -28,6 +28,7 @@ public class playerAI : MonoBehaviour
     public int attackDamage;
     private int treasure;
     private float direction;
+    private Vector3 chestPos; 
 
     bool isLoading = true;
     
@@ -92,7 +93,7 @@ public class playerAI : MonoBehaviour
                     }
                 }
             }
-            /*else if(treasure!=0)
+            else if(treasure!=0)
             {
                 for(int i=0;i<=treasure;i++)
                 {
@@ -105,8 +106,9 @@ public class playerAI : MonoBehaviour
                         
                     }
                     ai.destination = chest[i].transform.position;
+                    chestPos = chest[i].transform.position.x - 1;
                 }  
-            }*/
+            }
             else if(isLoading==false)
             {
               StartCoroutine(wait());
@@ -197,6 +199,15 @@ public class playerAI : MonoBehaviour
                 break;
         }
     }
- 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        /* Player collides with chest, if statement is called */
+        if(collision.gameObject.name == "Chest" )
+        {
+            /* Animation is triggered, Item in chest is dropped */
+           ai.Teleport(chestPos);
+        }
+    }
     
 }
