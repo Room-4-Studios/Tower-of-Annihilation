@@ -17,9 +17,9 @@ public class DragonBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Fire1", 0f, 1f); //Fire every 0.2 seconds.
-        InvokeRepeating("Fire2", 0f, 1f); //0.01
-        InvokeRepeating("Fire3", 0f, 1f); //0.05
+        InvokeRepeating("Fire1", 0f, 0.2f); //Fire every 0.2 seconds.
+        InvokeRepeating("Fire2", 0f, 0.01f); //0.01
+        InvokeRepeating("Fire3", 0f, 0.05f); //0.05
     }
 
     private void Fire1() //Pattern 1, straight lines.
