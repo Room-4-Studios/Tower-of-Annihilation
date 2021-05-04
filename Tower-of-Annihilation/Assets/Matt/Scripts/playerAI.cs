@@ -29,6 +29,7 @@ public class playerAI : MonoBehaviour
     private int treasure;
     private float direction;
     private Vector3 chestPos; 
+    private Vector3 newPos;
 
     bool isLoading = true;
     
@@ -71,7 +72,7 @@ public class playerAI : MonoBehaviour
     void Update()
     {
         
-         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
             if(enemy.Length!=0)
             {
@@ -97,26 +98,24 @@ public class playerAI : MonoBehaviour
             {
                 for(int i=0;i<=treasure;i++)
                 {
-                    foreach (GameObject Chest in chest)
+                    if(chest[i].GetComponent<ChestManager>().isOpen==false)
                     {
-                        if(Chest.GetComponent<ChestManager>().isOpen==true)
-                        {
-                           treasure-=1;
-                        }
-                        
+                        ai.destination = chest[i].transform.position;
+                        treasure -=1;
+                        break;
                     }
-                    ai.destination = chest[i].transform.position;
-                    chestPos = chest[i].transform.position.x - 1;
                 }  
             }
             else if(isLoading==false)
             {
               StartCoroutine(wait());
             } 
+            
             ai.SearchPath();
 
             enemy = GameObject.FindGameObjectsWithTag("Enemy");
             coin = GameObject.FindGameObjectsWithTag("Coin");
+            //chest = GameObject.FindGameObjectsWithTag("Chest");
         }
         movement.x=ai.desiredVelocity.x;
         movement.y=ai.desiredVelocity.y;
@@ -202,11 +201,10 @@ public class playerAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /* Player collides with chest, if statement is called */
-        if(collision.gameObject.name == "Chest" )
+        if(collision.gameObject.tag == "Chest")
         {
-            /* Animation is triggered, Item in chest is dropped */
-           ai.Teleport(chestPos);
+            newPos = player.transform.position - new Vector3(0.5f, 0.5f, 0f);
+            ai.Teleport(newPos);
         }
     }
     
