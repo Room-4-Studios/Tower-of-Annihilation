@@ -14,7 +14,7 @@ public class NextLevel : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collision)
     {
         /* If the player touches the collider and all enemies are eliminated, if statement is called */
-        if (Collision.gameObject.name == "NLCollider")// && (GameObject.Find("Slime(Clone)") == null))
+        if (Collision.gameObject.name == "NLCollider" && (GameObject.Find("Slime(Clone)") == null))
         {
             //Debug.Log("Henlo");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
@@ -41,7 +41,7 @@ public class NextLevel : MonoBehaviour
             }
         }
 
-        else if (Collision.gameObject.name == "ShopCollider")// && (GameObject.Find("Slime(Clone)") == null))
+        else if (Collision.gameObject.name == "ShopCollider"  && (GameObject.Find("Slime(Clone)") == null))
         {
             //Debug.Log("Henlo");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
