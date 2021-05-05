@@ -4692,6 +4692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 6505714162733085954, guid: a3536e9cfb8236e47bef232c999d0c4f, type: 3}
+  - {fileID: 6505714162733085954, guid: 7f0cc47c5576aff4c9cda61a0910c9e2, type: 3}
   loots:
   - {fileID: 1201907849963123615, guid: dedf79ace64fca144b72ea43ccb698de, type: 3}
   - {fileID: 6505714162733085954, guid: f7b45435c538a6f4ea8682817871ec34, type: 3}

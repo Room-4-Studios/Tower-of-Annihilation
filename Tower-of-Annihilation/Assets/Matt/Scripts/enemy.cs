@@ -85,16 +85,20 @@ public class enemy : MonoBehaviour
         CheckDistance();
         
        
-        
-        if(player.position.x > transform.position.x)
-        {
-            animator.SetTrigger("FaceRight");
-            //Debug.Log("Henlo");
-        }
-        else
-        {
-            animator.SetTrigger("FaceLeft");
-        }
+        //Debug.Log(player.position.x - transform.position.x);
+        animator.SetFloat("Direction", player.position.x - transform.position.x);
+        // if(player.position.x > transform.position.x)
+        // {
+        //     animator.SetFloat(1);
+        //     // animator.SetTrigger("ChangeDirection");
+        //     // animator.SetBool("FacingRight", true);
+        // }
+        // else
+        // {
+        //     animator.SetFloat(-1);
+        //     // animator.SetTrigger("ChangeDirection");
+        //     // animator.SetBool("FacingRight", false);
+        // }
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
