@@ -53,7 +53,7 @@ public class ShopDialogue : MonoBehaviour
                     "The dragon has heard of your arrival, and is a bit flaming mad.",
                     "Trust me, I saw the information on their posts on DungeonBook.",
                     "By the time you take your sweet time walking to the top...they'll be even angrier.",
-                    "I'd even wager that the dragon will attack you immediately with no hesitation andwon't stop for a second!", 
+                    "I'd even wager that the dragon will attack you immediately with no hesitation and won't stop for a second!", 
                     "You can't fight back. Their armor is made of the toughest material unknown to mankind.",
                     "And that dragon can keep spitting fire for days.",
                     "Your best hope is to grab the princess and go. Just reach her, and you will reach the finishing line.",
@@ -71,6 +71,10 @@ public class ShopDialogue : MonoBehaviour
                     "I can feel the dementia already!",
                     ".....hmm...",
                     "Anyhow, thanks for listening to my rambling and forced exposition for the unfinished plotline.",
+                    ".....",
+                    "What is my existence for, anyhow? To be a narrator as a substitute for poor instructions?",
+                    "I shouldn't question it too much, really...",
+                    "....really....",
                     "....."
                 };
                 //string message = messageArray[Random.Range(0, messageArray.Length)];
@@ -107,7 +111,8 @@ public class ShopDialogue : MonoBehaviour
             "Thanks for your patronage.",
             "Do you think this is enough for Overwatch by any chance?",
             "Sweet, more money for gambli--nevermind. Thanks.",
-            $"A {name}? Very nice choice. 11/10 ratings from fellow peers of mine."
+            $"A {name}? Very nice choice. 11/10 ratings from fellow peers of mine.",
+            $"Many thanks! You should purchase some more {name}. Just in case."
         };
         string message = messageArray[Random.Range(0, messageArray.Length)];
         textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
@@ -119,7 +124,9 @@ public class ShopDialogue : MonoBehaviour
             "You're kinda poor, aren't you? Come back with more money.",
             "Do you see those yellow coins around the place? Gimme those. Then buy something from me.",
             "Do you wanna keep your liver, or do you wanna keep your kneecaps? Because this ain't free.",
-            $"Geez mate, it's only {cost} coin(s). How freaking expensive can it be?"
+            $"Geez mate, it's only {cost} coin(s). How freaking expensive can it be?",
+            "Please, I need to pay my rent.",
+            "(You can faintly hear a grumbling sound of an empty stomach)"
         };
         string message = messageArray[Random.Range(0, messageArray.Length)];
         textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true);
