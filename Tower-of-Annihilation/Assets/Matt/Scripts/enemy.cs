@@ -83,8 +83,18 @@ public class enemy : MonoBehaviour
         }
         LookForPlayer();
         CheckDistance();
+        
        
         
+        if(player.position.x > transform.position.x)
+        {
+            animator.SetTrigger("FaceRight");
+            //Debug.Log("Henlo");
+        }
+        else
+        {
+            animator.SetTrigger("FaceLeft");
+        }
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
