@@ -48,7 +48,30 @@ public class ShopDialogue : MonoBehaviour
                     "Yeah, I've got rent to pay too you know? There's been some mild inflation nowadays.",
                     "I even have an exam to study for...you too? Uh, what's software engineering?",
                     "Also, have you seen a flying spaghetti monster anywhere? I'm hungry.",
-                    "Stay safe, generic-protagonist-of-the-day. (snicker)"
+                    "Say, shall I tell you a secret since you are still listening to me?", 
+                    "I said the dragon has no malicious intents, but I didn't say they weren't dangerous.", 
+                    "The dragon has heard of your arrival, and is a bit flaming mad.",
+                    "Trust me, I saw the information on their posts on DungeonBook.",
+                    "By the time you take your sweet time walking to the top...they'll be even angrier.",
+                    "I'd even wager that the dragon will attack you immediately with no hesitation andwon't stop for a second!", 
+                    "You can't fight back. Their armor is made of the toughest material unknown to mankind.",
+                    "And that dragon can keep spitting fire for days.",
+                    "Your best hope is to grab the princess and go. Just reach her, and you will reach the finishing line.",
+                    "Buckle up, friend.",
+                    "And stay safe, generic-protagonist-of-the-day. (snicker)",
+                    "Hmmmm....hmmmm....hmmmmmm......",
+                    "Do you want to keep talking to me? I don't mind.",
+                    "Let me tell you a little somethin': my creator didn't have time to make the dialogue for the dragon.",
+                    "So I am left to do all exposition for this story....ergh.", 
+                    "The dragon supposedly 'kidnapped' the princess to form a book club. And you are just breaking into their meetings.",
+                    "So are you the bad guy here? Or is the dragon the bad guy because they kidnapped the princess without permission?",
+                    "Who knows...",
+                    "Just so you know, I am just reading out scripts in a loop. Once this conversation comes to an end, I might forget everything.",
+                    "Hehe, just another quirk of a badly-programmed character.",
+                    "I can feel the dementia already!",
+                    ".....hmm...",
+                    "Anyhow, thanks for listening to my rambling and forced exposition for the unfinished plotline.",
+                    "....."
                 };
                 //string message = messageArray[Random.Range(0, messageArray.Length)];
                 if (counter != messageArray.Length)
