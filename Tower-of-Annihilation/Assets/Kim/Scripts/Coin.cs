@@ -6,7 +6,6 @@ public class Coin : PickupItem
 {
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Picked Up Coin");
         if(other.CompareTag("Player"))
         {
             playerMgmt.SendMessage("Money");

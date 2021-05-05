@@ -6,7 +6,6 @@ public class Potion : PickupItem
 {
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Picked Up Potion");
         if(other.CompareTag("Player"))
             {
                 for(int i = 0; i < inventory.slots.Length; i++) // Looks at each of the Player's inventory slots. 
