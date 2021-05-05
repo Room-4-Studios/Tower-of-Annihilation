@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
     private int randLevel;
-    private int[] levelArr = {0, 0, 0, 0};
+    private int[] levelArr = {0, 0, 0, 0, 0};
     private int NLColliderTouches = 0;
 
     /* when player and collider at top of stairs are touching 
@@ -14,23 +14,23 @@ public class NextLevel : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collision)
     {
         /* If the player touches the collider and all enemies are eliminated, if statement is called */
-        if (Collision.gameObject.name == "NLCollider" && (GameObject.Find("Slime(Clone)") == null))
+        if (Collision.gameObject.name == "NLCollider")// && (GameObject.Find("Slime(Clone)") == null))
         {
             //Debug.Log("Henlo");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
             /* Scene changes */
             NLColliderTouches++;
-            if (NLColliderTouches == 5)
+            if (NLColliderTouches == 6)
             {
                 SceneManager.LoadScene("Boss Scene");
             }
 
-            randLevel = Random.Range(2, 6);
-            while (randLevel == levelArr[0] || randLevel == levelArr[1] || randLevel == levelArr[2] || randLevel == levelArr[3])
+            randLevel = Random.Range(2, 7);
+            while (randLevel == levelArr[0] || randLevel == levelArr[1] || randLevel == levelArr[2] || randLevel == levelArr[3] || randLevel == levelArr[4])
             {
-                randLevel = Random.Range(2, 6);
+                randLevel = Random.Range(2, 7);
             }
-            for(int i = 0; i <= 3; i++)
+            for(int i = 0; i <= 4; i++)
             {
                 if(levelArr[i] == 0)
                 {
@@ -41,7 +41,7 @@ public class NextLevel : MonoBehaviour
             }
         }
 
-        else if (Collision.gameObject.name == "ShopCollider" && (GameObject.Find("Slime(Clone)") == null))
+        else if (Collision.gameObject.name == "ShopCollider")// && (GameObject.Find("Slime(Clone)") == null))
         {
             //Debug.Log("Henlo");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
