@@ -28,6 +28,8 @@ public class playerAI : MonoBehaviour
     public int attackDamage;
     private int treasure;
     private float direction;
+    private Vector3 chestPos; 
+    private Vector3 newPos;
 
     bool isLoading = true;
     
@@ -70,7 +72,7 @@ public class playerAI : MonoBehaviour
     void Update()
     {
         
-         if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath)) 
         {
             if(enemy.Length!=0)
             {
@@ -92,29 +94,28 @@ public class playerAI : MonoBehaviour
                     }
                 }
             }
-            /*else if(treasure!=0)
+            else if(treasure!=0)
             {
                 for(int i=0;i<=treasure;i++)
                 {
-                    foreach (GameObject Chest in chest)
+                    if(chest[i].GetComponent<ChestManager>().isOpen==false)
                     {
-                        if(Chest.GetComponent<ChestManager>().isOpen==true)
-                        {
-                           treasure-=1;
-                        }
-                        
+                        ai.destination = chest[i].transform.position;
+                        treasure -=1;
+                        break;
                     }
-                    ai.destination = chest[i].transform.position;
                 }  
-            }*/
+            }
             else if(isLoading==false)
             {
               StartCoroutine(wait());
             } 
+            
             ai.SearchPath();
 
             enemy = GameObject.FindGameObjectsWithTag("Enemy");
             coin = GameObject.FindGameObjectsWithTag("Coin");
+            //chest = GameObject.FindGameObjectsWithTag("Chest");
         }
         movement.x=ai.desiredVelocity.x;
         movement.y=ai.desiredVelocity.y;
@@ -197,6 +198,14 @@ public class playerAI : MonoBehaviour
                 break;
         }
     }
- 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Chest")
+        {
+            newPos = player.transform.position - new Vector3(0.5f, 0.5f, 0f);
+            ai.Teleport(newPos);
+        }
+    }
     
 }

@@ -14,6 +14,7 @@ TagManager:
   - Shop
   - P_Spawn
   - SpikeTrap
+  - BCMode
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class FollowCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        // This function is placed onto the Main Camera to always follow the player.
+        // This function is placed on the main camera, so it finds and follows the player.
         transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
     }
 }

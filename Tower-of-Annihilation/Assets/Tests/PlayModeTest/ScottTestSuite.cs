@@ -13,11 +13,12 @@ namespace Tests
         private GameObject Enemy;
         private GameObject Chest;
         private float position;
+        private float newPosition;
         
         [OneTimeSetUp]
         public void LoadScene()
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene("Introduction Level");
         }
 
         [UnityTest]
@@ -27,30 +28,34 @@ namespace Tests
             yield return null;
         }
 
+        /*Unit Test*/
         [UnityTest]
         public IEnumerator DoesEnemyMoveAtStart()
         {
-            Enemy = GameObject.Find("Slime");
+            Enemy = GameObject.Find("Slime(Clone)");
             position = Enemy.GetComponent<Transform>().position.x;
             yield return new WaitForSeconds(.1f);
             Assert.AreNotEqual(position, Enemy.GetComponent<Transform>().position.x);
+            Assert.Pass("The Enemy started moving when the scene was loaded.");
         }
 
+        /*Integration Test*/
         [UnityTest]
-        public IEnumerator WillEnemyGetStuckOnWall()
+        public IEnumerator IsEnemyStuck()
         {
-            Enemy = GameObject.Find("Slime");
-            for(int i = 0; i < 5; i++)
+            Enemy = GameObject.Find("Slime(Clone)");
+            int i = 0;
+            for(i = 0; i < 10; i++)
             {
                 position = Enemy.GetComponent<Transform>().position.x;
-                yield return new WaitForSeconds(3.0f);
-                if(position == Enemy.GetComponent<Transform>().position.x)
-                {
-                    Assert.AreNotEqual(position, Enemy.GetComponent<Transform>().position.x);
-                }
+                yield return new WaitForSeconds(1.0f);
+                newPosition = Enemy.GetComponent<Transform>().position.x;
+                Assert.AreNotEqual(position.ToString("#.0"), newPosition.ToString("#.0"), "Enemy stopped moving");
             }
+            Assert.Pass("After " + i + " seconds the enemy did not get stuck.");
         }
 
+        /*Stress Test*/
         [UnityTest]
         public IEnumerator ChangeLevelsStress()
         {
@@ -60,7 +65,7 @@ namespace Tests
             float time = 0.2f;
             for(i = 0; i < 30; i++)
             {
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Introduction Level");
                 if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);
@@ -70,7 +75,7 @@ namespace Tests
                 {
                     initializedScenes++;
                 }
-                SceneManager.LoadScene("Introduction Level");
+                SceneManager.LoadScene("Level 1");
                 if (time > 0.0000001)
                 {
                     yield return new WaitForSecondsRealtime(time);

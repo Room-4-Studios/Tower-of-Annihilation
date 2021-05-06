@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class PickupItem : MonoBehaviour
 {
-    private Inventory inventory;
-    public GameObject itemButton;
+    protected Inventory inventory;    // References the Player's Inventory.
+    protected Transform player;    // References the Player's Transform.
+    public GameObject playerMgmt;    // References the Player's PlayerManager Script.
+    public GameObject itemButton;   // The PickupItem's inventory button.
+    private float dist;     // Distance between Pickup Item and Player's Transform.
+    public float speed;     // Speed in which item goes towards player.
+    public float followDistance;    // Distance in which the item follows the player.
 
-    void Start()
+    protected virtual void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();   // Sets inventory to the Player's Inventory
+        player = GameObject.FindGameObjectWithTag("Player").transform;  // Sets players(transform) position
+        playerMgmt = GameObject.FindGameObjectWithTag("Player");        // Grabs the player game manager for coins
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void Update()
     {
-        if(other.CompareTag("Player"))
+        dist = Vector2.Distance(player.position, transform.position);   // Every frame, sets "dist" to the distance between the player and the pickupable object
+        if(dist <= followDistance)
         {
-            for(int i = 0; i < inventory.slots.Length; i++)
-            {
-                if(inventory.isFull[i] == false)
-                {
-                    inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
-                    FindObjectOfType<SoundManager>().Play("Pickup Potion");
-                    Destroy(gameObject);
-                    break;
-                }
-            }
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);  // Move the object closer to the player.
         }
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)   // This is the primary function that is changed in class to class basis. 
+    {
+        Debug.Log("Item Picked up");
     }
 }

@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion : PickupItem
 {
-    private Transform player;
-    private float dist;
-    public float speed;
-    public float followDistance;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        dist = Vector2.Distance(player.position, transform.position);
-        if(dist <= followDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
+        if(other.CompareTag("Player"))
+            {
+                for(int i = 0; i < inventory.slots.Length; i++) // Looks at each of the Player's inventory slots. 
+                {
+                    if(inventory.isFull[i] == false)    // Checks if i item slot has an item in it.
+                    {
+                        inventory.isFull[i] = true; // Sets the inventory slot to full.
+                        Instantiate(itemButton, inventory.slots[i].transform, false);   // Creates the picked up items button. 
+                        FindObjectOfType<SoundManager>().Play("Pickup Potion"); // Plays the potion pickup sound.
+                        Destroy(gameObject); // Destroy the item in the scene.
+                        break;
+                    }
+                }
+            }
     }
 }
+
