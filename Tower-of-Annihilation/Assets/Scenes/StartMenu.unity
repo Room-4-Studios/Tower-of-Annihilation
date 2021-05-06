@@ -2297,6 +2297,17 @@ MonoBehaviour:
           m_StringArgument: Button Click
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1314686856}
+        m_MethodName: BcMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!114 &919677211
 MonoBehaviour:
@@ -2905,15 +2916,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 1985557067}
   m_HandleRect: {fileID: 1780057412}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509190015}
-        m_MethodName: set_volume
+      - m_Target: {fileID: 1314686856}
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2932,6 +2943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1314686855}
+  - component: {fileID: 1314686856}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -2964,6 +2976,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 514.3766, y: 378.2243}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1314686856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314686854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f461e3c03802b43b77e307bb991e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 2866903a768031a42839400cd79f4d60, type: 2}
 --- !u!1 &1366075817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,7 +3571,8 @@ AudioSource:
   m_GameObject: {fileID: 1509190014}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2866903a768031a42839400cd79f4d60,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 22c9f38850130cd4eb7a6f5de36db451, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5

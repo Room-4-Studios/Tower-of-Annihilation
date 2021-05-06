@@ -419,7 +419,6 @@ MonoBehaviour:
   currentHealth: 5
   money: 0
   isDead: 0
-  spikeDamage: 0
 --- !u!114 &4253918385568417855
 MonoBehaviour:
   m_ObjectHideFlags: 0

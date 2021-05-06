@@ -1087,7 +1087,6 @@ MonoBehaviour:
   total: 0
   randomNumber: 0
   itemDB: 
-  lootTable: 0a0000001e0000000a000000
 --- !u!1 &8782381700865574211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1356,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8782381700972521717
 MonoBehaviour:
