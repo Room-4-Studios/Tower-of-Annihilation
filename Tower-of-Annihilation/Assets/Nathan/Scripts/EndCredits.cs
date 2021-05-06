@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class EndCredits : MonoBehaviour
 {
-    // Start is called before the first frame update
+    void Start()
+    {
+        Destroy(GameObject.Find("Player"));
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(0))

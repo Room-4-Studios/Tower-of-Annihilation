@@ -13,7 +13,7 @@ public class Princess : MonoBehaviour
 {
     private static Princess _instance;
     public static Princess Instance { get { return _instance; } }
-    private GameObject player;
+    public GameObject player;
 
     private void Awake()
     {
@@ -32,8 +32,8 @@ public class Princess : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             Debug.Log("Reached Princess");
-            SceneManager.LoadScene("Ending 2");
             Destroy(player);
+            SceneManager.LoadScene("Ending 2");
         }
     }
 }

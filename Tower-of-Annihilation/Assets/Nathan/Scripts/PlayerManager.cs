@@ -15,10 +15,10 @@ public class PlayerManager : MonoBehaviour, ShopInterface
  
     public int money;
     public bool isDead = false;
-
     Attack attack;
-
     private SoundManager sh;
+
+    public int floorsBeaten = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,15 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         currentHealth = maxHealth;
         Camera.main.GetComponent<FollowCamera>().player = transform; /*  Follow Camera properly placed on spawning character -Matt */
         attack = GetComponent<Attack>(); //Get Attack script.
+        if(GameObject.Find("BCOBJECT").GetComponent<BCMODE>().isBCMode == false)
+        {
+            Destroy(GameObject.Find("BCOBJECT"));
+        }
+        else
+        {
+            EnableBCMode();
+            Destroy(GameObject.Find("BCOBJECT"));
+        }
     }
 
     public void TakeDamage(int Damage)
@@ -121,6 +130,5 @@ public class PlayerManager : MonoBehaviour, ShopInterface
         attack.attackDamage = 100;
         attack.attackRate += (float)1;
         attack.attackRange = 10;
-        FindObjectOfType<SoundManager>().Play("Yeet");
     }
 }

@@ -7,8 +7,12 @@ using UnityEngine.Audio;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    private GameObject player;
-
+    public GameObject BCObject;
+    
+    void Start()
+    {
+        
+    }
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume);
@@ -16,8 +20,11 @@ public class SettingsMenu : MonoBehaviour
 
     public void BcMode(bool _isOn)
     {
-        Debug.Log("HELLO");
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerManager>().EnableBCMode();
+        BCObject = GameObject.FindGameObjectWithTag("BCMode");
+        BCObject.GetComponent<BCMODE>().EnableBCMode();
+        FindObjectOfType<SoundManager>().Play("Yeet");
+        //Instantiate();
+        // player = GameObject.FindGameObjectWithTag("Player");
+        // player.GetComponent<PlayerManager>().EnableBCMode();
     }
 }
