@@ -112,4 +112,15 @@ public class PlayerManager : MonoBehaviour, ShopInterface
     {
         attack.attackRate += (float)0.1;
     }
+
+    public void EnableBCMode()
+    {
+        maxHealth = 10000000;
+        currentHealth = 10000000;
+        money = 42;
+        attack.attackDamage = 100;
+        attack.attackRate += (float)1;
+        attack.attackRange = 10;
+        FindObjectOfType<SoundManager>().Play("Yeet");
+    }
 }

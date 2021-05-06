@@ -14,38 +14,34 @@ public class NextLevel : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D Collision)
     {
         /* If the player touches the collider and all enemies are eliminated, if statement is called */
-        if (Collision.gameObject.name == "NLCollider" && (GameObject.Find("Slime(Clone)") == null))
+        if (Collision.gameObject.name == "NLCollider")
         {
-            //Debug.Log("Henlo");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
-            /* Scene changes */
-            NLColliderTouches++;
-            if (NLColliderTouches == 6)
-            {
-                SceneManager.LoadScene("Boss Scene");
-            }
+            SceneManager.LoadScene("Boss Scene");
+            // /* Scene changes */
+            // NLColliderTouches++;
+            // if (NLColliderTouches == 6)
+            // {
+            //     SceneManager.LoadScene("Boss Scene");
+            // }
 
-            randLevel = Random.Range(2, 7);
-            while (randLevel == levelArr[0] || randLevel == levelArr[1] || randLevel == levelArr[2] || randLevel == levelArr[3] || randLevel == levelArr[4])
-            {
-                randLevel = Random.Range(2, 7);
-            }
-            for(int i = 0; i <= 4; i++)
-            {
-                if(levelArr[i] == 0)
-                {
-                    levelArr[i] = randLevel;
-                    SceneManager.LoadScene(randLevel);
-                    break;
-                }
-            }
+            // randLevel = Random.Range(2, 7);
+            // while (randLevel == levelArr[0] || randLevel == levelArr[1] || randLevel == levelArr[2] || randLevel == levelArr[3] || randLevel == levelArr[4])
+            // {
+            //     randLevel = Random.Range(2, 7);
+            // }
+            // for(int i = 0; i <= 4; i++)
+            // {
+            //     if(levelArr[i] == 0)
+            //     {
+            //         levelArr[i] = randLevel;
+            //         SceneManager.LoadScene(randLevel);
+            //         break;
+            //     }
+            // }
         }
 
-        else if (Collision.gameObject.name == "ShopCollider"  && (GameObject.Find("Slime(Clone)") == null))
+        else if (Collision.gameObject.name == "ShopCollider")
         {
-            //Debug.Log("Henlo");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); We need to look into this, with more random scenes.
-            /* Scene changes */
             SceneManager.LoadScene("ShopKeeper Level");
         }
     }

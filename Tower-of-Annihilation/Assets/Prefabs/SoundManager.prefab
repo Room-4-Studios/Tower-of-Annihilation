@@ -99,3 +99,8 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Yeet
+    clip: {fileID: 8300000, guid: 5bdbb4a91140a344397d03d1b3aaa325, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
